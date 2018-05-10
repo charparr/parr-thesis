@@ -11,6 +11,7 @@
 *.html
 *.cpg
 *.qpg
+*.qpj
 
 # Word Processor
 *.odf
