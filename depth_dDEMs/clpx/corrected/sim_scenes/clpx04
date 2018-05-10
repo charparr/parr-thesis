@@ -1,0 +1,7 @@
+gdal_translate -projwin 404300.0 7613500.0 406900.0 7611900.0 depth_2017_101_corrected.tif depth_2017_101_corrected_04.tif
+gdal_translate -projwin 404300.0 7613500.0 406900.0 7611900.0 depth_2016_096_corrected.tif depth_2016_096_corrected_04.tif
+gdal_translate -projwin 404300.0 7613500.0 406900.0 7611900.0 depth_2015_098_corrected.tif depth_2015_098_corrected_04.tif
+gdal_translate -projwin 404300.0 7613500.0 406900.0 7611900.0 depth_2013_102_corrected_f32.tif depth_2013_102_corrected_04.tif
+gdal_translate -projwin 404300.0 7613500.0 406900.0 7611900.0 depth_2012_106_corrected_f32.tif depth_2012_106_corrected_04.tif
+mkdir sim_scenes/clpx_04 && mv *_04.tif sim_scenes/clpx_04
+clpx
