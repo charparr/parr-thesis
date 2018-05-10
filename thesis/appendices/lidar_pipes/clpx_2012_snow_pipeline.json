@@ -1,0 +1,27 @@
+{
+    "pipeline": [
+        "2012_106_CLPX.las",
+        {
+            "type":"filters.crop",
+            "bounds":"([401900,415650],[7609100,7620200])"
+        },
+        {
+            "type":"filters.outlier",
+            "method":"statistical",
+            "mean_k":12,
+            "multiplier":3.0
+        },
+        {
+            "type":"filters.range",
+            "limits":"Classification![7:7]"
+        },
+        {
+          "filename":"clpx_snow_on_106_2012.tif",
+          "resolution":1.0,
+          "output_type":"mean",
+          "radius":3.0,
+          "bounds":"([401900,415650],[7609100,7620200])",
+          "type": "writers.gdal"
+        }
+    ]
+}
