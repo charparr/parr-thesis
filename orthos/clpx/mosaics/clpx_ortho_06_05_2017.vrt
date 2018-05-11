@@ -1,0 +1,436 @@
+<VRTDataset rasterXSize="13750" rasterYSize="11100">
+  <SRS>PROJCS["WGS 84 / UTM zone 6N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","32606"]]</SRS>
+  <GeoTransform>  4.0190000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  7.6202000000000000e+06,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <VRTRasterBand dataType="Byte" band="1">
+    <ColorInterp>Red</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-0.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-0.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-0.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="2">
+    <ColorInterp>Green</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-1.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-2.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-3.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-1.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-2.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-3.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-0.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-1.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-2.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-0.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-1.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-2.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-0.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-1.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-2.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="3">
+    <ColorInterp>Blue</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-1.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-2.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-3.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-1.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-2.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-3.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-0.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-1.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-2.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-0.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-1.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-2.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-0.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-1.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-2.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="4">
+    <ColorInterp>Alpha</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-1.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-2.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-0-3.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="15268" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-1.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-2.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-1-3.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="279" yOff="10853" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-0.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-1.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-2-2.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4375" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-0.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-1.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-3-2.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="8471" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-0.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="5740" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="0" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-1.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="2661" xSize="4096" ySize="4096" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">June5_2017_CLPXortho-4-2.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="12567" yOff="6757" xSize="4096" ySize="4096" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

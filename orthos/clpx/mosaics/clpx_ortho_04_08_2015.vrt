@@ -1,0 +1,44 @@
+<VRTDataset rasterXSize="13750" rasterYSize="11100">
+  <SRS>PROJCS["WGS 84 / UTM zone 6N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32606"]]</SRS>
+  <GeoTransform>  4.0190000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  7.6202000000000000e+06,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <VRTRasterBand dataType="Byte" band="1">
+    <ColorInterp>Red</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Apr8_2015_CLPXortho.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="34224" RasterYSize="25260" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="5631.7668000618" yOff="2073.53666544892" xSize="34224" ySize="25260" />
+      <DstRect xOff="0" yOff="0" xSize="17112" ySize="12630" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="2">
+    <ColorInterp>Green</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Apr8_2015_CLPXortho.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="34224" RasterYSize="25260" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="5631.7668000618" yOff="2073.53666544892" xSize="34224" ySize="25260" />
+      <DstRect xOff="0" yOff="0" xSize="17112" ySize="12630" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="3">
+    <ColorInterp>Blue</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Apr8_2015_CLPXortho.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="34224" RasterYSize="25260" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="5631.7668000618" yOff="2073.53666544892" xSize="34224" ySize="25260" />
+      <DstRect xOff="0" yOff="0" xSize="17112" ySize="12630" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="4">
+    <ColorInterp>Alpha</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Apr8_2015_CLPXortho.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="34224" RasterYSize="25260" DataType="Byte" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="5631.7668000618" yOff="2073.53666544892" xSize="34224" ySize="25260" />
+      <DstRect xOff="0" yOff="0" xSize="17112" ySize="12630" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>
