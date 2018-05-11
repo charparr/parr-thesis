@@ -1,0 +1,15 @@
+-rw-rw-r--. 1 cparr cparr 265M May 10 16:46 Apr11_2017_CLPXortho-4-1.tif
+-rw-rw-r--. 1 cparr cparr 280M May 10 16:46 Apr11_2017_CLPXortho-4-0.tif
+-rw-rw-r--. 1 cparr cparr 127M May 10 16:46 Apr11_2017_CLPXortho-3-2.tif
+-rw-rw-r--. 1 cparr cparr 806M May 10 16:47 Apr11_2017_CLPXortho-3-1.tif
+-rw-rw-r--. 1 cparr cparr 370M May 10 16:42 Apr11_2017_CLPXortho-3-0.tif
+-rw-rw-r--. 1 cparr cparr 337M May 10 16:41 Apr11_2017_CLPXortho-2-2.tif
+-rw-rw-r--. 1 cparr cparr 675M May 10 16:42 Apr11_2017_CLPXortho-2-1.tif
+-rw-rw-r--. 1 cparr cparr 129M May 10 16:40 Apr11_2017_CLPXortho-2-0.tif
+-rw-rw-r--. 1 cparr cparr 9.8M May 10 16:39 Apr11_2017_CLPXortho-1-3.tif
+-rw-rw-r--. 1 cparr cparr 518M May 10 16:42 Apr11_2017_CLPXortho-1-2.tif
+-rw-rw-r--. 1 cparr cparr 491M May 10 16:42 Apr11_2017_CLPXortho-1-1.tif
+-rw-rw-r--. 1 cparr cparr 9.9M May 10 16:39 Apr11_2017_CLPXortho-1-0.tif
+-rw-rw-r--. 1 cparr cparr  21M May 10 16:39 Apr11_2017_CLPXortho-0-3.tif
+-rw-rw-r--. 1 cparr cparr 382M May 10 16:42 Apr11_2017_CLPXortho-0-2.tif
+-rw-rw-r--. 1 cparr cparr 323M May 10 16:40 Apr11_2017_CLPXortho-0-1.tif
