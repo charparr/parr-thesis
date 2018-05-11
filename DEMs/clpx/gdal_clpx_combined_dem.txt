@@ -1,3 +1,0 @@
-gdal_merge.py clpx_dem_06052017-9999.tif clpx_dem_157_2012.tif -o merged_clpx_dem.tif -n -9999 -a_nodata -9999
-gdalbuildvrt merged.vrt clpx_merged_dem_june_1562017_1572012.tif -resolution user -tr 1 1 -te 401900 7609100 415650 7620200
-gdal_translate -of GTiff merged.vrt clpx_merged_dem_june_1562017_1572012_13750x11100.tif
