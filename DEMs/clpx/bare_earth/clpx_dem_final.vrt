@@ -1,0 +1,24 @@
+<VRTDataset rasterXSize="13750" rasterYSize="11100">
+  <SRS>PROJCS["WGS 84 / UTM zone 6N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","32606"]]</SRS>
+  <GeoTransform>  4.0190000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  7.6202000000000000e+06,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">clpx_dem_2017_156.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="13750" RasterYSize="11100" DataType="Float32" BlockXSize="13750" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="13750" ySize="11100" />
+      <DstRect xOff="0" yOff="0" xSize="13750" ySize="11100" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">clpx_dem_meanvals_and2012driftvals.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="13750" RasterYSize="11100" DataType="Float32" BlockXSize="13750" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="13750" ySize="11100" />
+      <DstRect xOff="0" yOff="0" xSize="13750" ySize="11100" />
+      <NODATA>-9999</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
