@@ -12,6 +12,29 @@
 *.cpg
 *.qpg
 *.qpj
+*.qml
 
 # Word Processor
 *.odf
+*.docx
+*.pdf
+
+# Igor
+*.pxp
+
+# Photos
+*.jpg
+*.JPG
+*.JPEG
+
+# Notebooks
+*.ipynb
+
+# MagnaProbe
+*.dat
+
+# Spreadsheets
+*.xls
+*.xlsx
+
+/validation/site _visits/

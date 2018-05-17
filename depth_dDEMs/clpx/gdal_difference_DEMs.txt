@@ -1,5 +1,0 @@
-gdal_calc.py -A clpx_snow_on_2015_098.tif -B clpx_dem_merge_1562017x1572012.tif --outfile=/home/cparr/workspace/depth_dDEMs/clpx/depth_2015_098.tif --calc="A-B"
-gdal_calc.py -A clpx_snow_on_2016_096.tif -B clpx_dem_merge_1562017x1572012.tif --outfile=/home/cparr/workspace/depth_dDEMs/clpx/depth_2016_096.tif --calc="A-B"
-gdal_calc.py -A clpx_snow_on_2017_101.tif -B clpx_dem_merge_1562017x1572012.tif --outfile=/home/cparr/workspace/depth_dDEMs/clpx/depth_2017_101.tif --calc="A-B"
-gdal_calc.py -A clpx_snow_on_2012_106.tif -B clpx_dem_merge_1562017x1572012.tif --outfile=/home/cparr/workspace/depth_dDEMs/clpx/depth_2012_106.tif --calc="A-B"
-gdal_calc.py -A clpx_snow_on_2013_102.tif -B clpx_dem_merge_1562017x1572012.tif --outfile=/home/cparr/workspace/depth_dDEMs/clpx/depth_2013_102.tif --calc="A-B"
