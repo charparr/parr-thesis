@@ -37,4 +37,6 @@
 *.xls
 *.xlsx
 
-/validation/site _visits/
+# Dirs
+validation/site_visits/
+depth_dDEMs/clpx/old_dDEM_process/
