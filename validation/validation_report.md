@@ -14,7 +14,7 @@ Each year the snow depth map produced by the seasonal surface differencing is va
 ###### Table 1: Validation Results
 
 
-![Main view](http://github.com/charparr/parr-thesis/blob/master/validation/aggregate_results/figs/aggregate_results_summary.png)
+![Main view](/aggregate_results/figs/aggregate_results_summary.png?raw=true "Table 1")
 
 <p>
 The results in Table 1 indicate a negative bias in the airborne methods. We can visualize this bias by comparing the distributions of MagnaProbe depths and coincident raster snow depths (Figure 1).
