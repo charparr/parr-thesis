@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import rasterio
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -7,7 +9,6 @@ import argparse
 from os.path import basename, dirname, join
 from rasterio.plot import show
 from scipy.stats import spearmanr
-
 sns.set_context('poster')
 sns.set_style('darkgrid')
 
@@ -33,7 +34,6 @@ profile = src.profile
 meta = src.meta
 
 # Sample the raster at every probe location and store values in DataFrame
-#raster_values_at_probes = [x for x in src.sample(coords)]
 probes['Raster Value [m]'] = [x for x in src.sample(coords)]
 probes['Raster Value [m]'] = probes.apply(lambda x: x['Raster Value [m]'][0], axis=1)
 probes = probes[probes['Raster Value [m]'] != -9999]
@@ -64,9 +64,9 @@ if args.output_tif:
 
     # write corrected raster using the same metadata from the input raster
     print ('Writing new depth dDEM adjusted by ' + str(mean_offset) + ', destination is ' +str(out_path))
-    with rasterio.open(out_path, 'w', **meta) as dst:
+    with rasterio.open(out_path, 'w', **profile) as dst:
         dst.write(depth_array, 1)
-    print ('Corrected raster creation complete. Now creating figures...')
+    print ('Corrected raster creation complete.')
 else:
     print('Skipping creation of corrected raster...')
 
@@ -77,7 +77,8 @@ if args.output_results:
     out_prefix = basename(args.magna_shp).split('.')[0]
     out_suffix = '_validation_results'
     out_path = join(out_dest, out_prefix + out_suffix)
-    gpd.GeoDataFrame(probes).to_file(out_path + '.shp')
+    geo_probes = gpd.GeoDataFrame(probes, crs={'init': 'epsg:32606'})
+    geo_probes.to_file(out_path + '.shp')
     probes.to_csv(out_path + '.csv')
     probes['Probe-Raster Delta [m]'].describe().to_csv(out_path+'_desc.csv')
 else:
