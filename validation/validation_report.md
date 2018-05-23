@@ -10,14 +10,19 @@ The data used in this analysis comes from the airborne snow measurement campaign
 <p>
 Each year the snow depth map produced by the seasonal surface differencing is validated by thousand of MagnaProbe measurements. A scripting tool checks the value of the snow depth raster map against the value of the MagnaProbe depth measurement at the same location and then computes the difference. The differences between the MagnaProbe measurement of snow depth and the airborne retreival of snow depth are summarized for each year in Table 1. A total of 135155 points were used in this validation analysis. The mean error for the entire analysis is __
 </p>
+
 ###### Table 1: Validation Results
-![alt text](http://github.com/charparr/parr-thesis/blob/master/validation/aggregate_results/figs/aggregate_results_summary.png)
+
+
+![Main view](http://github.com/charparr/parr-thesis/blob/master/validation/aggregate_results/figs/aggregate_results_summary.png)]
 
 <p>
 The results in Table 1 indicate a negative bias in the airborne methods. We can visualize this bias by comparing the distributions of MagnaProbe depths and coincident raster snow depths (Figure 1).
 </p>
+
 ###### Figure 1: MagnaProbe vs. lidar/SfM
-![alt text](http://github.com/charparr/parr-thesis/blob/master/validation/aggregate_results//figs/probe_v_rstr_violin.png)
+
+![Main view](http://github.com/charparr/parr-thesis/blob/master/validation/aggregate_results//figs/probe_v_rstr_violin.png)]
 
 <p>
 </p>
