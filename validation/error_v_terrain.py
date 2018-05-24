@@ -57,10 +57,12 @@ if args.figures:
     hillshade_cols = [x for x in gdf.columns if 'shade_az' in x]
 
     print("Making plots...")
+    plt.figure()
     sns.pairplot(gdf,
-                 x_vars=hillshade_cols, y_vars=["Raster Value [m]", "Probe-Raster Delta [m]", "MagnaProbe Depth [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
+                 x_vars=hillshade_cols, y_vars=["Probe-Raster Delta [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
     plt.savefig(join('aggregate_results/figs', str(args.study_area) + '_hillshade_error_analysis.png'), dpi=300, bbox_inches='tight')
 
+    plt.figure()
     sns.pairplot(gdf,
-                 x_vars=roughness_cols, y_vars=["Raster Value [m]", "Probe-Raster Delta [m]", "MagnaProbe Depth [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
+                 x_vars=roughness_cols, y_vars=["Probe-Raster Delta [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
     plt.savefig(join('aggregate_results/figs', str(args.study_area) + '_roughness_error_analysis.png'), dpi=300, bbox_inches='tight')
