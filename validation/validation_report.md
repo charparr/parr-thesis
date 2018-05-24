@@ -55,8 +55,18 @@ The errors are consistent across time and between the two study areas. However, 
 
 ###### Figure 7: Box Plots of Errors by Geographic Zone and Year
 
-![alt text](aggregate_results//figs/box_x_zone_hue_yr.png)
+![alt text](aggregate_results/figs/box_x_zone_hue_yr.png)
 
 <p>
-Now we are confident there is no spatial or geographic trend in the bias. but Topo?
+The above results show that there are no broad scale spatial biases in the errors and that the errors are annually consistent. However, we also want to know what influence topography has on the errors, if any. This is a finer scale examination of the how the errors might depend on the unerlying terrain. To perform this anaylsis we will extract the values from a variety of surface roughness rasters and compare the raster values with colocated error values. We will use two sets of surface roughness rasters: hillshades and GDAL DEM deriviatives. Hillshade rasters from four different azimuths are used: 45, 135, 225, and 315 degrees. The GDAL DEM derivaties are slope, terrain prominence, terrain ruggedness, and roughness. For both the hillshade rasters and the terrain derivatives there are no visible relationships between topography and error for either study area (Figure 8).
 </p>
+
+###### Figure 8: Topographic Error Analysis
+
+![alt text](aggregate_results/figs/CLPX_hillshade_error_analysis.png)
+![alt text](aggregate_results/figs/CLPX_hillshade_error_analysis.png)
+![alt text](aggregate_results/figs/Happy_Valley_hillshade_error_analysis.png)
+![alt text](aggregate_results/figs/Happy_Valley_hillshade_error_analysis.png)
+
+<p>
+Given the above analysis we recommened a global correction for each snoe depth map in the form of adding the value of the mean offset (Table 1) to each value in the snow depth raster map to produce a 'corrected' snow depth map. We can find no justification for a more specific offset based on geographic or topographic parameters.
