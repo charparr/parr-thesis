@@ -1,50 +1,72 @@
 # TODO
 
 ##### 5.21.2018
-###### Validation
-1. Use validation result shapefiles to query terrain information for error analysis
-  1. ~~Utlity script to sample raster(s) with points and write result.~~
-  2. ~~Update GDAL terrain scripts to push 0 instead of -9999 for no data on slope, etc.~~
-  3. ~~Generate pairplot of errors vs. terrain factors~~
-  4. Make it several plots instead of pairplot...
-  5. Smart names from study area args
-  6. Include in bash script
-  4. Decide what to do about HV 2016 where no validation data exist.
-2. Write Validation report.
-  1. Introduction of data
-  2. Methods
-  3. Report on results, table
-  4. Further error investigation
-  5. Discussion
 
+###### Validation
+
+1.  Use validation result shapefiles to query terrain information for error analysis
+2.  ~~Utlity script to sample raster(s) with points and write result.~~
+3.  ~~Update GDAL terrain scripts to push 0 instead of -9999 for no data on slope, etc.~~
+4.  ~~Generate pairplot of errors vs. terrain factors~~
+5.  Make it several plots instead of pairplot...
+6.  Smart names from study area args
+7.  Include in bash script
+8.  Decide what to do about HV 2016 where no validation data exist.
+9.  Write Validation report.
+10. Introduction of data
+11. Methods
+12. Report on results, table
+13. Further error investigation
+14. Discussion
 
 ###### Figures
-1. Make a utility to plot single and multi rasters
+
+1.  Make a utility to plot single and multi rasters
 
 ###### Analysis
-1. ~~Generate corrected rasters via validation script~~
-2. Create stack of depth dDEMS
+
+1.  ~~Generate corrected rasters via validation script~~
+2.  Create stack of depth dDEMS
 
 ##### 5.22.2018
+
 ###### Validation
 
-1. ~~Use validation result shapefiles to query terrain information for error analysis~~
-  1. ~~Make several plots instead of one pairplot~~
-  2. ~~Smart names from study area args~~
-  3. ~~Include in bash script~~
-2. Decide what to do about HV 2016 where no validation data exist.
-3. Check rocks, roads, for zero depths in corrected depth maps
-4. Filter fork of Validation
-3. Write Validation report.
-  1. Introduction of data
-  2. Methods
-  3. Report on results, table
-  4. Further error investigation
-  5. Discussion
-
+1.  ~~Use validation result shapefiles to query terrain information for error analysis~~
+2.  ~~Make several plots instead of one pairplot~~
+3.  ~~Smart names from study area args~~
+4.  ~~Include in bash script~~
+5.  Decide what to do about HV 2016 where no validation data exist.
+6.  Check rocks, roads, for zero depths in corrected depth maps
+7.  Filter fork of Validation
+8.  Write Validation report.
+9.  Introduction of data
+10. Methods
+11. Report on results, table
+12. Further error investigation
+13. Discussion
 
 ###### Figures
-1. Make a utility to plot single and multi rasters
+
+1.  Make a utility to plot single and multi rasters
 
 ###### Analysis
-1. Create stack of depth dDEMS
+
+1.  Create stack of depth dDEMS
+
+
+##### 5.24.2018
+
+###### Validation
+
+1.  Decide what to do about HV 2016 where no validation data exist.
+2.  Check rocks, roads, for zero depths in corrected depth maps
+3.  Filter fork of Validation process
+4.  First draft of Validation report.
+###### Figures
+
+1.  Make a utility to plot single and multi rasters
+
+###### Analysis
+
+1.  Create stack of depth dDEMS
