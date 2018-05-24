@@ -1,6 +1,6 @@
 # Report on the accuracy and validation of airborn lidar and structure-from-motion photogrammetry (SfM) surface height measurements and computation of snow depths.
 
-## Charlie Parr,  5/22/2018
+## Charlie Parr,  5/24/2018
 
 * * *
 
@@ -69,4 +69,6 @@ The above results show that there are no broad scale spatial biases in the error
 ![alt text](aggregate_results/figs/Happy_Valley_hillshade_error_analysis.png)
 
 <p>
-Given the above analysis we recommened a global correction for each snoe depth map in the form of adding the value of the mean offset (Table 1) to each value in the snow depth raster map to produce a 'corrected' snow depth map. We can find no justification for a more specific offset based on geographic or topographic parameters.
+Given the above results we will apply a global correction to each snow depth map that is equal to the value of the mean error presented in Table 1. Essentially this means adding a constant value to each value (i.e. pixel) in the snow depth raster map. The result is a 'corrected' snow depth raster map which will be basis for all further analyses. There is no clear justification for a more specific  or variable correction method based on geographic or topographic parameters. One hole in our analysis thus far is that there are no MagnaProbe validation points available for Happy Valley in 2016. One option is to apply the mean of all Happy Valley annual mean errors (0.19 m), but another option is to use the mean error from CLPX 2016 (0.40 m) (Table 1). It is not immediately clear which one of these options to use. One arguement for using 0.19 m is that in every year the mean error for CLPX is greater than the mean error at Happy Valley (Figure 4). However, there appears to be more consistency slicing the errors by year than by geographic zone. For example, for every geographic zone the 2016 mean error is greater than the 2012 and 2013 mean errors (Figure 7). One compromise is to use the 2016 CLPX error but to weight by the tendency of the Happy Valley mean errors to be less than the CLPX mean errors. The Happy Valley mean error (all years) accounts for 63% of the CLPX mean error (all years exlcuding 2016). Using this percentage we can adjust the CLPX 2016 mean error of 0.40 m to 0.25 m and add this adjusted value to produce the corrected 2016 Happy Valley 2016 snow depth raster map.
+
+#### UNDONE: Rock value analysis for corrected dDEM (should be near zero).
