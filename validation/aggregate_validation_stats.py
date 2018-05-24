@@ -93,10 +93,12 @@ mean_df = pd.concat(store_stats)
 mean_df.set_index('Study Area', inplace=True)
 mean_df.set_index('Year', append=True, inplace=True)
 mean_df = mean_df[['count','mean','std','min','max']]
-#del mean_df['Unnamed: 0']
+mean_df.loc['Mean'] = mean_df.mean()
+mean_df.loc['Sum'] = mean_df.iloc[0:9].sum()
 mean_df = mean_df.round(2)
+mean_df.loc['Sum'] = [mean_df.loc['Sum'][0], '','','','']
+mean_df['count'].astype(int, inplace=True)
 mean_df.to_csv('aggregate_results/aggregate_results_summary.csv')
-
 
 fig = plt.figure(figsize=(8,5))
 ax = fig.add_subplot(111)
@@ -107,10 +109,5 @@ mpl_table = ax.table(cellText = mean_df.values, rowLabels = mean_df.index, bbox=
 mpl_table.auto_set_font_size(False)
 mpl_table.set_fontsize(font_size)
 plt.savefig('aggregate_results/figs/aggregate_results_summary.png', dpi=300, bbox_inches='tight')
-
-
-
-
-
 
 print('Aggregation of validation results complete.')
