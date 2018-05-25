@@ -54,15 +54,15 @@
 
 1.  Create stack of depth dDEMS
 
-
 ##### 5.24.2018
 
 ###### Validation
 
-1.  Decide what to do about HV 2016 where no validation data exist.
-2.  Check rocks, roads, for zero depths in corrected depth maps
-3.  Filter fork of Validation process
-4.  First draft of Validation report.
+~~1.  Decide what to do about HV 2016 where no validation data exist.~~
+2\.  Check rocks, roads, for zero depths in corrected depth maps
+3\.  Filter fork of Validation process
+~~4.  First draft of Validation report.~~
+
 ###### Figures
 
 1.  Make a utility to plot single and multi rasters
@@ -70,3 +70,21 @@
 ###### Analysis
 
 1.  Create stack of depth dDEMS
+
+##### 5.24.2018
+
+###### Validation
+
+-   Check rocks in ortho for zero depths in corrected depth maps
+    -   Create script to find 'black' areas in snow ortho
+-   Determine if filtering decreases errors
+-   Reorganize results and discussion in report. Right now they are far too mixed.
+
+###### Figures
+
+-   Make a utility to plot single and multi rasters
+
+###### Analysis
+
+-   Create stack of depth dDEMS
+-   Apply offset to HV 2016
