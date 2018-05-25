@@ -1,21 +1,34 @@
-# Report on the accuracy and validation of airborn lidar and structure-from-motion photogrammetry (SfM) surface height measurements and computation of snow depths.
+# Report on the accuracy and validation of airborne lidar and structure-from-motion photogrammetry (SfM) surface height measurements and computation of snow depths.
 
-## Charlie Parr,  5/24/2018
+### Charlie Parr,  5/24/2018
 
 * * *
 
-### Data
+## Introduction
+
+##### Note: this is just an introduction for the validation component. A more general introduction to the topic and field areas will reside elsewhere.
 
 <p>
-The data used in this analysis comes from the airborne snow measurement campaigns conducted in two distinct Arctic tundra field areas over the course of six years. The basis of these campaigns was to acquire the elevation of peak winter snowcovers and bare earth surfaces and to interpret the difference between the two seasonal surfaces as snow depth. Each snow depth result is then validated by thousands of conincident manual measurements of snow depth. The report here describes the validation process, error analysis, and error attribution.
-</p>
-<p>
-Each year the snow depth map produced by the seasonal surface differencing is validated by thousands of MagnaProbe measurements (e.g. Figure 1). A Python script checks the value of the snow depth raster against the value of the MagnaProbe depth measurement at the same location and then computes the difference between the two. The difference between the MagnaProbe snow depth measurement and the snow depth raster is considered the error. The errors are summarized for each year and study area in Table 1. A total of 135155 points were used in this validation process and the mean error for the entire dataset is 0.26 m. Note that in one instance (Happy Valley, 2016) no validation points were acquired because of logistical field work limits.
+The data used in this analysis comes from multiple airborne snow measurement campaigns conducted in two distinct Arctic tundra field areas, CLPX and Happy Valley, over the course of six years. The purpose of these campaigns was to acquire the surface elevations of landscapes blanketed by a peak winter snowcover as well as bare earth surface eleations with the intent to compute the difference between the winter and summer surfaces as a method of retreiving a continous landscape map of snow depth. Each annual campaign was supported by a groud validation effort consisting of thousands of manual snow depth measurements conincident with the acquisiton of the winter surface (Figure 1). The following report details the validation process and results, and discusses application of the error analysis results and error attribution.
 </p>
 
-###### Figure 1: CLPX 2012 Uncorrected Depth Map and MagnaProbe validation points (N = 32571)
+###### Figure 1: CLPX 2012 Uncorrected Snow Depth Map (m) and MagnaProbe validation point locations ( N = 32571 )
 
 ![alt text](clpx/2012/figs/validation_depth_map.png)
+
+## Methods
+
+<p>
+Each year the snow depth map produced by the seasonal surface differencing is validated by thousands of MagnaProbe measurements. A Python script compares the value of the snow depth raster against the value of the MagnaProbe depth measurement at the same location. The difference between the MagnaProbe measurement and the raster value is the error in meters. For those familiar with ArcGIS, this is similar to the 'Extract Values to Points' geoprocessing tool, or the Point Sampler Plugin for QGIS. A similar script then compares these error values against values against a set of terrain derivatives. Errors are analyzed by year, study area, location within each study area, and by topographic factors like hillshade and slope. Finally, a correction value is prescribed to adjust each snow depth map. Particular consideration is given to the case of Happy Valley in 2016 where no validation points were acquired because of logistical field work limits. All processing scripts and results are reproducible and hosted at
+<https://github.com/charparr/parr-thesis/tree/master/validation>
+and a 'live' version of this document is the markdown file inside the above repository at <https://github.com/charparr/parr-thesis/blob/master/validation/validation_report.md>
+</p>
+
+## Validation Results
+
+<p>
+The errors for each year and study area are summarized in Table 1. A total of 135155 points were used in this validation process and the mean error for the entire set of data (all years and study areas) is 0.26 m.
+</p>
 
 ###### Table 1: Validation Results
 
@@ -27,7 +40,7 @@ The results in Table 1 indicate an overall negative bias in the airborne retreiv
 
 ###### Figure 2: MagnaProbe vs. lidar/SfM
 
-![alt text](aggregate_results//figs/probe_v_rstr_violin.png#1)
+![alt text](aggregate_results/figs/probe_v_rstr_violin.png#1)
 
 <p>
 The errors within each year and study area can be checked for consistency and normailty with another violin plot, and by a more familiar boxplot (Figures 3 and 4). Figure 2 shows that errors are similar between the study areas, with the exception of 2017. The missing validation field campaign for Happy Valley in 2016 is also evident. The shape of the error frequency distributions looks normal, but actually fail statistical tests for normality (i.e. the null-hypothesis that the values come from a normal population is rejected). The boxplot (Figure 4) is a good representation of the data in Table 1 because we can see the consistent mean and variance of the errors.
@@ -35,11 +48,11 @@ The errors within each year and study area can be checked for consistency and no
 
 ###### Figure 3: Error Violin Plots (i.e. MagnaProbe - Raster Delta) by Year and Study Area
 
-![alt text](aggregate_results//figs/validation_violin.png)
+![alt text](aggregate_results/figs/validation_violin.png)
 
 ###### Figure 4: Error Box Plots (i.e. MagnaProbe - Raster Delta) by Year and Study Area
 
-![alt text](aggregate_results//figs/validation_box.png)
+![alt text](aggregate_results/figs/validation_box.png)
 
 <p>
 The errors are consistent across time and between the two study areas. However, we also want to know whether or not the errors are consistent within each year and study area. Does the airborne snow depth retreival perform better or worse with respect to the MagnaProbe ground truth snow depth measurements in certain types of terrain? In other words, is there any geographic trend in the errors, or are the errors stationary? To answere these questions we prescribe geographic zone labels to different sets of MagnaProbe points for each study area. At CLPX we split the points into 4 zones: CLPX East, Imnavait, Imnavait North, and CLPX West. These zones were chosen to capture different sampling regimes and the general trend of wind and snow known to exist in this domain: deeper snow and milder winds toward the West in the Kuparuk watershed, and shallower snow with strong katabatic winds toward the East in the Sag watershed. Happy Valley is split into four classes: Happy Valley North, Happy Valley South, Watertracks, Crescent Lake, and Happy Valley Stream. Assessing errors through these geographic labels should illuminate any potential spatial or snowcover related bias in the errors. The results of this analysis indicate no signigicant variance in error across geographic zones when results from all years are considered together (Figures 5 and 6). A more detailed look (Figure 7) shows some interannual variation within geographic zones (e.g. Imnavait) but strong intraannual consistency across geographic zones.
@@ -47,11 +60,11 @@ The errors are consistent across time and between the two study areas. However, 
 
 ###### Figure 5: Violin Plots of Errors by Geographic Zone
 
-![alt text](aggregate_results//figs/violin_x_studyarea_hue_zone.png)
+![alt text](aggregate_results/figs/violin_x_studyarea_hue_zone.png)
 
 ###### Figure 6: Box Plots of Errors by Geographic Zone
 
-![alt text](aggregate_results//figs/box_x_studyarea_hue_zone.png)
+![alt text](aggregate_results/figs/box_x_studyarea_hue_zone.png)
 
 ###### Figure 7: Box Plots of Errors by Geographic Zone and Year
 
@@ -64,9 +77,9 @@ The above results show that there are no broad scale spatial biases in the error
 ###### Figure 8: Topographic Error Analysis
 
 ![alt text](aggregate_results/figs/CLPX_hillshade_error_analysis.png)
-![alt text](aggregate_results/figs/CLPX_hillshade_error_analysis.png)
+![alt text](aggregate_results/figs/CLPX_roughness_error_analysis.png)
 ![alt text](aggregate_results/figs/Happy_Valley_hillshade_error_analysis.png)
-![alt text](aggregate_results/figs/Happy_Valley_hillshade_error_analysis.png)
+![alt text](aggregate_results/figs/Happy_Valley_roughness_error_analysis.png)
 
 <p>
 Given the above results we will apply a global correction to each snow depth map that is equal to the value of the mean error presented in Table 1. Essentially this means adding a constant value to each value (i.e. pixel) in the snow depth raster map. The result is a 'corrected' snow depth raster map which will be basis for all further analyses. There is no clear justification for a more specific  or variable correction method based on geographic or topographic parameters. One hole in our analysis thus far is that there are no MagnaProbe validation points available for Happy Valley in 2016. One option is to apply the mean of all Happy Valley annual mean errors (0.19 m), but another option is to use the mean error from CLPX 2016 (0.40 m) (Table 1). It is not immediately clear which one of these options to use. One arguement for using 0.19 m is that in every year the mean error for CLPX is greater than the mean error at Happy Valley (Figure 4). However, there appears to be more consistency slicing the errors by year than by geographic zone. For example, for every geographic zone the 2016 mean error is greater than the 2012 and 2013 mean errors (Figure 7). One compromise is to use the 2016 CLPX error but to weight by the tendency of the Happy Valley mean errors to be less than the CLPX mean errors. The Happy Valley mean error (all years) accounts for 63% of the CLPX mean error (all years exlcuding 2016). Using this percentage we can adjust the CLPX 2016 mean error of 0.40 m to 0.25 m and add this adjusted value to produce the corrected 2016 Happy Valley 2016 snow depth raster map.
