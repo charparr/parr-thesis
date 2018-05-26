@@ -37,11 +37,11 @@ found in Figure 2. The mean error for the entire set of data (all years and stud
 
 ###### Figure 2: MagnaProbe vs. lidar/SfM
 
-![alt text](aggregate_results/figs/probe_v_rstr_violin.png#1)
+![alt text](aggregate_results/figs/probe_v_rstr_violin.png)
 
 ###### Table 1: Validation Results
 
-![alt text](aggregate_results/figs/aggregate_results_summary.png#1)
+![alt text](aggregate_results/figs/aggregate_results_summary.png)
 
 <p>
 The above results indicate an overall negative bias (i.e. positive mean error values in Table 1) in the airborne retreivals of snow depth. The snow depth raster maps produced by substracting the summer surface from the winter surface are too shallow. The positive error values align reflect the visual interpretation of the frequency distributions (Figure 2) where the lidar or SfM half of the violin plot is negatively shifted with respect to its partner MagnaProbe distribution. The variability of the errors with respect to time (year) and space (study area) is examined with another violin plot (Figure 3) and by a more familiar boxplot (Figure 4). Errors are consistent between the two study areas except in 2017 (Figure 3), although in each year the median error at CLPX is greater than at Happey Valley. Note the missing validation data for Happy Valley in 2016. Errors are more variable over time than study area, but each boxplot's first and third quantiles overlap with at least one other year (Figure 4).
