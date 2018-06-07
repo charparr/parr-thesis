@@ -13,17 +13,27 @@
 ##### Note: this is just an introduction for the validation component. A more general introduction to the topic and field areas will reside elsewhere.
 
 <p>
-The data used in this analysis comes from multiple airborne snow measurement campaigns conducted in two distinct Arctic tundra field areas, CLPX and Happy Valley, over the course of six years. The purpose of these campaigns was to acquire the surface elevations of landscapes blanketed by a peak winter snowcover as well as bare earth surface eleations with the intent to compute the difference between the winter and summer surfaces as a method of retreiving a continous landscape map of snow depth. Each annual campaign was supported by a groud validation effort consisting of thousands of manual snow depth measurements conincident with the acquisiton of the winter surface (Figure 1). The following report details the validation process and results, and discusses application of the error analysis results and error attribution.
+The data used in this analysis comes from multiple airborne snow measurement campaigns conducted in two distinct Arctic tundra field areas, CLPX and Happy Valley, over the course of six years. The purpose of these campaigns was to acquire the surface elevations of landscapes blanketed by near-peak winter snowcover as well as bare earth surface elevations with the intent to compute the difference between the winter and summer surfaces as a method of retreiving a continous landscape map of snow depth. Each annual campaign was supported by a groud validation effort consisting of thousands of manual snow depth measurements conincident with the acquisiton of the winter surface (Figure 1). The following report details the validation process and results, and discusses application of the error analysis results and error attribution.
 </p>
 
-###### Figure 1: CLPX 2012 Uncorrected Snow Depth Map (m) and MagnaProbe validation point locations ( N = 32571 )
+###### Figure 1: An example of a field validation campaign: CLPX 2012 Uncorrected Snow Depth Map (m) and MagnaProbe validation point locations ( N = 32571 )
 
 ![alt text](clpx/2012/figs/validation_depth_map.png)
+
+## Sources of Errors
+
+<p>
+We believe the primary error source within the snow depth maps is geolocation uncertainty in the summer and winter surfaces. The geolocation uncertainty can produce inaccurate measurements of snow depth in two ways: 1) Inaccurate measurements of surface height, and 2) misregistration between the summer and winter surfaces. The geolocation uncertainty may produce especially severe errors where the surface height gradient is high with respect to the ground sample distance (i.e. areas of steep or rough terrain). The geolocation uncertainty arises from both the limitation of the GPS unit onboard the airplane and also by how the GPS information is processed when building the lidar or SfM point cloud. Vertical accuracy is limited by natural factors such as frost heave and shrub bending. We believe that over the course of a measurement campaign the combination of these errors causes surface heights to "float" some amount away from the 'true' surface - and the amount of this float (as we will show) must in someway be close to a fixed offset for the survey.
+</p>
+
+<p>
+All measurements have errors, and the MagnaProbe measurements of snow depth are no exception. The geolocation error caused by the non-differential MagnaProbe GPS is substantial (+- 5m), and quasi-random error in depth that is almost always too high (over-probe) exists in the MagnaProbe snow depth measurements and may be as high as 0.05 m. However, we must treat the MagnaProbe as 'truth' in our study and leverage the high number of measurements to validate the airborne surfaces as best as possible. Our aim is to understand the error distributions so that we may attribute the errors and move forward with the exploration of tundra snow depth maps of which are as true to Nature as possible.
+</p>
 
 ## Methods
 
 <p>
-Each year the snow depth map produced by the seasonal surface differencing is validated by thousands of MagnaProbe measurements. A Python script compares the value of the snow depth raster against the value of the MagnaProbe depth measurement at the same location. The difference between the MagnaProbe measurement and the raster value is the error in meters. For those familiar with ArcGIS, this is similar to the 'Extract Values to Points' geoprocessing tool, or the Point Sampler Plugin for QGIS. A similar script then compares these error values against values against a set of terrain derivatives. Errors are analyzed by year, study area, location within each study area, and by topographic factors like hillshade and slope. Finally, a correction value is prescribed to adjust each snow depth map. Particular consideration is given to the case of Happy Valley in 2016 where no validation points were acquired because of logistical field work limits. All processing scripts and results are reproducible and hosted at
+Each year the snow depth map produced by the seasonal surface differencing has been validated by thousands of MagnaProbe measurements. A Python script compares the value of the snow depth raster against the value of the MagnaProbe depth measurement at the same location. The difference between the MagnaProbe measurement and the raster value is the error in meters. For those familiar with ArcGIS, this is similar to the 'Extract Values to Points' geoprocessing tool, or the Point Sampler Plugin for QGIS. A similar script then compares these error values against values against a set of terrain derivatives. Errors are analyzed by year, study area, location within each study area, and by topographic factors like hillshade and slope. Finally, a correction value is prescribed to adjust each snow depth map. Particular consideration is given to the case of Happy Valley in 2016 where no validation points were acquired because of logistical field work limits. All processing scripts and results are reproducible and hosted at
 <https://github.com/charparr/parr-thesis/tree/master/validation>
 and a 'live' version of this document is the markdown file inside the above repository at <https://github.com/charparr/parr-thesis/blob/master/validation/validation_report.md>
 </p>
@@ -31,15 +41,14 @@ and a 'live' version of this document is the markdown file inside the above repo
 ## Validation Results
 
 <p>
-A total of 135155 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are
-found in Figure 2. The mean error for the entire set of data (all years and study areas) is 0.26 m.
+A total of 135155 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are found in Figure 2. The mean error (SfM or lidar minus MagnaProbe) for the entire set of data (all years and study areas) is 0.26 m.
 </p>
 
-###### Figure 2: MagnaProbe vs. lidar/SfM
+###### Figure 2: MagnaProbe vs. lidar/SfM for all data all years
 
 ![alt text](aggregate_results/figs/probe_v_rstr_violin.png)
 
-###### Table 1: Validation Results
+###### Table 1: Validation Results for MagnaProbe to snow raster pixel comparisons
 
 ![alt text](aggregate_results/figs/aggregate_results_summary.png)
 
@@ -140,4 +149,9 @@ One gap in the error analysis so far is that there are no 2016 MagnaProbe valida
 - We have adjusted every raster by some amount.
 - Errors are attributable.
 - Ground truth (BIG N) makes us confident to move forward.
+</p>
+
+
+<p>
+IF you set this up in the writing as a strawman, then when you look at the pdfs and so on, you can work backward toward the "why...what causes the error" question.  The fact that thepdfs have very similar forms but are offset argue for large fixed errors and random smaller ones, I think.  The lack of a landscape-associated bias argues at least within the slopes we have that we are not seeing that sort of derived error in our domains.
 </p>
