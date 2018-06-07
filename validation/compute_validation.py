@@ -80,7 +80,11 @@ if args.output_results:
     geo_probes = gpd.GeoDataFrame(probes, crs={'init': 'epsg:32606'})
     geo_probes.to_file(out_path + '.shp')
     probes.to_csv(out_path + '.csv')
-    probes['Probe-Raster Delta [m]'].describe().to_csv(out_path+'_desc.csv')
+    desc = probes['Probe-Raster Delta [m]'].describe()
+    desc.loc['skew'] = probes['Probe-Raster Delta [m]'].skew()
+    desc.loc["Fisher's kurtosis"] = probes['Probe-Raster Delta [m]'].kurt()
+    desc.to_csv(out_path+'_desc.csv')
+
 else:
     print('Skipping creation of validation files...')
 
