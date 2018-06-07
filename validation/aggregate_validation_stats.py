@@ -92,17 +92,17 @@ for filename in find_files('/', '*_desc.csv', 'xxx'):
 mean_df = pd.concat(store_stats)
 mean_df.set_index('Study Area', inplace=True)
 mean_df.set_index('Year', append=True, inplace=True)
-mean_df = mean_df[['count','mean','std','min','max']]
+mean_df = mean_df[['count','mean','std','min','max','skew',"Fisher's kurtosis"]]
 mean_df.loc['Mean'] = mean_df.mean()
 mean_df.loc['Sum'] = mean_df.iloc[0:9].sum()
 mean_df = mean_df.round(2)
-mean_df.loc['Sum'] = [mean_df.loc['Sum'][0], '','','','']
+mean_df.loc['Sum'] = [mean_df.loc['Sum'][0], '','','','','','']
 mean_df['count'].astype(int, inplace=True)
 mean_df.to_csv('aggregate_results/aggregate_results_summary.csv')
 
 fig = plt.figure(figsize=(8,5))
 ax = fig.add_subplot(111)
-font_size=16
+font_size=7
 bbox=[0, 0, 1, 1]
 ax.axis('off')
 mpl_table = ax.table(cellText = mean_df.values, rowLabels = mean_df.index, bbox=bbox, colLabels=mean_df.columns)
