@@ -28,7 +28,7 @@ The first step is to identify the study area domain by establishing a common set
 -   Center: (408775.000, 7614650.000) (149d14'36.99"W, 68d37'44.13"N)
 
 <p>
-These coordiantes are used in GDAL for target extents, i.e. `-te 401900 7609100 415650 7620200` and in PDAL pipelines `([401900,415650], [7609100, 7620200])`. We will converge on elevation products with 32-bit floating point data types and -9999 no data values.
+These coordinates are used in GDAL for target extents, i.e. `-te 401900 7609100 415650 7620200` and in PDAL pipelines `([401900,415650], [7609100, 7620200])`. We will converge on elevation products with 32-bit floating point data types and -9999 no data values.
 </p>
 
 ##### Step 2: 2012 DEM Convergence
