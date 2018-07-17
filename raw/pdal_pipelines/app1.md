@@ -1,0 +1,31 @@
+{
+    "pipeline": [
+        {
+        "type":"readers.las",
+        "filename":"2012_158_HV.las",
+        "spatialreference":"epsg: 32606"
+        },
+        {
+            "type":"filters.crop",
+            "bounds":"([421000,424400],[7662600,7678000])"
+        },
+        {
+            "type":"filters.outlier",
+            "method":"statistical",
+            "mean_k":12,
+            "multiplier":2.0
+        },
+        {
+            "type":"filters.range",
+            "limits":"Classification![7:7]"
+        },
+        {
+          "filename":"hv_158_2012_dem.tif",
+          "resolution":1.0,
+          "output_type":"mean",
+          "radius":2.0,
+          "bounds":"([421000,424400],[7662600,7678000])",
+          "type": "writers.gdal"
+        }
+    ]
+}
