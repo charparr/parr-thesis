@@ -48,6 +48,7 @@ if args.output_results:
     gdf.to_file(join('aggregate_results/spatial', str(args.study_area) + '_terrain_error_analysis.shp'))
 
 if args.figures:
+    print("Making plots...")
     sns.set_context('paper')
 
     if args.study_area == 'CLPX':
@@ -56,10 +57,15 @@ if args.figures:
         roughness_cols = [x for x in gdf.columns if 'hv' in x and 'shade' not in x]
     hillshade_cols = [x for x in gdf.columns if 'shade_az' in x]
 
-    print("Making plots...")
+    new_col_names = []
+    for c in hillshade_cols:
+        new_col_name = c.split('_')[0].upper() + ' Hillshade Brightness' + '\n' + 'Azimuth: ' + c.split('_')[-1][2:]
+        new_col_names.append(new_col_name)
+
+    gdf = gdf.rename(columns={hillshade_cols[0]: new_col_names[0], hillshade_cols[1]: new_col_names[1], hillshade_cols[2]: new_col_names[2], hillshade_cols[3]: new_col_names[3]})
     plt.figure()
     sns.pairplot(gdf,
-                 x_vars=hillshade_cols, y_vars=["Probe-Raster Delta [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
+                 x_vars=new_col_names, y_vars=["Probe-Raster Delta [m]"], markers='+', plot_kws=dict(s=20, linewidth=1, alpha=0.3))
     plt.savefig(join('aggregate_results/figs', str(args.study_area) + '_hillshade_error_analysis.png'), dpi=300, bbox_inches='tight')
 
     plt.figure()
