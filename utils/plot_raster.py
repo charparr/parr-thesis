@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from rasterio.plot import show
 
+np.seterr(all='ignore')
+
 parser = argparse.ArgumentParser(description='Utility to plot single rasters (GeoTiffs) with spatial coordinates with user supplied titles.')
 
 parser.add_argument("-r", "--raster", help="raster to plot")
@@ -17,6 +19,8 @@ args = parser.parse_args()
 src = rasterio.open(args.raster)
 fig_x = int(10 * src.meta['width'] / src.meta['height'])
 fig_y = int(10 * src.meta['height'] / src.meta['width'])
+if fig_y > fig_x:
+    fig_x += 2
 cmap = plt.get_cmap('viridis')
 arr = src.read(1)
 masked_arr = np.ma.masked_values(arr, src.nodata)
@@ -35,8 +39,13 @@ ax.set_xlabel('UTM E Zone 6N')
 
 props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
 # place a text box in upper left in axes coords
-ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
-        verticalalignment='top', bbox=props)
+
+if fig_y > fig_x:
+    ax.text(0.05, 0.1, textstr, transform=ax.transAxes, fontsize=14,
+            verticalalignment='top', bbox=props)
+else:
+    ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+            verticalalignment='top', bbox=props)
 
 if args.cmin:
     if vmin > 0:
@@ -52,7 +61,7 @@ else:
     vmin *= 1.02
     vmax *= 0.98
 
-cmap.set_under('gray')  # Color for values less than vmin
+cmap.set_under('white')  # Color for values less than vmin
 show((src, 1), with_bounds=True, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap)
 PCM=ax.get_children()[-2]
 plt.colorbar(PCM, ax=ax)
