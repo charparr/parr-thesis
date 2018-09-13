@@ -27,14 +27,17 @@ else:
 df.columns = [c.lower() for c in df.columns]
 
 # Find snow depth column and convert from cm to m if needed
-# Ugly because there is also a 'depthBattVolts' col in some MP Data
+# Ugly because there is also a 'depthBattVolts or even depth volts' col in some MP Data
 depth = sorted([col for col in df.columns if 'depth' in col.lower()])
 if len(depth) != 1:
-    if 'cm' in depth[1].lower():
-        print("Converting depth from cm to m...")
-        df['Depth_m'] = df[depth[1]] / 100.0
-    else:
-        df['Depth_m'] = df[depth[1]]
+    for i in depth:
+        if 'cm' in i.lower():
+            print("Converting depth from cm to m...")
+            df['Depth_m'] = df[i] / 100.0
+        elif '_m' in i.lower():
+            df['Depth_m'] = df[i]
+        else:
+            print(i, "this is not the depth you are looking for")
 else:
     if 'cm' in depth[0].lower():
         print("Converting depth from cm to m...")
