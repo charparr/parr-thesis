@@ -1,0 +1,136 @@
+<VRTDataset rasterXSize="13750" rasterYSize="11100">
+  <SRS>PROJCS["WGS 84 / UTM zone 6N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","32606"]]</SRS>
+  <GeoTransform>  4.0190000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  7.6202000000000000e+06,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-2-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="12117" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="2496.59999999963" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-2-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="12117" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="5773.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-2-4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="12117" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="9050.20000000019" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-3-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="853.400000000023" yOff="2496.59999999963" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-3-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="853.400000000023" yOff="5773.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-3-4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="853.400000000023" yOff="9050.20000000019" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-4-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="3901" xSize="16384" ySize="16384" />
+      <DstRect xOff="4130.20000000001" yOff="0" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-4-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4130.20000000001" yOff="2496.59999999963" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-4-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4130.20000000001" yOff="5773.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-4-4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="4130.20000000001" yOff="9050.20000000019" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-5-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="3901" xSize="16384" ySize="16384" />
+      <DstRect xOff="7407" yOff="0" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-5-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="7407" yOff="2496.59999999963" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-5-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="7407" yOff="5773.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-6-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="3901" xSize="16384" ySize="16384" />
+      <DstRect xOff="10683.8" yOff="0" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-6-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="10683.8" yOff="2496.59999999963" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">April15_2018_CLPX-6-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="10683.8" yOff="5773.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
