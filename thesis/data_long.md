@@ -36,18 +36,18 @@ All geospatial data in this study will converge on a UTM Zone 6 N (EPSG: 32606) 
 </p>
 
 #### CLPX UTM Zone 6 N Boundaries
--   Upper Left: (401900.000, 7620200.000)
--   Lower Left: (401900.000, 7609100.000)
--   Upper Right: (415650.000, 7620200.000)
--   Lower Right: (415650.000, 7609100.000)
--   Center: (408775.000, 7614650.000)
+-   Upper Left: (401900.0, 7620200.0)
+-   Lower Left: (401900.0, 7609100.0)
+-   Upper Right: (415650.0, 7620200.0)
+-   Lower Right: (415650.0, 7609100.0)
+-   Center: (408775.0, 7614650.0)
 
 #### Happy Valley Zone 6 N UTM Boundaries
--   Upper Left: (421000.000, 7678000.000)
--   Lower Left: (421000.000, 7662600.000)
--   Upper Right: (424400.000, 7678000.000)
--   Lower Right: (424400.000, 7662600.000)
--   Center: (422700.000, 7670300.000)
+-   Upper Left: (421000.0, 7678000.0)
+-   Lower Left: (421000.0, 7662600.0)
+-   Upper Right: (424400.0, 7678000.0)
+-   Lower Right: (424400.0, 7662600.0)
+-   Center: (422700.0, 7670300.0)
 
 The above UTM corner coordinates are used as parameters within the Geospatial Data Abtraction (GDAL) (e.g. `-te 401900 7609100 415650 7620200`) and in the Point Data Abstraction Library (PDAL) (e.g. `([401900,415650], [7609100, 7620200])`) to processing rasters to common extents and dimensions.
 
@@ -77,7 +77,7 @@ The outputs of the above GDAL commands are the 'master' 2012 bare earth DEMs for
 
 ###### Figure 2. The 2012 CLPX bare earth DEM
 
- ![alt text](../DEMs/clpx/bare_earth/figs/clpx_2012_157_and_159_merge_warp.png)
+ ![alt text](../DEMs/clpx/bare_earth/figs/clpx_dem_2012_warped_fig.png)
 
 ### Data 1.4 Fusing the 2012 and 2017 bare earth DEMs
 
@@ -145,7 +145,7 @@ Mean DEM values are now computed where the DEM difference is less than 0.10 m. A
 
 ###### Figure 4. 2012/2017 CLPX Mean DEM Values Where DEM Difference < 0.10 m, Otherwise DEM = 0
 
-![alt text](../DEMs/clpx/bare_earth/figs/clpx_mean_dem_ext2012_drift0.png)
+![alt text](../DEMs/clpx/bare_earth/figs/clpx_mean_dem_ext2012_drift0_fig.png)
 
 <p>
 Next, the zero values that indicate poor agreement between the 2012 and 2017 DEMs (Figure 4) are assigned the value from the 2012 DEM, and all other pixels are prescribed a value of 0 (Figure 5).
@@ -153,7 +153,7 @@ Next, the zero values that indicate poor agreement between the 2012 and 2017 DEM
 
 ###### Figure 5. 2012 DEM Values Where DEM Difference > 0.10 m, Otherwise DEM = 0
 
-![alt text](../DEMs/clpx/bare_earth/figs/clpx_dem_ext_and_drift2012.png)
+![alt text](../DEMs/clpx/bare_earth/figs/clpx_dem_ext_and_drift2012_fig.png)
 
 <p>
 The pixel-wise maximum of the previous two rasters (Figures 4 and 5) yields a DEM with mean values except where there was poor agreement between the DEMs, in which case the 2012 DEM values are used (Figure 6).
@@ -161,14 +161,14 @@ The pixel-wise maximum of the previous two rasters (Figures 4 and 5) yields a DE
 
 ###### Figure 6. Maximum of CLPX Mean DEM Values and 2012 DEM Values
 
-![alt text](../DEMs/clpx/bare_earth/figs/clpx_meanvals_and2012driftvals.png)
+![alt text](../DEMs/clpx/bare_earth/figs/clpx_dem_meanvals_and2012driftvals_fig.png)
 
 <p>
 Finally, the previous DEM (Figure 6) is combined with the 2017 DEM to extend the data coverage and fill any remaining missing data. In the GDAL build virtual raster command (Step 6), the file listed first ends up "on top", so the first file listed is the 2017 DEM followed by the processed DEM (Figure 6) that contains mean values where agreement is good and 2012 values where agreement is poor. Users should note that even in this 'final' DEM (Figure 7), the areas where there is 2017 data but not 2012 data could still have unchecked artificially high surface heights where there are remnant snowdrifts. Consider snowdrift location (e.g. Figure 1) and the 2012 point cloud boundaries when selecting subsets of the elevation data for analysis. </p>
 
 ###### Figure 7. The 'Final' CLPX Fusion Bare Earth DEM
 
-![alt text](../DEMs/clpx/bare_earth/figs/clpx_final_dem_fig.png)
+![alt text](../DEMs/clpx/bare_earth/figs/clpx_dem_final_filtered_fig.png)
 
 ### Data 1.5 Bare Earth DEM Validation
 
@@ -213,7 +213,7 @@ The infrastructure corridor DTM underestimates the CLPX final fusion DEM by abou
 
 ###### Figure 8. The CLPX 'Final' Fusion DEM Minus the Infrastructure Corridor DTM
 
-![alt text](../DEMs/clpx/bare_earth/figs/clpx_final_dem_minus_corridor_dtm_fig.png)
+![alt text](../DEMS/clpx_bare_earth/figs/clpx_final_dem_minus_corridor_dem_fig.png)
 
 ###### Figure 9. CLPX 'Final' Fusion DEM Minus the Arctic DEM
 
@@ -265,8 +265,8 @@ The 2012 and 2013 winter surfaces for each study area now match the extents and 
 
 ### Data 2.2 2015-2018 Winter Surfaces
 <p>
-The 2015-2018 surfaces are from SfM and need minor preprocessing to achieve the correct extents, resolutions, and other metadata. At this time the CLPX 2015 winter surface is not hosted on the ftp, although several versions exist on my personal backups. I am uncertain if the data was acquired on DOY 097 or 098. The CLPX 2016 winter surface (DOY 096) is also not on the ftp, but my version consists of 22 GeoTIFF tiles (11.4 G). The tiles need to be merged and downsampled from 0.20 m pixels to 1.0 m pixels. The CLPX 2017 winter surface is on the ftp (14 tiles, 7.4 G) and also needs to be merged and downsampled. The 2015 Happy Valley winter surface is hosted on the ftp (9 tiles) and needs to be mosaiced, downsampled (0.20 m to 1.0 m), and provided with correct references and metadata.
-The 2016 Happy Valley snow surface is not currently on the ftp, but exists in my backups (9 tiles, 3.2 G) and needs similar processing to the 2015 data. The 2017 Happy Valley winter surface is available on the ftp and needs similar processing and downsampling (0.25 m to 1.0 m). 2018 data for both study areas in still in progress.
+The 2015-2018 surfaces are from SfM and need minor preprocessing to achieve the correct extents, resolutions, and other metadata. At this time the CLPX 2015 winter surface is not hosted on the ftp, although several versions exist on my personal backups. I am uncertain if the data was acquired on DOY 097 or 098. The CLPX 2016 winter surface (DOY 096) is also not on the ftp, but my version consists of 22 GeoTIFF tiles (11.4 G). The tiles need to be merged and downsampled from 0.20 m pixels to 1.0 m pixels. The CLPX 2017 winter surface is on the ftp (14 tiles, 7.4 G) and also needs to be merged and downsampled. The CLPX 2018 data (20 tiles, 11.3 G) must also be merged and downsampled. The 2015 Happy Valley winter surface is hosted on the ftp (9 tiles) and needs to be mosaiced, downsampled (0.20 m to 1.0 m), and provided with correct references and metadata.
+The 2016 Happy Valley snow surface is not currently on the ftp, but exists in my backups (9 tiles, 3.2 G) and needs similar processing to the 2015 data. The 2017 Happy Valley winter surface is available on the ftp and needs similar processing and downsampling (0.25 m to 1.0 m).
 </p>
 
 #### CLPX
@@ -280,6 +280,10 @@ The 2016 Happy Valley snow surface is not currently on the ftp, but exists in my
 `gdalbuildvrt clpx_snow_on_101_2017.vrt Apr11_2017* -resolution user -tr 1 1 -te 401900 7609100 415650 7620200 -srcnodata -32767 -vrtnodata -9999`
 
 `gdal_translate -of GTiff clpx_snow_on_101_2017.vrt clpx_snow_on_101_2017.tif`
+##### 2018
+`gdalbuildvrt clpx_snow_on_105_2018.vrt April15_2018* -resolution user -tr 1 1 -te 401900 7609100 415650 7620200 -srcnodata -32767 -vrtnodata -9999`
+
+`gdal_translate -of GTiff clpx_snow_on_105_2018.vrt clpx_snow_on_105_2018.tif`
 
 #### Happy Valley
 ##### 2015
@@ -294,6 +298,11 @@ The 2016 Happy Valley snow surface is not currently on the ftp, but exists in my
 `gdalbuildvrt hv_snow_on_apr12_2017.vrt Apr12_2017_HV.tif -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
 
 `gdal_translate -of GTiff hv_snow_on_apr12_2017.vrt hv_snow_on_102_2017.tif`
+##### 2018
+`gdalbuildvrt hv_snow_on_103_2018.vrt Apr13_2018* -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
+
+`gdal_translate -of GTiff hv_snow_on_103_2018.vrt hv_snow_on_103_2018.tif`
+
 
 <p>
 The 2015-2017 winter surfaces are now ready to be used in constructing the snow depth dDEMs. 2018 is still in progress. We can now generate snow depth [m] dDEMs for six winters for each study area by subtracting the summer bare earth DEM from the winter snow covered DEM.
@@ -339,7 +348,7 @@ The MagnaProbe measurements of snow depth used to truh the snow depth dDEMs have
 ### 4.2 Validation Results
 
 <p>
-A total of 135155 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are found in Figure 12. The mean error (snow depth dDEM minus MagnaProbe) for the entire set of data (all years and study areas) is 0.26 m (Table 1).
+A total of 141207 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are found in Figure 12. The mean error (snow depth dDEM minus MagnaProbe) for the entire set of data (all years and study areas) is 0.25 m (Table 1).
 </p>
 
 ###### Figure 12: MagnaProbe histograms vs. snow depth dDEM histrograms, all data all years. Between each histogram pair is the boxplot for the combined measurement population.
@@ -365,9 +374,9 @@ To determine the presence of any geographic trend in the errors geographic zone 
 </p>
 
 ###### Figure 15: Violin Plots of Errors by Geographic Zone
-![alt text](../validation/aggregate_results/figs/violin_x_studyarea_hue_zone.png)
+![alt text](../validation/aggregate_results/figs/violin_xstudyarea_zonehue.png)
 ###### Figure 16: Box Plots of Errors by Geographic Zone
-![alt text](../validation/aggregate_results/figs/box_x_studyarea_hue_zone.png)
+![alt text](../validation/aggregate_results/figs/box_xstudyarea_huezone.png)
 ###### Figure 17: Box Plots of Errors by Geographic Zone and Year
 ![alt text](../validation/aggregate_results/figs/box_x_zone_hue_yr.png)
 
@@ -384,7 +393,7 @@ extracting values from a variety of DEM derivative rasters and comparing them to
 ### 4.3 Validation Discussion
 
 <p>
-The overall errors are quite similar across each year and study area and the MagnaProbe snow depth measurements and the airborne snow depth retreivals have very similar distributions. The snow depth dDEM is negatively shifted with respect to the corresponding MangaProbe distribution in the violin plots (Figure 12, Table 1). The same plot indicates there is interannual variation in these distributions, but this variation is likely a function of changing MagnaProbe survey strategies and locations. The annual magnitude of the snow depth dDEM mean error ranges from 0.12 m to 0.43 m, but error variance is well constrained (annual standard deviation values range between 0.11 and 0.16 m, Table 1). This consistent amount of variance across years and study areas explains why the error distributions look so similar for each year and study area (Figure 13).
+The overall errors are quite similar across each year and study area and the MagnaProbe snow depth measurements and the airborne snow depth retreivals have very similar distributions. The snow depth dDEM is negatively shifted with respect to the corresponding MangaProbe distribution in the violin plots (Figure 12, Table 1). The same plot indicates there is interannual variation in these distributions, but this variation is likely a function of changing MagnaProbe survey strategies and locations. The annual magnitude of the snow depth dDEM mean error ranges from 0.11 m to 0.43 m, but error variance is well constrained (annual standard deviation values range between 0.11 and 0.19 m, with 2018 Happy Valley being the outlier, Table 1). This consistent amount of variance across years and study areas explains why the error distributions look so similar for each year and study area (Figure 13).
 </p>
 
 <p>
@@ -402,12 +411,8 @@ Given that there is no obvious geographic or topographic influence on the errors
 </p>
 
 <p>
-One gap in the error analysis is the nonexistent 2016 validation points for Happy Valley. One option is to use the mean of all Happy Valley annual mean errors (0.19 m) to correct the snow depth dDEM. Another option is to use the mean error from the same year, but from the other study area (CLPX 2016; 0.40 m). An arguement for using 0.19 m is that in every year the median error for CLPX is greater than the median error at Happy Valley (Figure 14). However, as discussed earlier, the errors are consistent through time across different geographic zones. For example, for every geographic zone the 2016 median error is greater than the 2012 and 2013 median errors (Figure 17). With this behavior in mind we can weight the 2016 CLPX median error by the tendency of the Happy Valley errors to be less than the CLPX errors. The Happy Valley mean error (all years) accounts for 63% of the CLPX mean error (all years exlcuding 2016). We adjust the CLPX 2016 mean error of 0.40 m by 63% to 0.25 m and use this value to correct the 2016 Happy Valley snow depth dDEM.
+One gap in the error analysis is the nonexistent 2016 validation points for Happy Valley. One option is to use the mean of all Happy Valley annual mean errors (0.17 m) to correct the snow depth dDEM. Another option is to use the mean error from the same year, but from the other study area (CLPX 2016; 0.40 m). An arguement for using 0.17 m is that in every year the median error for CLPX is greater than the median error at Happy Valley (Figure 14). However, as discussed earlier, the errors are consistent through time across different geographic zones. For example, for every geographic zone the 2016 median error is greater than the 2012 and 2013 median errors (Figure 17). With this behavior in mind we can weight the 2016 CLPX median error by the tendency of the Happy Valley errors to be less than the CLPX errors. The Happy Valley mean error (all years) accounts for 59% of the CLPX mean error (all years exlcuding 2016). We adjust the CLPX 2016 mean error of 0.40 m by 59% to 0.24 m and use this value to correct the 2016 Happy Valley snow depth dDEM.
 </p>
-
-#### Post Correction Check
-
-###### TODO: Compare values of corrected snow depth rasters at known snow-free sites (rocks, roads). Are they about zero?
 
 
 ## Conclusion and Moving Forward
@@ -416,18 +421,3 @@ One gap in the error analysis is the nonexistent 2016 validation points for Happ
 - Errors are attributable.
 - Ground truth (BIG N) makes us confident to move forward.
 </p>
-
-
-<p>
-"IF you set this up in the writing as a strawman, then when you look at the pdfs and so on, you can work backward toward the "why...what causes the error" question. The fact that thepdfs have very similar forms but are offset argue for large fixed errors and random smaller ones, I think.  The lack of a landscape-associated bias argues at least within the slopes we have that we are not seeing that sort of derived error in our domains.""
-</p>
-
-
-
-# TO DO
--   Add missing CLPX gdal commands
--   incoporate MS email comments
--   Regional aspect analysis (e.g. Imnav east aspects)
-  - bare spot
--   Appendices
-- ask chris about 2018 data, ftp missing files...
