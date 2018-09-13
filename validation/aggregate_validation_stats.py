@@ -74,7 +74,8 @@ plt.savefig('aggregate_results/figs/probe_v_rstr_violin.png', dpi=300, bbox_inch
 
 print('Making a .csv summary table...')
 store_stats = []
-for filename in find_files('/', '*_desc.csv', 'xxx'):
+for filename in find_files('../validation', '*_desc.csv', 'xxx'):
+    print(filename)
     if 'clpx' in filename:
         domain = 'CLPX'
     elif 'hv' in filename:
@@ -90,11 +91,11 @@ for filename in find_files('/', '*_desc.csv', 'xxx'):
     val_stats['Study Area'] = domain
     store_stats.append(val_stats)
 mean_df = pd.concat(store_stats)
-mean_df.set_index('Study Area', inplace=True)
-mean_df.set_index('Year', append=True, inplace=True)
+mean_df.set_index(['Year','Study Area'], inplace=True)
+mean_df.sort_index(inplace=True)
 mean_df = mean_df[['count','mean','std','min','max','skew',"Fisher's kurtosis"]]
 mean_df.loc['Mean'] = mean_df.mean()
-mean_df.loc['Sum'] = mean_df.iloc[0:9].sum()
+mean_df.loc['Sum'] = mean_df.iloc[0:-1].sum()
 mean_df = mean_df.round(2)
 mean_df.loc['Sum'] = [mean_df.loc['Sum'][0], '','','','','','']
 mean_df['count'].astype(int, inplace=True)

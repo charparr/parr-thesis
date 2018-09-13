@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+python compute_validation.py -shp clpx/2018/magnaprobe_validation_points/clpx_all_depths_2018_utm.shp -dDEM ../depth_dDEMs/clpx/uncorrected/clpx_depth_from_filtered_DEM_105_2018.tif -out_results=True -figs=True -outrstr=True &&
+
 python compute_validation.py -shp clpx/2017/magnaprobe_validation_points/clpx_all_depths_2017_utm.shp -dDEM ../depth_dDEMs/clpx/uncorrected/clpx_depth_from_filtered_DEM_101_2017.tif -out_results=True -figs=True -outrstr=True &&
-# CLPX
 
 python compute_validation.py -shp clpx/2016/magnaprobe_validation_points/clpx_all_depths_2016_utm.shp -dDEM ../depth_dDEMs/clpx/uncorrected/clpx_depth_from_filtered_DEM_096_2016.tif  -out_results=True -figs=True  -outrstr=True &&
 
@@ -12,6 +13,8 @@ python compute_validation.py -shp clpx/2013/magnaprobe_validation_points/clpx_al
 python compute_validation.py -shp clpx/2012/magnaprobe_validation_points/clpx_all_depths_2012_utm.shp -dDEM ../depth_dDEMs/clpx/uncorrected/clpx_depth_from_filtered_DEM_106_2012.tif -out_results=True -figs=True -outrstr=True &&
 
 # Happy Valley
+
+python compute_validation.py -shp hv/2018/magnaprobe_validation_points/hv_all_depths_2018_utm.shp -dDEM ../depth_dDEMs/hv/uncorrected/hv_depth_from_filtered_DEM_103_2018.tif -out_results=True -figs=True -outrstr=True &&
 
 python compute_validation.py -shp hv/2017/magnaprobe_validation_points/hv_all_depths_2017_utm.shp -dDEM ../depth_dDEMs/hv/uncorrected/hv_depth_from_filtered_DEM_102_2017.tif -out_results=True -figs=True -outrstr=True &&
 
