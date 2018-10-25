@@ -73,7 +73,7 @@ else:
 if args.output_results:
     print('Writing results .shp and .csv...')
     # Generate .shp/.csv destination in appropriate results folder
-    out_dest = join(dirname(dirname(args.magna_shp)), 'results')
+    out_dest = join(dirname(dirname(args.magna_shp)), 'validation_results')
     out_prefix = basename(args.magna_shp).split('.')[0]
     out_suffix = '_validation_results'
     out_path = join(out_dest, out_prefix + out_suffix)
@@ -94,12 +94,12 @@ if args.figures:
     out_dest = join(dirname(dirname(args.magna_shp)), 'figs')
 
     fig, ax = plt.subplots(figsize=(16,16))
-    cmap = plt.get_cmap('viridis')
+    cmap = plt.get_cmap('Spectral')
     cmap.set_under('white')  # Color for values less than vmin
-    show((src, 1), with_bounds=True, ax=ax, vmin=-0.5, vmax=2, cmap=cmap)
+    show((src, 1), with_bounds=True, ax=ax, vmin=-0.5, vmax=1.01, cmap=cmap)
     PCM=ax.get_children()[-2]
     plt.colorbar(PCM, ax=ax)
-    probes.plot(ax=ax, alpha=0.3, markersize=1, edgecolor=None, color='r')
+    probes.plot(ax=ax, alpha=0.3, markersize=1, edgecolor=None, color='k')
     plt.suptitle(out_prefix + ' depth [m] and Validation Points')
     plt.savefig(join(out_dest, 'validation_depth_map.png'), bbox_inches='tight', dpi=300)
 
