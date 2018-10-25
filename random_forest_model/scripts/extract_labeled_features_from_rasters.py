@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 raster_list = [i for i in glob('*.tif')]
 depth_raster = [i for i in raster_list if 'depth' in i][0]
-raster_column_names = [s[:-4].lstrip(args.prefix) for s in raster_list]
+raster_column_names = [s[:-4].replace(args.prefix,"") for s in raster_list]
 
 print(raster_column_names)
 print(depth_raster)
@@ -32,14 +32,6 @@ for r in zip(raster_list, raster_column_names):
     del arr
 del depth_arr
 del depth_src
-del df['Depth [m]']
-del df['mean_snow_depth_dDEM_m']
 
-# getting stuck here...maybe figure out how to split these into chunks for memory
-df.to_csv('test_features.csv')
+df.to_csv(args.prefix + 'features.csv')
 print(df.head())
-del df
-# series_from_tif = [pd.read_csv(i) for i in glob('*.csv')]
-# master_df = pd.concat(dfs_from_csv)
-# master_df.to_csv(args.csv_out)
-#
