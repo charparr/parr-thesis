@@ -1,90 +1,24 @@
 # TODO
 
-##### 5.21.2018
-
-###### Validation
-
-1.  Use validation result shapefiles to query terrain information for error analysis
-2.  ~~Utlity script to sample raster(s) with points and write result.~~
-3.  ~~Update GDAL terrain scripts to push 0 instead of -9999 for no data on slope, etc.~~
-4.  ~~Generate pairplot of errors vs. terrain factors~~
-5.  Make it several plots instead of pairplot...
-6.  Smart names from study area args
-7.  Include in bash script
-8.  Decide what to do about HV 2016 where no validation data exist.
-9.  Write Validation report.
-10. Introduction of data
-11. Methods
-12. Report on results, table
-13. Further error investigation
-14. Discussion
-
-###### Figures
-
-1.  Make a utility to plot single and multi rasters
-
-###### Analysis
-
-1.  ~~Generate corrected rasters via validation script~~
-2.  Create stack of depth dDEMS
-
-##### 5.22.2018
-
-###### Validation
-
-1.  ~~Use validation result shapefiles to query terrain information for error analysis~~
-2.  ~~Make several plots instead of one pairplot~~
-3.  ~~Smart names from study area args~~
-4.  ~~Include in bash script~~
-5.  Decide what to do about HV 2016 where no validation data exist.
-6.  Check rocks, roads, for zero depths in corrected depth maps
-7.  Filter fork of Validation
-8.  Write Validation report.
-9.  Introduction of data
-10. Methods
-11. Report on results, table
-12. Further error investigation
-13. Discussion
-
-###### Figures
-
-1.  Make a utility to plot single and multi rasters
-
-###### Analysis
-
-1.  Create stack of depth dDEMS
-
-##### 5.24.2018
-
-###### Validation
-
-~~1.  Decide what to do about HV 2016 where no validation data exist.~~
-2\.  Check rocks, roads, for zero depths in corrected depth maps
-3\.  Filter fork of Validation process
-~~4.  First draft of Validation report.~~
-
-###### Figures
-
-1.  Make a utility to plot single and multi rasters
-
-###### Analysis
-
-1.  Create stack of depth dDEMS
-
-##### 5.24.2018
-
-###### Validation
-
--   Check rocks in ortho for zero depths in corrected depth maps
-    -   Create script to find 'black' areas in snow ortho
--   Determine if filtering decreases errors
--   Reorganize results and discussion in report. Right now they are far too mixed.
-
-###### Figures
-
--   Make a utility to plot single and multi rasters
-
-###### Analysis
-
--   Create stack of depth dDEMS
--   Apply offset to HV 2016
+-   ~~process CLPX 2018 to single raster with correct meta and extent~~
+-   ~~process HV 2018 to single raster with correct meta and extent~~
+-   ~~Document above preprocessing in data_long~~
+-   ~~Compute 2018 HV & CLPX depth dDEMS~~
+-   ~~Get 2018 probe data into shape for validation~~
+-   ~~Run validation process~~
+-   ~~Check HV shapefile for ICE points~~
+-   ~~Update data_long report with new results~~
+-   ~~Why is there a double clpx 2015 entry?~~
+-   ~~Apply new offset from new results to HV 2016 depth dDEM~~
+-   Finish data_long and data_short
+    -   Do we need bare spot analysis (reqs.orthos)?
+    -   Do we need any further spatial / regional analysis
+    -   Add note about creating depth stack images, ~~and update metadata~~
+    -   ~~Trim to where we have data for all years, i.e. if nan for one year then nan for every year~~
+-   Methods: Similarity index
+-   Methods: Drift mapping
+- 1. Create script to compare drift vs. not-drift area (and snow volume) for a variety of depth thresholds. The thresholds should be precentages of the mean depth value for the domain. This should generate simialr results to an experiment done at Tuolumne.
+- 2. Use results of (1) to identify a drift inventory for each winter, and for a stack of all winters.
+- 3. Generate statistics under each drift..what can we learn? Produce a summary table of drifts. Shape, size, mean depth, max depth, nearest neighbors, etc. (auto corre?) 
+-   Write Field Areas section
+-   ~~Create stack of depth dDEMS~~
