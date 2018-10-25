@@ -28,7 +28,7 @@
 *.JPEG
 
 # Notebooks
-*.ipynb
+
 
 # MagnaProbe
 *.dat
@@ -40,3 +40,6 @@
 # Dirs
 validation/site_visits/
 depth_dDEMs/clpx/old_dDEM_process/
+gis/
+random_forest_model/input_feature_data/
+random_forest_model/scripts/specific_for_tuolumne/
