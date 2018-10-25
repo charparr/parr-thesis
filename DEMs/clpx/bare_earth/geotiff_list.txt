@@ -1,0 +1,15 @@
+-rw-rw-r--. 1 cparr cparr 583M Jan  4  2018 [0m[38;5;13mclpx_dem_2017_156.tif[0m
+-rw-rw-r--. 1 cparr cparr 1.2G May 10 00:22 [38;5;13mclpx_2012_157_and_159_dem.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 12:15 [38;5;13mclpx_dem_2012_warped.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 12:20 [38;5;13mclpx_2017_2012_dem_delta.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 13:28 [38;5;13mclpx_mean_dem_ext2012_drift0.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 13:32 [38;5;13mclpx_dem_ext_and_drift2012.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 13:35 [38;5;13mclpx_dem_meanvals_and2012driftvals.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M May 10 13:42 [38;5;13mclpx_dem_final.tif[0m
+-rw-rw-r--. 1 cparr cparr  26M May 31 09:28 [38;5;13mimnavait_dem.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jun  5 11:39 [38;5;13mclpx_final_dem_minus_arctic_dem.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jun  5 12:52 [38;5;13mclpx_final_dem_minus_corridor_dem.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jun  6 23:28 [38;5;13mclpx_dem_final_minus_014m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jun  7 12:38 [38;5;13mclpx_dem_final_minus_014m_filtered.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jun  7 12:42 [38;5;13mclpx_dem_final_filtered.tif[0m
+-rw-rw-r--. 1 cparr cparr 1.2G Jul 18 10:54 [38;5;13mclpx_dem_not_null_mask.tif[0m

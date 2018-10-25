@@ -1,0 +1,9 @@
+-rw-rw-r--. 1 cparr cparr 283M May  8 10:40 2012_158_HV.las
+-rw-rw-r--. 1 cparr cparr 709M May  8 10:40 2012_107_HV.las
+-rw-rw-r--. 1 cparr cparr 686M May  8 12:01 2013_103_HV.las
+-rw-rw-r--. 1 cparr cparr 1.7G May  8 14:53 2012_159_CLPX.las
+-rw-rw-r--. 1 cparr cparr 2.4G May  8 14:54 2013_102_CLPX.las
+-rw-rw-r--. 1 cparr cparr 2.6G May  8 14:55 2012_157_CLPX.las
+-rw-rw-r--. 1 cparr cparr 3.2G May  8 14:56 2012_106_CLPX.las
+-rw-rw-r--. 1 cparr cparr 1.5G May  9 23:56 clpx_2012_159_utm.las
+-rw-rw-r--. 1 cparr cparr 2.4G May 10 00:08 clpx_2012_157_utm.las

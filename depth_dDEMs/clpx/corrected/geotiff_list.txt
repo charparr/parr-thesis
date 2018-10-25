@@ -1,0 +1,16 @@
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:07 [0m[38;5;13mclpx_depth_from_filtered_DEM_105_2018_corrected_0.26_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:08 [38;5;13mclpx_depth_from_filtered_DEM_101_2017_corrected_0.43_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:08 [38;5;13mclpx_depth_from_filtered_DEM_096_2016_corrected_0.4_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:08 [38;5;13mclpx_depth_from_filtered_DEM_098_2015_corrected_0.37_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:09 [38;5;13mclpx_depth_from_filtered_DEM_102_2013_corrected_0.22_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Jul 26 11:09 [38;5;13mclpx_depth_from_filtered_DEM_106_2012_corrected_0.17_m.tif[0m
+-rw-rw-r--. 1 cparr cparr 3.5G Jul 27 12:53 [38;5;13mclpx_depth_stack.tif[0m
+-rw-rw-r--. 1 cparr cparr 3.5G Jul 27 14:54 [38;5;13mclpx_depth_stack_with_nan_holes.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_from_filtered_DEM_105_2018_corrected_0.17_m_trimmed.tif[0m[K
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_101_2017_corrected_0.43_m_trimmed.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_096_2016_corrected_0.4_m_trimmed.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_098_2015_corrected_0.37_m_trimmed.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_102_2013_corrected_0.22_m_trimmed.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Aug  7 15:50 [38;5;13mclpx_depth_106_2012_corrected_0.17_m_trimmed.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Oct 18 15:58 [38;5;13mclpx_depth_stack_mean.tif[0m
+-rw-rw-r--. 1 cparr cparr 583M Oct 18 15:58 [38;5;13mclpx_depth_stack_sd.tif[0m
