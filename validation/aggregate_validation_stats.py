@@ -7,6 +7,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from shapely.geometry import Point
+plt.switch_backend('TKAgg')
 sns.set_context('talk')
 sns.set_palette(sns.color_palette("husl", 2))
 sns.set_style("darkgrid")

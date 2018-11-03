@@ -13,9 +13,11 @@ python compute_validation.py -shp clpx/2012/magnaprobe_validation_points/clpx_al
 
 # Happy Valley
 
+python compute_validation.py -shp hv/2018/magnaprobe_validation_points/hv_all_depths_2018_utm.shp -dDEM ../depth_dDEMs/hv/uncorrected/hv_depth_103_2018.tif -out_results=True -figs=True -outrstr=True &&
+
 python compute_validation.py -shp hv/2017/magnaprobe_validation_points/hv_all_depths_2017_utm.shp -dDEM ../depth_dDEMs/hv/uncorrected/hv_depth_102_2017.tif -out_results=True -figs=True -outrstr=True &&
 
-# No validation for Happy Valley 2016
+echo "No validation for Happy Valley 2016"
 
 python compute_validation.py -shp hv/2015/magnaprobe_validation_points/hv_all_depths_2015_utm.shp -dDEM ../depth_dDEMs/hv/uncorrected/hv_depth_098_2015.tif -out_results=True -figs=True -outrstr=True &&
 
