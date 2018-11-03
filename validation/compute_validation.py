@@ -9,8 +9,7 @@ import argparse
 from os.path import basename, dirname, join
 from rasterio.plot import show
 from scipy.stats import spearmanr
-sns.set_context('poster')
-sns.set_style('darkgrid')
+plt.switch_backend('TKAgg')
 
 parser = argparse.ArgumentParser(description='Utility to perform validation of airborne lidar or airborne SfM generated snow depth surfaces. This tool compares a set of MagnaProbe snow depth measurments to the value of the snow depth raster at the same location. This tool can also write a new raster that is adjusted by the mean difference between the probe depth and raster value, write the validation results to shapefile and csv, and generate plots.')
 
@@ -73,7 +72,7 @@ else:
 if args.output_results:
     print('Writing results .shp and .csv...')
     # Generate .shp/.csv destination in appropriate results folder
-    out_dest = join(dirname(dirname(args.magna_shp)), 'validation_results')
+    out_dest = join(dirname(dirname(args.magna_shp)), 'results')
     out_prefix = basename(args.magna_shp).split('.')[0]
     out_suffix = '_validation_results'
     out_path = join(out_dest, out_prefix + out_suffix)
@@ -90,47 +89,59 @@ else:
 
 if args.figures:
     print('Creating figures...')
-    out_prefix = basename(args.magna_shp).split('.')[0]
+    out_prefix = basename(args.magna_shp).split('.')[0].split('_')[-2]
     out_dest = join(dirname(dirname(args.magna_shp)), 'figs')
 
-    fig, ax = plt.subplots(figsize=(16,16))
+    fig_x = int(10 * src.meta['width'] / src.meta['height'])
+    fig_y = int(10 * src.meta['height'] / src.meta['width'])
+    if fig_y > fig_x*4:
+        fig_x += 2
+        fig_y /= 3
+        text_x, text_y = 0.05, 0.15
+    else:
+        text_x, text_y = 0.05, 0.95
+    # Uncorrected depth map with probe point overlay
+    fig, ax = plt.subplots(figsize=(fig_x, fig_y))
+    print(fig_x, fig_y)
     cmap = plt.get_cmap('Spectral')
     cmap.set_under('white')  # Color for values less than vmin
     show((src, 1), with_bounds=True, ax=ax, vmin=-0.5, vmax=1.01, cmap=cmap)
     PCM=ax.get_children()[-2]
     plt.colorbar(PCM, ax=ax)
-    probes.plot(ax=ax, alpha=0.3, markersize=1, edgecolor=None, color='k')
-    plt.suptitle(out_prefix + ' depth [m] and Validation Points')
+    probes.plot(ax=ax, alpha=0.25, markersize=2, edgecolor='none', color='k')
+    plt.title(out_prefix + ' depth [m] and Validation Points')
     plt.savefig(join(out_dest, 'validation_depth_map.png'), bbox_inches='tight', dpi=300)
 
-    plt.figure(figsize=(12, 12))
+    sns.set_style('darkgrid')
+
+    plt.figure(figsize=(8, 5))
     ax = sns.distplot(probes['Probe-Raster Delta [m]'], hist=True)
-    ax.text(0.6, 0.75, delta_desc, fontsize=14, transform=ax.transAxes, bbox=dict(facecolor='blue', alpha=0.3))
+    ax.text(text_x, text_y, delta_desc, transform=ax.transAxes, bbox=dict(facecolor='blue', alpha=0.1))
     plt.savefig(join(out_dest, 'delta_hist.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     ax = sns.distplot(probes['MagnaProbe Depth [m]'], hist=True, color='g')
-    ax.text(0.6, 0.75, probe_desc, fontsize=14, transform=ax.transAxes, bbox=dict(facecolor='green', alpha=0.3))
+    ax.text(0.6, 0.6, probe_desc, transform=ax.transAxes, bbox=dict(facecolor='green', alpha=0.1))
     plt.savefig(join(out_dest, 'probe_hist.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     ax = sns.distplot(probes['Raster Value [m]'], hist=True, color='r')
-    ax.text(0.6, 0.75, rstr_desc, fontsize=14, transform=ax.transAxes, bbox=dict(facecolor='red', alpha=0.3))
+    ax.text(0.6, 0.6, rstr_desc, transform=ax.transAxes, bbox=dict(facecolor='red', alpha=0.1))
     plt.savefig(join(out_dest, 'raster_samples_hist.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     sns.jointplot(x="MagnaProbe Depth [m]", y="Raster Value [m]", kind='hex', data=probes, stat_func=spearmanr)
     plt.savefig(join(out_dest, 'probe_raster_joint.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     sns.jointplot(x="MagnaProbe Depth [m]", y="Raster Value Corrected [m]", kind='hex', data=probes, stat_func=spearmanr)
     plt.savefig(join(out_dest, 'probe_raster_plus_mean_delta_joint.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     sns.jointplot(x="MagnaProbe Depth [m]", y="Probe-Raster Delta [m]", kind='hex', data=probes, stat_func=spearmanr)
     plt.savefig(join(out_dest, 'probe_delta_joint.png'), dpi=300, bbox_inches='tight')
 
-    plt.figure(figsize=(12, 12))
+    plt.figure(figsize=(8, 5))
     sns.jointplot(x="Raster Value [m]", y="Probe-Raster Delta [m]", kind='hex', data=probes, stat_func=spearmanr)
     plt.savefig(join(out_dest, 'rstr_delta_joint.png'), dpi=300, bbox_inches='tight')
 
