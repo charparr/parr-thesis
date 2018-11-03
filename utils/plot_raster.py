@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from rasterio.plot import show
 
-np.seterr(all='ignore')
 
 parser = argparse.ArgumentParser(description='Utility to plot single rasters (GeoTiffs) with spatial coordinates with user supplied titles.')
 
@@ -40,8 +39,8 @@ cmap = plt.get_cmap('Spectral')
 fig, ax = plt.subplots(figsize=(fig_x, fig_y))
 
 ax.set_title(args.title)
-ax.set_ylabel('UTM N Zone 7N')
-ax.set_xlabel('UTM E Zone 7N')
+ax.set_ylabel('UTM N Zone 6N')
+ax.set_xlabel('UTM E Zone 6N')
 #textstr = 'DRAFT'
 
 #make this a cmd line arg
@@ -75,12 +74,13 @@ vmax = args.vmax
 #     vmax *= 0.98
 
 cmap.set_under('white')  # Color for values less than vmin
-#cmap.set_bad('black')
-show((src, 1), with_bounds=True, ax=ax)
+cmap.set_bad('white')
+#cmap.set_over('white')
+#show((src, 1), with_bounds=True, ax=ax)
 
-#show((src, 1), with_bounds=True, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap)
+show((src, 1), with_bounds=True, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap)
 plt.setp( ax.xaxis.get_majorticklabels(), rotation=45 )
-#PCM=ax.get_children()[-2]
-#plt.colorbar(PCM, ax=ax)
+PCM=ax.get_children()[-2]
+plt.colorbar(PCM, ax=ax)
 
 plt.savefig(args.output, dpi=300, bbox_inches='tight')
