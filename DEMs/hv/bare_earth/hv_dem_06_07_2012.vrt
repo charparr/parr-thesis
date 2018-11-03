@@ -1,0 +1,80 @@
+<VRTDataset rasterXSize="3400" rasterYSize="15400">
+  <SRS>PROJCS["WGS 84 / UTM zone 6N",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433],AUTHORITY["EPSG","4326"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-147],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","32606"]]</SRS>
+  <GeoTransform>  4.2100000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  7.6780000000000000e+06,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <VRTRasterBand dataType="Float32" band="1">
+    <NoDataValue>-9999</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-0-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="13520" yOff="15621" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="0" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-0-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="13520" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="152.599999999627" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-0-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="13520" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="0" yOff="3429.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="15621" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="0" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-2.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="152.599999999627" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-3.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="3429.40000000037" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-4.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="6706.20000000019" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-5.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="9983" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+    <ComplexSource>
+      <SourceFilename relativeToVRT="1">HappyValley_7June2012-1-6.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="16384" RasterYSize="16384" DataType="Float32" BlockXSize="256" BlockYSize="256" />
+      <SrcRect xOff="0" yOff="0" xSize="16384" ySize="16384" />
+      <DstRect xOff="572.799999999988" yOff="13259.7999999998" xSize="3276.79999999999" ySize="3276.79999999981" />
+      <NODATA>-32767</NODATA>
+    </ComplexSource>
+  </VRTRasterBand>
+</VRTDataset>
