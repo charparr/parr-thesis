@@ -13,6 +13,9 @@
 *.qpg
 *.qpj
 *.qml
+*.qgs
+*.qgs~
+
 
 # Word Processor
 *.odf
