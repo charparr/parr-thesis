@@ -1,0 +1,6 @@
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_107_2012.tif
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_103_2013.tif
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_098_2015.tif
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_096_2016.tif
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_102_2017.tif
+-rw-rw-r--. 1 cparr cparr 200M Nov  2 15:52 hv_depth_103_2018.tif
