@@ -1,0 +1,21 @@
+.
+├── figs
+├── ftp_source
+│   ├── las_file_list.txt
+│   └── sfm_geotiff_file_list.txt
+├── hv_snow_on_096_2016.tif
+├── hv_snow_on_096_2016.vrt
+├── hv_snow_on_098_2015.tif
+├── hv_snow_on_102_2017.tif
+├── hv_snow_on_103_2013_warped.tif
+├── hv_snow_on_103_2018.tif
+├── hv_snow_on_103_2018.vrt
+├── hv_snow_on_107_2012_warped.tif
+├── hv_snow_on_apr12_2017.vrt
+├── hv_snow_on_apr82015.vrt
+├── pdal_pipelines
+│   ├── hv_2012_snow_on_pipeline.json
+│   └── hv_2013_snow_on_pipeline.json
+└── tree.txt
+
+3 directories, 15 files
