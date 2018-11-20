@@ -42,17 +42,17 @@ bare_earth
 
 ### Scripts to Derive the Happy Valley DEM
 
--   Generate the desired 2012 and 2017 DEMs
-  - 2012
-     - `gdalbuildvrt hv_dem_06_07_2012.vrt ftp_source_data/HappyValley_7June2012*  -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
+-   Generate the desired 2012 and 2017 DEMs:
+  - 2012:
+     - `gdalbuildvrt hv_dem_06_07_2012.vrt ftp_source_data/HappyValley_7June2012* -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
      - `gdal_translate -of GTiff hv_dem_06_07_2012.vrt hv_dem_06_07_2012.vrt.tif`
-  - 2017
+  - 2017:
      - `gdalbuildvrt hv_dem_06_04_2017.vrt ftp_source_data/June4_2017_HappyValley.tif -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
      - `gdal_translate -of GTiff hv_dem_06_04_2017.vrt hv_dem_06_04_2017.tif`
--   Subtract the 2012 DEM from 2017 DEM
+-   Subtract the 2012 DEM from 2017 DEM:
   - `gdal_calc.py -A hv_dem_06_04_2017.tif -B hv_dem_06_07_2012.tif --outfile=hv_2017_2012_dem_difference.tif --calc="A-B" --NoDataValue=-9999`
-- Compute snowdrift DEM mask by DEM difference threshold and pixel intensity.
-  - Compute the sum of the pixel intensities with this Python snippet
+- Compute snowdrift DEM mask by DEM difference threshold and pixel intensity:
+  - Compute the sum of the pixel intensities with this Python snippet:
     ```python
     import rasterio
     import numpy as np
@@ -69,15 +69,15 @@ bare_earth
     with rasterio.open('hv_ortho_06_04_2017_sum.tif', 'w', **profile) as dst:
         dst.write(ortho_sum.astype('float32'), 1)
     ```
-  - Compute the mask
+  - Compute the mask:
     - `gdal_calc.py -A hv_dem_06_07_2012.tif -B orthos/hv_ortho_06_04_2017_sum.tif -C hv_2017_2012_dem_difference.tif --outfile=hv_DemVals2012_where_drifts_in2017Dem_else0.tif --calc="A*(B>420)*(C>0.4)"`
-- Compute mean DEM values where there are no 2017 snowdrifts
+- Compute mean DEM values where there are no 2017 snowdrifts:
   -   `gdal_calc.py -A hv_dem_06_07_2012.tif -B hv_dem_06_04_2017.tif -C hv_DemVals2012_where_drifts_in2017Dem_else0.tif --outfile=hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_else0.tif --calc="((A+B)/2)*(C==0)" --NoDataValue=-9999`
-- Merge the outputs from the last two commands so that there is no longer any masked data
+- Merge the outputs from the last two commands so that there is no longer any masked data:
   - `gdal_calc.py -A hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_else0.tif -B hv_DemVals2012_where_drifts_in2017Dem_else0.tif --outfile=hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_and_2012DemVals_where_drifts_in2017Dem.tif --calc="maximum(A,B)" --NoDataValue=-9999`
-- Adjust the 2017 DEM by the mean DEM difference to minimize border artifacts
-    -  `gdal_calc.py -A hv_dem_06_04_2017.tif --outfile=hv_dem_06_04_2017_adjusted_by_mean_DEM_delta.tif --calc="A-0.39"`
-- Pad the merged product with the 2017 DEM and write to a final master DEM
+- Adjust the 2017 DEM by the mean minus one standard deviation of the DEM difference map (with snowdrifts masked out) to minimize border artifacts:
+    -  `gdal_calc.py -A hv_dem_06_04_2017.tif --outfile=hv_dem_06_04_2017_adjusted_by_mean_DEM_delta.tif --calc="A-0.12"`
+- Pad the merged product with the 2017 DEM and write to a final master DEM:
   - `gdalbuildvrt hv_dem_master.vrt hv_dem_06_04_2017_adjusted_by_mean_DEM_delta.tif hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_and_2012DemVals_where_drifts_in2017Dem.tif -vrtnodata -9999`
   - `gdalwarp -of Gtiff -dstnodata -9999 hv_dem_master.vrt hv_dem_master.tif`
 
@@ -132,7 +132,7 @@ We compute the difference between the 2017 and 2012 DEMs to determine how to mas
 
 <img src="../DEMs/hv/bare_earth/figs/hv_mean_dem_and_2012_values.png" alt="drawing" height="600"/>
 
-The pixel-wise maximum of the previous two rasters (Figures 5 and 6) yields a DEM with mean values except where snowdirfts existed in the 2017 DEM - in which case values are from the 2012 DEM (Figure 1).
+The pixel-wise maximum of the previous two rasters (Figures 5 and 6) yields a DEM with mean values except where snowdrifts existed in the 2017 DEM - in which case values are from the 2012 DEM (Figure 1).
 
 <div style="page-break-after: always;"></div>
 
@@ -146,7 +146,7 @@ The pixel-wise maximum of the previous two rasters (Figures 5 and 6) yields a DE
 
 Potential to do:
 
-Redo ArcticDEM Validation e.g.
+Compare to an ArcticDEM strip e.g.
 
 `gdalbuildvrt arctic_dem/hv_arctic_dem_1m.vrt arctic_dem/46_18_2_1_5m_v2.0/46_18_2_1_5m_v2.0_reg_dem.tif arctic_dem/46_18_2_2_5m_v2.0/46_18_2_2_5m_v2.0_reg_dem.tif -resolution user -tr 1 1 -srcnodata -32767 -vrtnodata -9999`
 
