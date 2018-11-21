@@ -1,0 +1,5 @@
+List of lidar .LAS point cloud files.
+-rw-rw-r--. 1 cparr cparr 1.7G May  8 14:53 2012_159_CLPX.las
+-rw-rw-r--. 1 cparr cparr 2.6G May  8 14:55 2012_157_CLPX.las
+-rw-rw-r--. 1 cparr cparr 1.5G May  9 23:56 clpx_2012_159_utm.las
+-rw-rw-r--. 1 cparr cparr 2.4G May 10 00:08 clpx_2012_157_utm.las
