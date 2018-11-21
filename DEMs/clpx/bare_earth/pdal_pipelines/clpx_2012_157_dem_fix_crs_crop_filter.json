@@ -1,0 +1,28 @@
+{
+    "pipeline": [
+        {
+            "filename":"2012_157_CLPX.las",
+            "type":"readers.las",
+            "spatialreference":"epsg: 32606"
+        },
+        {
+            "type":"filters.crop",
+            "bounds":"([401900,415650],[7609100,7620200])"
+        },
+        {
+            "type":"filters.outlier",
+            "method":"statistical",
+            "mean_k":12,
+            "multiplier":2.0
+        },
+        {
+            "type":"filters.range",
+            "limits":"Classification![7:7]"
+        },
+        {
+          "filename":"clpx_2012_157_utm.las",
+          "type": "writers.las",
+          "a_srs":"epsg: 32606"
+        }
+      ]
+}
