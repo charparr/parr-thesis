@@ -76,6 +76,8 @@ bare_earth
 - Merge the outputs from the last two commands so that there is no longer any masked data:
   - `gdal_calc.py -A hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_else0.tif -B hv_DemVals2012_where_drifts_in2017Dem_else0.tif --outfile=hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_and_2012DemVals_where_drifts_in2017Dem.tif --calc="maximum(A,B)" --NoDataValue=-9999`
 - Adjust the 2017 DEM by the mean minus one standard deviation of the DEM difference map (with snowdrifts masked out) to minimize border artifacts:
+    - Mask out snowdrifts in the difference map:
+      - `gdal_calc.py -A hv_2017_2012_dem_difference.tif -B hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_else0.tif --calc="A*(B>0)" --outfile=hv_2017_2012_dem_difference_outside_of_drifts.tif --NoDataValue=-9999`
     -  `gdal_calc.py -A hv_dem_06_04_2017.tif --outfile=hv_dem_06_04_2017_adjusted_by_mean_DEM_delta.tif --calc="A-0.12"`
 - Pad the merged product with the 2017 DEM and write to a final master DEM:
   - `gdalbuildvrt hv_dem_master.vrt hv_dem_06_04_2017_adjusted_by_mean_DEM_delta.tif hv_Mean_2012_2017_DemVals_where_notdrifts_in2017Dem_and_2012DemVals_where_drifts_in2017Dem.tif -vrtnodata -9999`
@@ -140,8 +142,7 @@ The pixel-wise maximum of the previous two rasters (Figures 5 and 6) yields a DE
 
 <img src="../DEMs/hv/bare_earth/figs/hv_dem_master.png" alt="drawing" height="600"/>
 
-***
-
+Users should note that even in the 'final' DEM (Figure 8), areas padded by 2017 data (i.e. no 2012 data) will still have artificially high surface heights where there were remnant snowdrifts. Snowdrift location and the coverage extent of the 2012 data should be considered when selecting subsets for later analysis. One alternative is to reduce the extent to better reflect the 2012 data.
 <div style="page-break-after: always;"></div>
 
 Potential to do:
