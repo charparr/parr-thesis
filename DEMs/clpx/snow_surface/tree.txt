@@ -1,0 +1,21 @@
+.
+├── clpx_snow_on_096_2016.tif
+├── clpx_snow_on_096_2016.vrt
+├── clpx_snow_on_098_2015_warped.tif
+├── clpx_snow_on_101_2017.tif
+├── clpx_snow_on_101_2017.vrt
+├── clpx_snow_on_102_2013_warped.tif
+├── clpx_snow_on_105_2018.tif
+├── clpx_snow_on_105_2018.vrt
+├── clpx_snow_on_106_2012_warped.tif
+├── figs
+├── ftp_source
+│   ├── las_file_list.txt
+│   └── sfm_geotiff_list.txt
+├── orthos
+├── pdal_pipelines
+│   ├── clpx_2012_snow_on_pipeline.json
+│   └── clpx_2013_snow_on_pipeline.json
+└── tree.txt
+
+4 directories, 14 files
