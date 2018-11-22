@@ -100,9 +100,9 @@ if args.figures:
         text_x, text_y = 0.05, 0.15
     else:
         text_x, text_y = 0.05, 0.95
+
     # Uncorrected depth map with probe point overlay
     fig, ax = plt.subplots(figsize=(fig_x, fig_y))
-    print(fig_x, fig_y)
     cmap = plt.get_cmap('Spectral')
     cmap.set_under('white')  # Color for values less than vmin
     show((src, 1), with_bounds=True, ax=ax, vmin=-0.5, vmax=1.01, cmap=cmap)
