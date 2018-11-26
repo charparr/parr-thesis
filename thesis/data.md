@@ -46,128 +46,53 @@ These steps are documented and detailed in the DEM preparation appendix of each 
 
 ## Snow-Covered DSMs
 
-Near the end of each winter (2012 - 2018, except in 2014) mid-April airborne surveys acquired the surface heights of the mature, near-peak winter snowcover at each study area.
-
-### Pick It Up Here
-
-
-The rasters derived from these campaigns are the basis, along with the summer snow-free DEM, for the snow depth dDEMS. Similar to the snow free data, these data require processing to achieve constant metadata and boundaries before constructing the snow depth difference dDEMs. The 2012 and 2013 snow surfaces are generated from lidar point clouds via PDAL pipelines (see Appendix 1). All other snow surface heights (2015 - 2018) are derived from SfM.
-</p>
+Near the end of each of the seven winters (2012 through 2018, except in 2014), mid-April airborne surveys acquired the surface heights of the mature, near-peak winter snowcover at each study area. The 2012 and 2013 snow-covered DSMs are generated from lidar, while all others are derived from SfM. The gridded rasters of the snow depth surface (a snow-covered digital surface model (DSM)) are used to compute snow depth maps by subtracting the bare earth DEM. The generation and processing of the DSMs is detailed in the DSM preparation appendices, and the DSMs conform to the same data parameters prescribed earlier (Table 1).
+###### Table? Day of Year, data type
 
 ### Data 2.1 2012 and 2013 Winter Surfaces (from lidar via PDAL)
 
-<p>
-After executing the PDAL pipelines to produce gridded GeoTIFF rasters from the 2012 and 2013 point clouds, each raster output requires an adjustment to force the correct extent and dimensions and to convert from a 64-bit to a 32-bit floating point data type.
-</p>
+## Snow Depth Maps
 
+The snow depth maps are the element-wise difference of the summer, bare-earth DEM from the winter, snow-covered DSM:
+$$H{snow}_{ij} = HsnowcoverDSM_{ij} - HsummerDEM_{ij}$$
 
-### Data 2.2 2015-2018 Winter Surfaces
-<p>
-The 2015-2018 surfaces are from SfM and need minor preprocessing to achieve the correct extents, resolutions, and other metadata. At this time the CLPX 2015 winter surface is not hosted on the ftp, although several versions exist on my personal backups. I am uncertain if the data was acquired on DOY 097 or 098. The CLPX 2016 winter surface (DOY 096) is also not on the ftp, but my version consists of 22 GeoTIFF tiles (11.4 G). The tiles need to be merged and downsampled from 0.20 m pixels to 1.0 m pixels. The CLPX 2017 winter surface is on the ftp (14 tiles, 7.4 G) and also needs to be merged and downsampled. The CLPX 2018 data (20 tiles, 11.3 G) must also be merged and downsampled. The 2015 Happy Valley winter surface is hosted on the ftp (9 tiles) and needs to be mosaiced, downsampled (0.20 m to 1.0 m), and provided with correct references and metadata.
-The 2016 Happy Valley snow surface is not currently on the ftp, but exists in my backups (9 tiles, 3.2 G) and needs similar processing to the 2015 data. The 2017 Happy Valley winter surface is available on the ftp and needs similar processing and downsampling (0.25 m to 1.0 m).
-</p>
+The computation the snow depth maps is a straightforward subtraction. Details are available in snow depth map appendices. Each snow depth map has the same extents and metadata as the parent surfaces (Table 1). All snow depth maps measure depth in meters. The high resolution maps capture both landscape and local patterns of snow depth distribution and reveal a striking heterogeneity within the tundra snowcover (Figure 1.)
 
-#### CLPX
-##### 2015
-`gdalwarp -te 401900 7609100 415650 7620200 -tr 1 1 -ot float32 -srcnodata -32767 -dstnodata -9999 clpx_snow_on_2015_098.tif clpx_snow_on_098_2015_warped.tif`
-##### 2016
-`gdalbuildvrt clpx_snow_on_096_2016.vrt clpx_2016_096* -resolution user -tr 1 1 -te 401900 7609100 415650 7620200 -srcnodata -32767 -vrtnodata -9999`
+###### Figure 1: Snow Depth Map (like in the camden whitepaper)
 
-`gdal_translate -of GTiff clpx_snow_on_096_2016.vrt clpx_snow_on_096_2016.tif`
-##### 2017
-`gdalbuildvrt clpx_snow_on_101_2017.vrt Apr11_2017* -resolution user -tr 1 1 -te 401900 7609100 415650 7620200 -srcnodata -32767 -vrtnodata -9999`
+After computing each depth map, the result is compared to a set of manual snow depth measurements made in the field conincident with the acquisition of the snow-covered DSM to determine accuracy.
 
-`gdal_translate -of GTiff clpx_snow_on_101_2017.vrt clpx_snow_on_101_2017.tif`
-##### 2018
-`gdalbuildvrt clpx_snow_on_105_2018.vrt April15_2018* -resolution user -tr 1 1 -te 401900 7609100 415650 7620200 -srcnodata -32767 -vrtnodata -9999`
+## Snow Depth Map Validation
 
-`gdal_translate -of GTiff clpx_snow_on_105_2018.vrt clpx_snow_on_105_2018.tif`
+Over a hundred thousand snow depth measurements made with a GPS-enabled automatic probe (Sturm and Holmgren, 2018) validate the snow depth maps (e.g. Figure 2). A custom Python script (see validation appendix) computes the difference between the probe measurement and the value of the snow depth map pixel for that location. This difference between the  and the map value is the error. A similar script then compares these error values to several terrain derivatives (e.g. slope, aspect) to determine if there is a geographic or topographic trend, or if the errors have stationarity. After error aggregation and analysis a correction value is applied to each depth map such that map values fit the 'true' probe values as best is possible.
+Over a hundred thousand snow depth measurements made with a GPS-enabled automatic probe (Sturm and Holmgren, 2018) validate the snow depth maps (e.g. Figure 2). A custom Python script (see validation appendix) computes the difference between the probe measurement and the value of the snow depth map pixel for that location. This difference between the map value and the probe depth is the error. A similar script then compares these error values to several terrain derivatives (e.g. slope, aspect) to determine if there is a geographic or topographic trend, or if the errors have stationarity. After error aggregation and analysis a correction value is applied to each depth map such that map values fit the 'true' probe values as best is possible.
 
-#### Happy Valley
-##### 2015
-`gdalbuildvrt hv_snow_on_apr82015.vrt Apr8* -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
-
-`gdal_translate -of GTiff hv_snow_on_apr82015.vrt hv_snow_on_098_2015.tif`
-##### 2016
-`gdalbuildvrt hv_snow_on_096_2016.vrt hv_2016_096_snow_on* -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
-
-`gdal_translate -of GTiff hv_snow_on_096_2016.vrt hv_snow_on_096_2016.tif`
-##### 2017
-`gdalbuildvrt hv_snow_on_apr12_2017.vrt Apr12_2017_HV.tif -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
-
-`gdal_translate -of GTiff hv_snow_on_apr12_2017.vrt hv_snow_on_102_2017.tif`
-##### 2018
-`gdalbuildvrt hv_snow_on_103_2018.vrt Apr13_2018* -resolution user -tr 1 1 -te 421000 7662600 424400 7678000 -srcnodata -32767 -vrtnodata -9999`
-
-`gdal_translate -of GTiff hv_snow_on_103_2018.vrt hv_snow_on_103_2018.tif`
-
-
-<p>
-The 2015-2017 winter surfaces are now ready to be used in constructing the snow depth dDEMs. 2018 is still in progress. We can now generate snow depth [m] dDEMs for six winters for each study area by subtracting the summer bare earth DEM from the winter snow covered DEM.
-</p>
-
-* * *
-
-## Data 3.0 Computing Snow Depth dDEMs
-
-<p>
-The GDAL commands to compute the snow depth dDEMs are available in Appendix 3: Snow Depth dDEM Computation. Each snow depth dDEM has the same extents and metadata as the parent DEMs. The snow depth [m] dDEMs are computed as the element-wise difference of the summer DEM from the winter DEM:
-</p>
-
-$$H{snow}_{ij} = Hwinter_{ij} - Hsummer_{ij}$$
-
-###### Figure 10: A snow depth ${[m]}$ dDEM (CLPX 2017)
-
-<p>
-We compare each winter and study area's snow depth dDEM against a set of manual MagnaProbe snow depth measurements acquired at the same time as the winter surface.
-</p>
-
-* * *
-
-## Data 4.0 Validation of the Snow Depth dDEMs
-
-<p>
-Each year the snow depth map produced by the seasonal surface differencing has been validated by thousands of MagnaProbe measurements (Figure 11). A Python script compares the value of the snow depth raster against the value of the MagnaProbe depth measurement at the same location. The difference between the MagnaProbe measurement and the raster value is the error in meters. For those familiar with ArcGIS, this is similar to the 'Extract Values to Points' geoprocessing tool, or the 'Point Sampler Plugin' for QGIS. A similar script then compares these error values to several terrain derivatives (e.g. slope, hillshade). Errors are analyzed by year, study area, location within each study area, and topography. Finally, a correction value is prescribed to adjust each snow depth map. Particular consideration is given to the case of Happy Valley in 2016 where no validation points were acquired because of logistical field work limits. All validation scripts and results are reproducible (see Appendix 4: Snow Depth dDEM Validation).
-</p>
-
-###### Figure 11: An example of a field validation campaign: CLPX 2012 Uncorrected Snow Depth dDEM $[m]$ and MagnaProbe validation points $(N=32571)$
+###### Figure 2: An example of a field validation campaign: CLPX 2012; 32571 MagnaProbe validation points (black dots).
 
 ![alt text](../validation/clpx/2012/figs/validation_depth_map.png)
 
-### Data 4.1: Known Error Sources
+The primary sources of uncertainty in the snow depth maps are geolocation errors in the parent DEMs and DSMs. Geolocation errors contribute uncertainity to the snow depth maps in two ways: 1) Inaccurate measurements of surface height within each parent DEM/DSM are passed down to the snow depth map, and 2) poor geographic coregistration between the DEM and DSM. The former will produce especially severe errors where the change in true surface height is large compared to the ground sample distance (i.e. steep or rough terrain). The geolocation uncertainty within the parent DEMs/DSMs arises from the limits of the GPS onboard the aircraft and from how the GPS data is processed while building the point clouds derived from the raw laser returns (lidar) or aerial photographs (SfM). Based on previous experience \[Nolan et al., 2015\] we understand the geolocation error within the parent DEM / DSMs to be on the order of plus or minus 0.30 m. The upper limit of the accuracy of the snow depth maps (unadjusted by probe measurements) is expected to be plus or minus 0.10 m. Natural dynamic landscape factors such as frost heave, shrub bending, shrub leaf-out, and the nature of the snowcover itself may also influence results.
 
-<p>
-The primary sources of uncertainty in the snow depth dDEMs are geolocation errors in the parent summer and winter DEMs. A geolocation error can contribute uncertainity to a snow depth dDEM in two ways: 1) Inaccurate measurements of surface height within each parent DEM, and 2) misregistration between the two parent DEMs. An inaccurate surface height measurement caused by geolocation uncertainty will produce especially severe errors where the change in true surface height is high with respect to the ground sample distance (i.e. steep or rough terrain). The geolocation uncertainty in the parent DEMs arises from the limits of the GPS onboard the aircraft and from how the GPS data is processed when building the lidar or SfM point clouds from the raw laser returns or aerial photographs. Based on previous experience [Nolan et al., 2015] we understand the geolocation error within the parent DEMs to be on the order of plus or minus 0.30 m. The upper limit of the accuracy of the snow depth dDEMs is expected to be plus or minus 0.10 m, although natural factors such as frost heave, shrub bending, and shrub leaf-out will influence results.
-</p>
-<p>
-The MagnaProbe measurements of snow depth used to truh the snow depth dDEMs have errors as well. The geolocation error caused by the non-differential MagnaProbe GPS is substantial (on the order of 5.0 m) and there is a quasi-random vertical error in depth that is almost always too high (over-probe) can be as high as 0.05 m [Sturm and Holmgren, in press]. We consider the MagnaProbe measurement to be the true snow depth in our study and leverage the high number of measurements to validate the snow depth dDEMs as best as possible. We believe that over the course of a measurement campaign the combination of all of the above errors cause the surface height measurements to float some amount away from the 'true' surface - and the amount of this float (as we will show) must in someway be close to a fixed offset for the survey. Given the above sources of uncertainty and lack of ground control points, we expect corrected snow depth dDEM accuracies to range between 0.10 and 0.40 m.
-</p>
+The probe measurements of snow depth used to validate the snow depth maps also have substantial geolocation errors (on the order of 5 m) caused by the non-differential GPS onboard the instrument. Additionally, a quasi-random vertical error in depth exists that is almost always too high (as much as 0.05 m) that is caused by the tendency to 'over-probe' down into the substrate below the snow. However, the probe is considered the true snow depth measurement in our study and we leverage the large number of measurements to validate the snow depth maps as best as possible. We believe that over the course of a measurement campaign the combination of all of the above errors (airborne and probe) cause the surface height and resulting snow depth measurements to 'float' some amount away from their actual values - and the amount of this float (as we will show) must in someway be close to a fixed offset for the survey. Given the above sources of uncertainty and lack of high fidelity ground control points, we expect corrected snow depth maps accuracies to range between 0.10 and 0.40 m.
 
-### 4.2 Validation Results
+A total of 141,207 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are found in Figure 12. The mean error (probe minus snow depth map) for all years and study areas is 0.16 m (Table 3).
 
-<p>
-A total of 141207 MagnaProbe points between both study areas were used in this validation process. The distributions of these snow depth measurements and their corresponding snow depth raster values are found in Figure 12. The mean error (snow depth dDEM minus MagnaProbe) for the entire set of data (all years and study areas) is 0.25 m (Table 1).
-</p>
-
-###### Figure 12: MagnaProbe histograms vs. snow depth dDEM histrograms, all data all years. Between each histogram pair is the boxplot for the combined measurement population.
-
-![alt text](../validation/aggregate_results/figs/probe_v_rstr_violin.png)
-
-###### Table 1: Validation Results for MagnaProbe to snow depth dDEM pixel comparisons
+###### Table 3: Snow Depth Map Validation Results
 
 ![alt text](../validation/aggregate_results/figs/aggregate_results_summary.png)
 
-<p>
-Table 1 indicates that the airborne retreivals of snow depth underestimate the snow depth measured by the MagnaProbe. The snow depth dDEMs are too shallow. The positive error values explain the misaligned histogram pairs in Figure 12 where the snow depth dDEM distribution is always negatively shifted with respect to its partner MagnaProbe distribution. The variability of the errors with respect to time (year) and space (study area) is examined with another violin plot (Figure 13) and by a more familiar boxplot (Figure 14). Errors are consistent between the two study areas except in 2017 (Figure 13), although in each year the median error at CLPX is greater than at Happey Valley. Errors are more variable over time than study area, but the first and third quantiles of each boxplot overlap with at least one other year (Figure 14). Note that validation data is missing for Happy Valley in 2016.
-</p>
+The airborne retreivals of snow depth underestimate the probe snow depth. Nearly all of the snow depth map values are too shallow, but their statistical distributions are similar to those of the probes. The interannual variabilty of distribution shape is largely driven by different field measurement survey strategies.
 
-###### Figure 13: Violin Plots of Errors (MagnaProbe minus Snow Depth dDEM) by Year and Study Area
-![alt text](../validation/aggregate_results/figs/validation_violin.png)
+![alt text](../validation/aggregate_results/figs/probe_v_rstr_violin.png)
 
-###### Figure 14: Box Plots of Errors (i.e. MagnaProbe - MagnaProbe minus Snow Depth dDEM) by Year and Study Area
+In each year the median error at CLPX is greater than at Happy Valley (Figure 4). This may be due to probe survey differences - but the terrain, wind regime, and resulting snowcover at CLPX are also much different than at Happy Valley. The katabatic-intensified patterns of drift and scour over the eastern portion of the CLPX domain are likely more difficult targets - especially the scour zones. Note that validation data is missing for Happy Valley in 2016 (see the validation appendix for notes on how this depth map was adjusted).
+
+###### Figure 4: Box Plots of Errors (MagnaProbe  minus Snow Depth Map) by Year and Study Area
+
 ![alt text](../validation/aggregate_results/figs/validation_box.png)
 
-<p>
+# Pick it up here
+
 To determine the presence of any geographic trend in the errors geographic zone labels are prescribed to different sets of MagnaProbe points for each study area. The CLPX points are divided into 4 zones: CLPX East, Imnavait, Imnavait North, and CLPX West. These four zones  capture different MagnaProbe sampling regimes and the general trend of wind and snow characteristics known to exist in this domain: deeper snow and milder winds in the West and shallower snow scoured by strong katabatic winds in the East [Sturm and Stuefer, 2013]. Happy Valley is split into five zones: Happy Valley North, Happy Valley South, Watertracks, Crescent Lake, and Happy Valley Stream. Total (Figures 15 and 16) and annual (Figure 17) errors are compared across these geographic zones to illuminate any potential geographic or sampling regime bias in the errors.
 </p>
 
