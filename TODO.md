@@ -1,6 +1,7 @@
 # TODO
 
 -   Apply new offset from new results to HV 2016 depth maps
+- plot errors vs easting / northing
 -   Find a way to smooth DEM or depth maps
 -   Wrap depth maps for Matthew
 -   Send bullets for introduction to Matthew
@@ -9,6 +10,7 @@
       - Trim to where we have data for all years, i.e. if nan for one year then nan for every year
     - Recompute CLPX DEM and Depth maps
     - Fill in CLPX Appendices
+- Cull skew, kurt from map errors. format count as int and fix years?
 -   Methods: Drift mapping
 -   Methods: Similarity index
 - 1. Create script to compare drift vs. not-drift area (and snow volume) for a variety of depth thresholds. The thresholds should be precentages of the mean depth value for the domain. This should generate simialr results to an experiment done at Tuolumne.
