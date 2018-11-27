@@ -1,15 +1,12 @@
 # TODO
 
 -   Apply new offset from new results to HV 2016 depth maps
-- plot errors vs easting / northing
 -   Find a way to smooth DEM or depth maps
 -   Wrap depth maps for Matthew
 -   Send bullets for introduction to Matthew
 -   Finish data.md
     -   Add note about creating depth stack products
       - Trim to where we have data for all years, i.e. if nan for one year then nan for every year
-    - Recompute CLPX DEM and Depth maps
-    - Fill in CLPX Appendices
 - Cull skew, kurt from map errors. format count as int and fix years?
 -   Methods: Drift mapping
 -   Methods: Similarity index
@@ -19,6 +16,4 @@
 -   Write Field Areas section
 
 ## Notes
-CLPX DEM may be re-processed by Chris.
-
 Learn: Geographically Weighted Regressions
