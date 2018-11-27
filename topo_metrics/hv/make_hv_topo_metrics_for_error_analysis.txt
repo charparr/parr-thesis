@@ -1,0 +1,1 @@
+bash ../../utils/topo_metrics_for_error_analysis.sh ../../DEMs/hv/bare_earth/hv_dem_master.tif hv

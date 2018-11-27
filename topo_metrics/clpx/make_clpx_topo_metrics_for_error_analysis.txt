@@ -1,0 +1,1 @@
+bash ../../utils/topo_metrics_for_error_analysis.sh ../../DEMs/clpx/bare_earth/clpx_dem_master.tif clpx
