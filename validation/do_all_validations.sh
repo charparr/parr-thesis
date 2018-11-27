@@ -45,11 +45,11 @@ python aggregate_validation_stats.py &&
 
 echo "Validation Results Summarized and Aggregated."
 
-# python error_v_terrain.py -shp aggregate_results/spatial/all_validation_zone_labeled.shp -td ../DEMs/clpx/bare_earth/topo_measures -area CLPX -out_results True -figs True &&
-#
-# python error_v_terrain.py -shp aggregate_results/spatial/all_validation_zone_labeled.shp -td ../DEMs/hv/bare_earth/topo_measures -area 'Happy Valley' -out_results True -figs True
-#
-# echo "Terrain vs. Error Analysis Complete."
+python error_v_easting_northing.py &&
+
+python error_v_slope_aspect.py -shp
+
+echo "Terrain vs. Error Analysis Complete."
 
 echo "validation Completed."
 
