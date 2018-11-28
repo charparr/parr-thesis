@@ -1,13 +1,14 @@
 # TODO
-
--   Apply new offset from new results to HV 2016 depth maps
--   Find a way to smooth DEM or depth maps
--   Wrap depth maps for Matthew
--   Send bullets for introduction to Matthew
 -   Finish data.md
-    -   Add note about creating depth stack products
-      - Trim to where we have data for all years, i.e. if nan for one year then nan for every year
-- Cull skew, kurt from map errors. format count as int and fix years?
+  - add page breaks
+  - control table size
+  - Generate depth stacks, mean and sd. depth maps
+    - document in depth map appendices
+    - Trim to where we have data for all years, i.e. if nan for one year then nan for every year
+  - Cull skew, kurt from map errors. format count as int and fix years from agg. table?
+- Compress depth map folder and send to committee
+  - review all appendices for completion
+-   Send bullets for introduction to Matthew
 -   Methods: Drift mapping
 -   Methods: Similarity index
 - 1. Create script to compare drift vs. not-drift area (and snow volume) for a variety of depth thresholds. The thresholds should be precentages of the mean depth value for the domain. This should generate simialr results to an experiment done at Tuolumne.
@@ -17,3 +18,5 @@
 
 ## Notes
 Learn: Geographically Weighted Regressions
+
+Find a way to smooth DEM or depth maps
