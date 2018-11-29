@@ -1,0 +1,1 @@
+gdal_merge.py -o hv_depth_stack.tif -ot float32 -separate -a_nodata -9999 *.tif

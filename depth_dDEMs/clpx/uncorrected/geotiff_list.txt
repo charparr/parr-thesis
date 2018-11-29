@@ -1,0 +1,6 @@
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:38 clpx_depth_106_2012.tif
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:38 clpx_depth_102_2013.tif
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:38 clpx_depth_098_2015.tif
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:38 clpx_depth_096_2016.tif
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:39 clpx_depth_101_2017.tif
+-rw-rw-r--. 1 cparr cparr 583M Nov 21 14:39 clpx_depth_105_2018.tif
