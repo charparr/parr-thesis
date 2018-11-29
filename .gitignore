@@ -36,6 +36,9 @@
 # MagnaProbe
 *.dat
 
+# Archives
+*.zip
+
 # Spreadsheets
 *.xls
 *.xlsx
