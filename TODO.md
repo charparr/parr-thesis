@@ -1,13 +1,9 @@
 # TODO
 -   Finish data.md
-  - add page breaks
   - control table size
-  - Generate depth stacks, mean and sd. depth maps
-    - document in depth map appendices
-    - Trim to where we have data for all years, i.e. if nan for one year then nan for every year
   - Cull skew, kurt from map errors. format count as int and fix years from agg. table?
+- Figures for appendices: DSM, Depth Maps, Stack Products
 - Compress depth map folder and send to committee
-  - review all appendices for completion
 -   Send bullets for introduction to Matthew
 -   Methods: Drift mapping
 -   Methods: Similarity index
@@ -20,3 +16,5 @@
 Learn: Geographically Weighted Regressions
 
 Find a way to smooth DEM or depth maps
+
+Contribute similarity metrics to skimage
