@@ -134,6 +134,8 @@ Happy Valley DSMs to be added?
 
 Add figures
 
+Change paths to .LAS source files in pdal_pipelines
+
 Generate list of geotiff source data
 
 END
