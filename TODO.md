@@ -13,10 +13,6 @@
 ## Field Areas
 
 ## Methods
-  - Finish text on drift definition
-  - Complete figure showing only thresholds and years in notebook and put it in the script
-
-
   - what areas are always drifts or not drifts? (creating inventory)
   -
 -   Similarity of snow depth patterns
