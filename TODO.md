@@ -31,6 +31,14 @@
 -   Write Field Areas section
 - Implement VRM topo metric (https://gis.stackexchange.com/questions/110397/how-to-use-vector-ruggedness-measure-vrm-tool-from-arcscripts-at-latest-version)
 
+
+- FOR WHITEBOX TOPO MEAUSURES
+  - Run tools with pit filled or smoothed DEM as appropriate
+  - show DV results
+  - Create showcase of tools where azimuth is specified (whitbox plus winstral)
+  - add any other ruggendess topo tools from other work where appropriate
+  - 
+
 ## Notes
 Learn: Geographically Weighted Regressions
 
