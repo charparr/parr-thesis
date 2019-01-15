@@ -39,12 +39,6 @@ def init_wb_hydrotools():
         hydro_tool_dict['average_upslope_flowpath_length'][p] = ''
     hydro_tool_dict['average_upslope_flowpath_length']['help'] = "Measures the average length of all upslope flowpaths draining each grid cell. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file."
 
-    hydro_tool_dict['depth_in_sink'] = {}
-    depth_in_sink_params = ['dem', 'output', 'zero_background']
-    for p in depth_in_sink_params:
-        hydro_tool_dict['depth_in_sink'][p] = ''
-    hydro_tool_dict['depth_in_sink']['help'] = "Measures depth of sinks (depressions) in a DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zero_background -- Flag indicating whether the background value of zero should be used (false)."
-
     hydro_tool_dict['num_inflowing_neighbours'] = {}
     num_inflowing_neighbours_params = ['dem', 'output']
     for p in num_inflowing_neighbours_params:
@@ -52,3 +46,41 @@ def init_wb_hydrotools():
     hydro_tool_dict['num_inflowing_neighbours']['help'] = "Computes the number of inflowing neighbours to each cell in an input DEM based on the D8 algorithm. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file."
 
     return hydro_hydro_tool_dict
+
+
+### Hydro - flow tools
+# Generate an SCA
+# for k in d:
+#     if 'd8_flow_accumulation' in k:
+#         print(k)
+#         d[k]['log'] = False
+#         d[k]['clip'] = False
+#         d[k]['out_type'] = 'specific contributing area'
+#         getattr(wbt, k)(d[k]['dem'],
+#                         d[k]['output'],
+#                         d[k]['out_type'],
+#                         d[k]['log'],
+#                         d[k]['clip'])
+
+# Wetness index from SCA (d8 flow acc)
+# for k in d:
+#     if 'wetness_index' in k:
+#         print(k)
+#         d[k]['sca'] = d['d8_flow_accumulation']['output']
+#         d[k]['slope'] = d['slope']['output']
+#         getattr(wbt, k)(d[k]['sca'],
+#                         d[k]['slope'],
+#                         d[k]['output'])
+#  Sediment Transport index from SCA (d8 flow acc)
+# for k in d:
+#     if 'sediment_transport_index' in k:
+#         print(k)
+#         d[k]['sca'] = d['d8_flow_accumulation']['output']
+#         d[k]['slope'] = d['slope']['output']
+#         d[k]['sca_exponent'] = 0.4
+#         d[k]['slope_exponent'] = 1.3
+#         getattr(wbt, k)(d[k]['sca'],
+#                         d[k]['slope'],
+#                         d[k]['output'],
+#                         d[k]['sca_exponent'],
+#                         d[k]['slope_exponent'])
