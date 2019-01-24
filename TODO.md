@@ -27,11 +27,11 @@
 -   Structure where aois are generated --> geomorph tiles --> drift inventory --> rf model?
 
 ## Work (not science)
-- Call Tupper to arrange delivery of one sled for Monday or Tuesday
-- Call Ben to see if delivery to Tupper can take place Monday or Tuesday
-- Other sleds come to UPark or Cold Storage (Brian)
+~~- Call Tupper to arrange delivery of one sled for Monday or Tuesday~~
+~~- Call Ben to see if delivery to Tupper can take place Monday or Tuesday~~
+~~- Other sleds come to UPark or Cold Storage (Brian)~~
 - Amend Sled Cover PO with Katie Best
-- Toolik Reservations (pending Aly fund/org info)
+~~- Toolik Reservations ~~(pending Aly fund/org info)~~~~
 - MagnaProbe parts purchase (batteries plus other items from Matthew)
 - Two sled covers for repair (hear from Chris about cover conidition at Matthew's)
 

@@ -1,6 +1,7 @@
 #
 import os
 
+
 def init_wb_geomorphtools(full_dem_path):
 
     geomorph_tool_dict = {}
@@ -103,63 +104,91 @@ def init_wb_geomorphtools(full_dem_path):
         geomorph_tool_dict['pennock_landform_class'][i] = j
 
     # Percent of Elevation Range
-    """Calculates percent of elevation range from a DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. filterx -- Size of the filter kernel in the x-direction. filtery -- Size of the filter kernel in the y-direction."""
+    """Calculates percent of elevation range from a DEM. Keyword arguments:
+    dem -- Input raster DEM file. output -- Output raster file. filterx --
+    Size of the filter kernel in the x-direction. filtery -- Size of the
+    filter kernel in the y-direction."""
     geomorph_tool_dict['percent_elev_range'] = {}
     percent_elev_range_params = ['dem', 'output', 'filterx', 'filtery']
     for p in percent_elev_range_params:
         geomorph_tool_dict['percent_elev_range'][p] = ''
 
     # Profile Curvature
-    """Calculates a profile curvature raster from an input DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same."""
+    """Calculates a profile curvature raster from an input DEM. Keyword
+    arguments: dem -- Input raster DEM file. output -- Output raster file.
+    zfactor -- Optional multiplier for when the vertical and horizontal units
+    are not the same."""
     geomorph_tool_dict['profile_curvature'] = {}
     profile_curvature_params = ['dem', 'output', 'zfactor']
     for p in profile_curvature_params:
         geomorph_tool_dict['profile_curvature'][p] = ''
 
     # Plan Curvature
-    """Calculates a plan (contour) curvature raster from an input DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same."""
+    """Calculates a plan (contour) curvature raster from an input DEM. Keyword
+    arguments: dem -- Input raster DEM file. output -- Output raster file.
+    zfactor -- Optional multiplier for when the vertical and horizontal units
+    are not the same."""
     geomorph_tool_dict['plan_curvature'] = {}
     plan_curvature_params = ['dem', 'output', 'zfactor']
     for p in plan_curvature_params:
         geomorph_tool_dict['plan_curvature'][p] = ''
 
     # Relative TPI
-    """Calculates the relative topographic position index from a DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. filterx -- Size of the filter kernel in the x-direction. filtery -- Size of the filter kernel in the y-direction."""
+    """Calculates the relative topographic position index from a DEM. Keyword
+    arguments: dem -- Input raster DEM file. output -- Output raster file.
+    filterx -- Size of the filter kernel in the x-direction. filtery -- Size
+    of the filter kernel in the y-direction."""
     geomorph_tool_dict['relative_topographic_position'] = {}
-    relative_topographic_position_params = ['dem', 'output', 'filterx', 'filtery']
-    for p in relative_topographic_position_params:
+    relative_topo_position_params = ['dem', 'output', 'filterx', 'filtery']
+    for p in relative_topo_position_params:
         geomorph_tool_dict['relative_topographic_position'][p] = ''
 
     # Ruggedness
-    """Calculates the Riley et al.'s (1999) terrain ruggedness index from an input DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same."""
+    """Calculates the Riley et al.'s (1999) terrain ruggedness index from an
+    input DEM. Keyword arguments: dem -- Input raster DEM file. output --
+    Output raster file. zfactor -- Optional multiplier for when the vertical
+    and horizontal units are not the same."""
     geomorph_tool_dict['ruggedness_index'] = {}
     ruggedness_index_params = ['dem', 'output', 'zfactor']
     for p in ruggedness_index_params:
         geomorph_tool_dict['ruggedness_index'][p] = ''
 
     # SD Slope
-    """Calculates the standard deviation of slope from an input DEM.. Keyword arguments: i -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same. filterx -- Size of the filter kernel in the x-direction. filtery -- Size of the filter kernel in the y-direction."""
+    """Calculates the standard deviation of slope from an input DEM.. Keyword
+    arguments: i -- Input raster DEM file. output -- Output raster file.
+    zfactor -- Optional multiplier for when the vertical and horizontal units
+    are not the same. filterx -- Size of the filter kernel in the x-direction.
+    filtery -- Size of the filter kernel in the y-direction."""
     geomorph_tool_dict['standard_deviation_of_slope'] = {}
-    standard_deviation_of_slope_params = ['i', 'output', 'zfactor', 'filterx', 'filtery']
-    for p in standard_deviation_of_slope_params:
+    std_dev_of_slope_params = ['i', 'output', 'zfactor', 'filterx', 'filtery']
+    for p in std_dev_of_slope_params:
         geomorph_tool_dict['standard_deviation_of_slope'][p] = ''
 
     # Tangential Curvature
-    """Calculates a tangential curvature raster from an input DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same."""
+    """Calculates a tangential curvature raster from an input DEM. Keyword
+    arguments: dem -- Input raster DEM file. output -- Output raster file.
+    zfactor -- Optional multiplier for when the vertical and horizontal units
+    are not the same."""
     geomorph_tool_dict['tangential_curvature'] = {}
     tangential_curvature_params = ['dem', 'output', 'zfactor']
     for p in tangential_curvature_params:
         geomorph_tool_dict['tangential_curvature'][p] = ''
 
     # Total Curvature
-    """Calculates a total curvature raster from an input DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. zfactor -- Optional multiplier for when the vertical and horizontal units are not the same."""
+    """Calculates a total curvature raster from an input DEM. Keyword
+    arguments: dem -- Input raster DEM file. output -- Output raster file.
+    zfactor -- Optional multiplier for when the vertical and horizontal units
+    are not the same."""
     geomorph_tool_dict['total_curvature'] = {}
     total_curvature_params = ['dem', 'output', 'zfactor']
     for p in total_curvature_params:
         geomorph_tool_dict['total_curvature'][p] = ''
 
     # Visibility Index (Computationally Intensive!)
-    """Estimates the relative visibility of sites in a DEM. Keyword arguments: dem -- Input raster DEM file. output -- Output raster file. height -- Viewing station height, in z units. res_factor -- The resolution factor determines the density of measured viewsheds."""
+    """Estimates the relative visibility of sites in a DEM. Keyword arguments:
+    dem -- Input raster DEM file. output -- Output raster file. height --
+    Viewing station height, in z units. res_factor -- The resolution factor
+    determines the density of measured viewsheds."""
     geomorph_tool_dict['visibility_index'] = {}
     visibility_index_params = ['dem', 'output', 'height', 'res_factor']
     for p in visibility_index_params:
@@ -170,15 +199,18 @@ def init_wb_geomorphtools(full_dem_path):
         print(i, j)
         geomorph_tool_dict['visibility_index'][i] = j
 
+    prefix = os.path.basename(full_dem_path)[0:-7]
+    # assuming ends in dem.tif
     out_dir = os.path.dirname(full_dem_path)
-    prefix = os.path.basename(full_dem_path)[0:-7] # assuming ends in dem.tif
 
     for k in geomorph_tool_dict:
         geomorph_tool_dict[k]['callback'] = None
-        geomorph_tool_dict[k]['output'] = os.path.join(out_dir, (prefix + k + ".tif"))
+        geomorph_tool_dict[k]['output'] = os.path.join(out_dir,
+                                                       (prefix + k + ".tif"))
 
         if k == 'elev_above_pit' or k == 'downslope_index':
-            geomorph_tool_dict[k]['dem'] = os.path.join(out_dir, (prefix + "fill_single_cell_pits.tif"))
+            geomorph_tool_dict[k]['dem'] = os.path.join(out_dir,
+                                                        (prefix + "fill_single_cell_pits.tif"))
         else:
             geomorph_tool_dict[k]['dem'] = full_dem_path
 
