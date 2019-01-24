@@ -1,13 +1,9 @@
 #
-#import argparse
-import rasterio
-#import cv2
 import os
-#import numpy as np
-#import sys
+import rasterio
+import numpy as np
 from itertools import product
 from skimage.segmentation import inverse_gaussian_gradient
-#from math import *
 
 
 '''
@@ -16,36 +12,35 @@ The metrics here are inspired by ____ and include the set of surfaces not
 included in the GDAL 'gdaldem' set of tools.
 '''
 
-# def compute_std_dem(dem, win_size):
-#     """Windowed Standard Deviation of Elevation
-#     Parameters
-#     ----------
-#     dem : ndarray
-#         Array of surface heights ( bare earth DEM)
-#     win_size : int
-#         Size of moving window (nxn) over which to compute SD
-#     Returns
-#     ----------
-#     sd_dem : ndarray
-#         SD of DEM Array
-#     """
-#     wmean, wsqrmean = (cv2.boxFilter(x, -1, (win_size, win_size), borderType=cv2.BORDER_REFLECT) for x in (dem, dem*dem))
-#     return np.sqrt(wsqrmean - wmean*wmean)
-#
-#
-# def compute_area_ratio(slope, planar_area):
-#     """Ratio of surface area to planar area
-#
-#     Keyword arguements:
-#     slope -- ndarray
-#         Array of surface slope values (degrees)
-#     Returns
-#     ----------
-#     area_ratio : ndarray
-#         Ratio of surface to planar area for each element
-#     """
-#     surface_area = planar_area / np.cos(np.deg2rad(slope))
-#     return surface_area / planar_area
+
+def compute_area_ratio(full_slope_path):
+    """
+    Ratio of surface area to planar area..
+
+    Computes ratio of surface area in a grid cell (determined by slope) to the
+    planimetric area (e.g. 1 meter square) and writes the ratio array to a new
+    raster.
+
+    Args:
+        full_slope_path (str): path to slope raster (in degrees)
+
+    Returns:
+        None
+    """
+    src = rasterio.open(full_slope_path)
+    arr = src.read(1)
+    profile = src.profile
+    planar_area = profile['transform'][0]
+    print(planar_area)
+    surface_area = planar_area / np.cos(np.deg2rad(arr))
+    ratio = surface_area / planar_area
+    out_dir = os.path.dirname(full_slope_path)
+    # assume ends in 'slope.tif'
+    prefix = os.path.basename(full_slope_path)[0:-9]
+    output = os.path.join(out_dir, (prefix + "area_ratio.tif"))
+    print("Writing " + output)
+    with rasterio.open(output, 'w', **profile) as dst:
+        dst.write(ratio, 1)
 
 
 def compute_inv_gauss_gradient(full_dem_path):
@@ -133,3 +128,21 @@ def compute_inv_gauss_gradient(full_dem_path):
 #             dst.write(i[0], 1)
 #
 # main()
+
+# def compute_std_dem(dem, win_size):
+#     """Windowed Standard Deviation of Elevation
+#     Parameters
+#     ----------
+#     dem : ndarray
+#         Array of surface heights ( bare earth DEM)
+#     win_size : int
+#         Size of moving window (nxn) over which to compute SD
+#     Returns
+#     ----------
+#     sd_dem : ndarray
+#         SD of DEM Array
+#     """
+#     wmean, wsqrmean = (cv2.boxFilter(x, -1, (win_size, win_size), borderType=cv2.BORDER_REFLECT) for x in (dem, dem*dem))
+#     return np.sqrt(wsqrmean - wmean*wmean)
+#
+#
