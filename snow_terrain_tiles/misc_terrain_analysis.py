@@ -13,6 +13,8 @@ included in the GDAL 'gdaldem' set of tools.
 '''
 
 
+
+
 def compute_area_ratio(full_slope_path):
     """
     Ratio of surface area to planar area..

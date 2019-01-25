@@ -22,7 +22,7 @@
 -   In Whitebox GIS environment
     -   ~~Generate pit filled and smoothed DEMs (add to tool dict)~~
     -   Use above for Geomorphometric products where appropriate
--   Create showcase of tools where azimuth is specified (whitbox plus winstral)
+-   Create showcase of tools where azimuth is specified (whitbox plus winstral, relative aspect, what was used by Lapen and Martz 2003, what was used by Winstral 2002?, erickson 2005?)
 -   add any other ruggendess topo tools from other work
 -   Structure where aois are generated --> geomorph tiles --> drift inventory --> rf model?
 
