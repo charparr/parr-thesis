@@ -3,7 +3,7 @@ import rasterio
 import numpy as np
 
 '''
-This is a utility to create preprocess digital elevation models
+This is a utility for I/0 and preprocessing of digital elevation models
 (DEMs) and generate first order (e.g. slope, aspect) geomorphometric
 indicators for further terrain analysis.
 '''
@@ -35,6 +35,29 @@ def read_dem(dem_path):
     return arr, pixel_size, profile
 
 
+def write_geomorph(arr, out_path, tag, profile):
+    """
+    Write numpy array to GeoTIFF raster.
+
+    Write GeoTIFF with rasterio from an numpy array with metadata and
+    spatial references.
+
+    Args:
+        arr (ndarray): array of geomorphometric values
+        out_path (str): file path to GeoTIFF
+        profile (dict): metadata profile
+
+    Returns:
+        None
+    Raises:
+        Exception: description
+    """
+
+    print("Writing " + out_path)
+    with rasterio.open(out_path, 'w', **profile) as dst:
+        dst.write(arr, 1)
+
+
 def slope(dem):
     """
     Computes Topographic Slope.
@@ -52,8 +75,8 @@ def slope(dem):
     """
 
     x, y = np.gradient(dem)
-    slope = np.pi / 2.0 - np.arctan(np.sqrt(x * x + y * y))
-    return slope
+    slope = np.arctan(np.sqrt(x * x + y * y))
+    return np.degrees(slope)
 
 
 def aspect(dem):
@@ -73,5 +96,7 @@ def aspect(dem):
     """
 
     x, y = np.gradient(dem)
-    aspect = np.arctan2(-x, y)
+    aspect = np.arctan2(x, y)
+    aspect += np.pi
+    aspect = np.degrees(aspect)
     return aspect
