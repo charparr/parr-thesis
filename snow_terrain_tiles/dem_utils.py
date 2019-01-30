@@ -1,11 +1,12 @@
 #
 import rasterio
+import glob
 import numpy as np
+import re
 
 '''
-This is a utility for I/0 and preprocessing of digital elevation models
-(DEMs) and generate first order (e.g. slope, aspect) geomorphometric
-indicators for further terrain analysis.
+This is a utility for the I/0 and preprocessing of terrain surface models
+(e.g. DEMs), and for generating first order (e.g. slope, aspect) geomorphometric indicators.
 '''
 
 
@@ -34,6 +35,43 @@ def read_dem(dem_path):
     pixel_size = profile['transform'][0]
     return arr, pixel_size, profile
 
+def rasters_to_dict(dir):
+    """
+    Read all rasters in a certain directory and store arrays and metadata in a dicitonary.
+
+    Read all GeoTIFFs with rasterio and store values inside an numpy
+    array while conserving some metadata inside a dictionary.
+
+    Args:
+        dem_path (str): file path to directory containing rasters
+
+    Returns:
+        arr (ndarray): array of elevation values
+        pixel_size (float): pixel size aka grid/spatial resolution
+        profile (dict): metadata profile
+    Raises:
+        Exception: description
+    """
+
+    # Initialize empty dictionary
+
+    rstr_dict = {}
+
+    file_list = glob.glob(str(dir) + '*.tif')
+
+    for f in file_list:
+
+        rstr_dict[f] = {}
+
+        src = rasterio.open(f)
+        rstr_dict[f]['arr'] = src.read(1)
+        rstr_dict[f]['profile'] = src.profile
+
+        rstr_dict[f]['year'] = re.findall('(\d{4})', f)
+
+
+
+    return rstr_dict
 
 def write_geomorph(arr, out_path, tag, profile):
     """
