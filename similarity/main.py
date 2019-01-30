@@ -1,5 +1,7 @@
 from timeit import default_timer as timer
 
+# Eventually you will copy the example notebook in here and call this with the a directory of images
+
 import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
