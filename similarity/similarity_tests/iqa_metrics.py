@@ -178,7 +178,8 @@ def convolve(image, kernel):
             # *center* region of the current (x, y)-coordinates
             # dimensions
 
-            roi = image[y - pad_size:y + pad_size + 1, x - pad_size:x + pad_size + 1]
+            roi = image[y - pad_size:y + pad_size + 1, x - pad_size:x
+                        + pad_size + 1]
 
             # perform the actual convolution by taking the
             # element-wise product between the ROI and
@@ -236,21 +237,32 @@ def compute_gms(im1, im2):
     gms_index = np.sqrt(np.sum((gms_map - gms_map.mean()) ** 2) / gms_map.size)
 
     end = timer()
-    print("...Complete. Elapsed Time [s]: " + str(end - start))
+    print("...Complete. Elapsed Seconds: " + str((end - start))[0:4])
 
     return round(gms_index, 3), gms_map
 
 
 def compute_all_iqa(im1, im2):
-    """ Compute all similarity metrics and maps and return a dictionary.
-
     """
+    Compute all similarity metrics and maps and return a dictionary.
 
+    Calls all simliarity metrics (IQA) on an image pair. Current metrics: MSE,
+    SSIM, CW-SSIM, and GMS).
+    Args:
+        im1 (ndarray): 2d array for similarity
+        im2 (ndarray): 2d array, same size/shape as im1
+    Returns:
+        sim (dict): dictionary that stores results with the following
+        structure: results{
+                    [*metric*: float,
+                    *metric*_arr: array]}
+    Raises:
+        None.
+    """
     sim = dict()
     sim['nrmse'], sim['nrmse_arr'] = compute_mse(im1, im2)
     sim['ssim'], sim['ssim_arr'] = compute_ssim(im1, im2, 3)
     sim['cwssim'], sim['cwssim_arr'] = cw_ssim(im1, im2, 30)
     sim['gmsd'], sim['gms_arr'] = compute_gms(im1, im2)
     # sim['fsim_value'], sim['pc_max_map'] = compute_fsim(im1, im2)
-
     return sim

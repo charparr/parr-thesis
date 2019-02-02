@@ -7,6 +7,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import pandas as pd
 import numpy as np
 import seaborn as sns
+plt.switch_backend('tkagg')
 
 
 def create_pairs(d, compare_self=False):
@@ -70,7 +71,7 @@ def create_pairs(d, compare_self=False):
     return rstr_pairs
 
 
-def plot_sim_metrics(syr, pname, basedir):
+def plot_iqa_metric_maps(syr, pname, outpath):
     """
     Plot the similarity metric maps.
 
@@ -118,14 +119,14 @@ def plot_sim_metrics(syr, pname, basedir):
         cax = divider.append_axes('right', size='5%', pad=0.05)
         fig.colorbar(im, cax=cax, orientation='vertical')
 
-    outpath = os.path.join(basedir + '/results/figs/' + pname + '.png')
+    outpath = os.path.join(outpath + pname + '.png')
     outpath = outpath.replace(' ', '_')
 
     plt.savefig(outpath, bbox_inches='tight', dpi=300)
     plt.close()
 
 
-def plot_comparison_inputs(d, basedir):
+def plot_comparison_inputs(d, outpath):
     # To plot all the inputs
     arrs = []
     titles = []
@@ -152,13 +153,20 @@ def plot_comparison_inputs(d, basedir):
         divider = make_axes_locatable(ax)
         cax = divider.append_axes('right', size='5%', pad=0.05)
         fig.colorbar(im, cax=cax, orientation='vertical')
+
     pname = [s.split('/')[-1] for s in list(d.keys())][0][:-9] + '.png'
-    outpath = os.path.join(basedir + '/results/figs/' + pname)
+
+    sptitle = ''.join(x.capitalize()+' ' or '_' for x in
+                      pname[0:-4].split('_'))
+    sptitle += '[m]'
+    fig.suptitle(sptitle)
+
+    outpath = os.path.join(outpath + pname)
     plt.savefig(outpath, bbox_inches='tight', dpi=300)
     plt.close()
 
 
-def plot_comparison_inputs_stats(d, basedir):
+def plot_comparison_inputs_stats(d, outpath):
     # To plot all the inputs with mu, sigma
     arrs = []
     titles = []
@@ -169,6 +177,7 @@ def plot_comparison_inputs_stats(d, basedir):
         textstr = '$\mu=%.2f$, $\sigma=%.2f$, CV=%.2f' %  (d[k]['mu'], d[k]['sigma'], d[k]['CV'])
         stat_str.append(textstr)
 
+    vmax = round(max([np.nanmax(arr) for arr in arrs]))
     titles = [str(t[0]) for t in titles]
 
     len(titles) == len(arrs)
@@ -179,7 +188,7 @@ def plot_comparison_inputs_stats(d, basedir):
     for t, a, ax, st in zip(titles, arrs, axes.flat, stat_str):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
-                       vmin=0, vmax=4)
+                       vmin=0, vmax=vmax)
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_title(t + '\n' + st)
@@ -195,12 +204,12 @@ def plot_comparison_inputs_stats(d, basedir):
     sptitle += '[m]'
     fig.suptitle(sptitle)
 
-    outpath = os.path.join('results/figs/' + pname)
+    outpath = os.path.join(outpath + str(pname[0:-4]) + '_stats.png')
     plt.savefig(outpath, bbox_inches='tight', dpi=300)
     plt.close()
 
 
-def plot_comparison_inputs_hists(d, basedir):
+def plot_comparison_inputs_hists(d, outpath):
     # To plot histograms
     pal = sns.color_palette('Dark2')
     arrs = []
@@ -238,23 +247,31 @@ def plot_comparison_inputs_hists(d, basedir):
                       pname[0:-4].split('_'))
     sptitle += '[m] Histograms'
     fig.suptitle(sptitle)
-    outpath = os.path.join('results/figs/' + str(pname[0:-4]) + '_hists.png')
+    outpath = os.path.join(outpath + str(pname[0:-4]) + '_hists.png')
     plt.savefig(outpath, bbox_inches='tight', dpi=300)
     plt.close()
 
 
-def results_to_dataframe(d):
+def results_to_dataframe(d, outpath):
     """
-        Convert results dict into three pandas DataFrames
+        Export dictionary of results to pandas DataFrame.
+
+        Can return two or three DataFrames depending on the input results. df
+        has all scores, rdf (optional) leaves out images compared with
+        themselves, and rdf assigns ranks of most to least similar because not
+        all metrics are on the same scale.
+    Args:
+        d (dict): dict of results for every comparisons
     Returns:
         df (DataFrame): all comparisons and scores
-        no_self (DataFrame): above but without self-comparisons
+        no_self (DataFrame): above but no self-comparisons (drop if nrmse == 0)
         rdf (DataFrame): ranked scores
     """
     scores = []
     metrics = []
     pnames = []
     for p in d:
+        print(p)
         pnames.append(p)
         sc = []
         for k in d[p]['results'].keys():
@@ -267,8 +284,8 @@ def results_to_dataframe(d):
     for result, name in zip(scores, pnames):
         df.loc[name] = result
 
-    if df.nrmse.min() == 0.0:
-        no_self = df.drop(df[df.nrmse == 0.0].index)
+    if df['nrmse'].min() == 0.0:
+        no_self = df.drop(df[df['nrmse'] == 0.0].index)
         rdf = pd.DataFrame()
         rdf['MSE Rank'] = no_self['nrmse'].rank(ascending=True)
         rdf['SSIM Rank'] = no_self['ssim'].rank(ascending=False)
@@ -276,7 +293,6 @@ def results_to_dataframe(d):
         rdf['GMSD Rank'] = no_self['gmsd'].rank(ascending=True)
         rdf['Avg. Rank'] = rdf.mean(axis=1)
         dfs = (df, no_self, rdf)
-
     else:
         rdf = pd.DataFrame()
         rdf['MSE Rank'] = df['nrmse'].rank(ascending=True)
@@ -286,34 +302,51 @@ def results_to_dataframe(d):
         rdf['Avg. Rank'] = rdf.mean(axis=1)
         dfs = (df, rdf)
 
+    df.to_csv(os.path.join(outpath) + 'iqa_results.csv')
+    rdf.to_csv(os.path.join(outpath) + 'iqa_ranks.csv')
     return dfs
 
 
-def plot_iqa_metrics_from_dfs(dfs, outdir):
+def plot_iqa_scores_from_dfs(dfs, outpath):
     """
-    make a few plots from the summary analysis data in the df
+    Plot IQA score values.
+
+    Generates heatmaps and bar chart for IQA results. Bar chart compares the
+    average rank for each comparison (lowest being most similar). Heatmaps
+    illustrate individual metric scores for each comparison.
+
+    Args:
+        dfs (tuple): tuple of DataFrames. only works know where len(dfs) == 2.
+                     more flexible in future:  # if len(df)...add title
+        outpath (str): path to save figures to disk
+    Returns:
+        None. But writes figures to disk
+    Raises:
+        None.
     """
-    # Plot Heatmaps
+    # Heatmaps
     titles = ['IQA Results', 'IQA Results Ranked']
     fig, axes = plt.subplots(figsize=(16, 10), nrows=1, ncols=2)
     for t, d, ax in zip(titles, dfs, axes):
         p = sns.heatmap(d, annot=True, linewidths=.5, ax=ax)
         p.set_title(t)
 
-    outpath = os.path.join(outdir + '__init__iqa_heatmaps.png')
-    plt.savefig(outpath, bbox_inches='tight', dpi=300)
+    outpath_h = os.path.join(outpath + 'iqa_heatmaps.png')
+    plt.savefig(outpath_h, bbox_inches='tight', dpi=300)
     plt.close()
 
-    # bar plot
+    # Bar Graph
+    rdf = dfs[-1]
+    rdf.sort_values('Avg. Rank', inplace=True)
     fig, ax = plt.subplots(figsize=(8, 5))
     p = sns.color_palette('coolwarm', len(dfs[1]))
-    sns.barplot(x=dfs[1].index, y='Avg. Rank',
-                data=dfs[1].sort_values('Avg. Rank'),
-                ax=ax, palette=p)
+    sns.barplot(rdf.index, y=rdf['Avg. Rank'],
+                data=rdf, ax=ax, palette=p)
+
     ax.set_xticklabels(ax.get_xticklabels(), rotation=270)
 
-    outpath = os.path.join(outdir + '_iqa_barchart.png')
-    plt.savefig(outpath, bbox_inches='tight', dpi=300)
+    outpath_b = os.path.join(outpath + 'iqa_barchart.png')
+    plt.savefig(outpath_b, bbox_inches='tight', dpi=300)
     plt.close()
 
 
