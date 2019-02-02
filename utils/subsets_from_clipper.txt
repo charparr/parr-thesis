@@ -1,0 +1,5 @@
+gdalwarp ../../depth_dDEMs/clpx/corrected/clpx_depth_096_2016_corrected_0.38_m.tif  raster/snow_depth/clpx_watertracks_creek_snow_depth_2016.tif -cutline vector/clpx_watertracks_creek_poly_clipper.shp -crop_to_cutline 
+gdalwarp ../../depth_dDEMs/clpx/corrected/clpx_depth_101_2017_corrected_0.4_m.tif raster/snow_depth/clpx_watertracks_creek_snow_depth_2017.tif -cutline vector/clpx_watertracks_creek_poly_clipper.shp -crop_to_cutline 
+gdalwarp ../../depth_dDEMs/clpx/corrected/clpx_depth_102_2013_corrected_0.21_m.tif  raster/snow_depth/clpx_watertracks_creek_snow_depth_2013.tif -cutline vector/clpx_watertracks_creek_poly_clipper.shp -crop_to_cutline 
+gdalwarp ../../depth_dDEMs/clpx/corrected/clpx_depth_098_2015_corrected_0.36_m.tif  raster/snow_depth/clpx_watertracks_creek_snow_depth_2015.tif -cutline vector/clpx_watertracks_creek_poly_clipper.shp -crop_to_cutline 
+gdalwarp ../../depth_dDEMs/clpx/corrected/clpx_depth_106_2012_corrected_0.16_m.tif  raster/snow_depth/clpx_watertracks_creek_snow_depth_2012.tif -cutline vector/clpx_watertracks_creek_poly_clipper.shp -crop_to_cutline
