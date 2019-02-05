@@ -299,7 +299,7 @@ def results_to_dataframe(d, outpath):
         rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
         rdf['CW-SSIM Rank'] = df['cwssim'].rank(ascending=False)
         rdf['GMSD Rank'] = df['gmsd'].rank(ascending=True)
-        rdf['Avg. Rank'] = rdf.mean(axis=1)
+        rdf['Avg. Rank'] = rdf.loc[:, 'CW-SSIM Rank':'GMSD Rank'].mean(axis=1)
         dfs = (df, rdf)
 
     df.to_csv(os.path.join(outpath) + 'iqa_results.csv')
