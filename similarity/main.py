@@ -17,7 +17,7 @@ def main():
 
 start = timer()
 
-basedir = os.path.abspath('/home/cparr/masters/subsets/clpx_watertracks_creek/')
+basedir = os.path.abspath('/home/cparr/masters/subsets/clpx_swale/')
 snowdir = os.path.join(basedir, 'raster/snow_depth/')
 pltdir = os.path.join(basedir, 'results/iqa/')
 # print(basedir, snowdir, pltdir)
