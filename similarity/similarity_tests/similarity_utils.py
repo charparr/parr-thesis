@@ -126,7 +126,7 @@ def plot_iqa_metric_maps(syr, pname, outpath):
     plt.close()
 
 
-def plot_comparison_inputs(d, outpath):
+def plot_comparison_inputs(d, outpath, vmin=0, vmax=4):
     # To plot all the inputs
     arrs = []
     titles = []
@@ -145,7 +145,7 @@ def plot_comparison_inputs(d, outpath):
     for t, a, ax in zip(titles, arrs, axes.flat):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
-                       vmin=0, vmax=4)
+                       vmin=vmin, vmax=vmax)
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_title(t)
