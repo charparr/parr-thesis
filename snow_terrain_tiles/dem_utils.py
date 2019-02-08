@@ -3,6 +3,7 @@ import rasterio
 import glob
 import numpy as np
 import re
+import os
 from scipy.stats import kurtosis, skew
 
 '''
@@ -117,6 +118,44 @@ def rastersstats_to_dict(dir):
 
     return rstr_dict
 
+
+def recursive_rastersstats_to_dict(path, fn_regex=r'*2018.tif'):
+    """
+    Recursively read all rasters in a certain directory and store arrays and
+    metadata including statistics in a dicitonary. Filter rasters by suffix or other wildcard.
+
+    Read all GeoTIFFs with rasterio and store values inside an numpy
+    array while conserving some metadata inside a dictionary.
+
+    Args:
+        path (str): file path to directory containing rasters
+
+    Returns:
+        arr (ndarray): array of elevation values
+        pixel_size (float): pixel size aka grid/spatial resolution
+        profile (dict): metadata profile
+    Raises:
+        Exception: description
+    """
+
+    # Initialize empty dictionary
+    rstr_dict = {}
+    # Get rasters that in dir and all subdirs that match pattern
+    for f in glob.iglob(os.path.join(path, '**', fn_regex), recursive=True):
+        rstr_dict[f] = {}
+
+        src = rasterio.open(f)
+        rstr_dict[f]['arr'] = src.read(1)
+        rstr_dict[f]['mu'] = np.nanmean(rstr_dict[f]['arr'])
+        rstr_dict[f]['sigma'] = np.nanstd(rstr_dict[f]['arr'])
+        rstr_dict[f]['kurt'] = kurtosis(rstr_dict[f]['arr'].flatten())
+        rstr_dict[f]['skew'] = skew(rstr_dict[f]['arr'].flatten(),
+                                    nan_policy='omit')
+        rstr_dict[f]['CV'] = rstr_dict[f]['sigma'] / rstr_dict[f]['mu']
+        rstr_dict[f]['profile'] = src.profile
+        rstr_dict[f]['year'] = re.findall('(\d{4})', f)
+
+    return rstr_dict
 
 def write_geomorph(arr, out_path, tag, profile):
     """
