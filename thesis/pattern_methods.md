@@ -1,6 +1,6 @@
 # Snow Depth Pattern Similarity
 
-Snow depth patterns at CLPX and Happy Valley are replicated year after year with great fidelity (Figure w/ annual insets and some stats - can have statistical (i.e. CV and spatial info (moran's I) and even a fractical (hausdorff>?) component.)). The inter-annual similarity is created by the consistent arrangement of two snow classes: snowdrift and scour. While the size and shape of snowdrifts does change each year, their location and general morphology does not, and this produces
+The landscape scale spatial patterns of snow depth at CLPX and Happy Valley are replicated year after year with great fidelity (Figure w/ annual insets and some stats - can have statistical (i.e. CV and spatial info (moran's I) and even a fractical (hausdorff>?) component.)). The inter-annual similarity is created by the consistent arrangement of two snow classes: snowdrift and scour. While the size and shape of snowdrifts does change each year, their location and general morphology does not, and this produces
 very consistent gradient values in the snow depth pattern.
 
 Snow patterns exist in nature on landscapes where wind and topography
