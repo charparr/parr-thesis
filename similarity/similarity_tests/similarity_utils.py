@@ -287,7 +287,7 @@ def results_to_dataframe(d, outpath):
     if df['nrmse'].min() == 0.0:
         no_self = df.drop(df[df['nrmse'] == 0.0].index)
         rdf = pd.DataFrame()
-        rdf['MSE Rank'] = no_self['nrmse'].rank(ascending=True)
+        rdf['NRMSE Rank'] = no_self['nrmse'].rank(ascending=True)
         rdf['SSIM Rank'] = no_self['ssim'].rank(ascending=False)
         rdf['CW-SSIM Rank'] = no_self['cwssim'].rank(ascending=False)
         rdf['GMSD Rank'] = no_self['gmsd'].rank(ascending=True)
@@ -295,11 +295,11 @@ def results_to_dataframe(d, outpath):
         dfs = (df, no_self, rdf)
     else:
         rdf = pd.DataFrame()
-        rdf['MSE Rank'] = df['nrmse'].rank(ascending=True)
-        rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
+        # rdf['NRMSE Rank'] = df['nrmse'].rank(ascending=True)
+        # rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
         rdf['CW-SSIM Rank'] = df['cwssim'].rank(ascending=False)
         rdf['GMSD Rank'] = df['gmsd'].rank(ascending=True)
-        rdf['Avg. Rank'] = rdf.loc[:, 'CW-SSIM Rank':'GMSD Rank'].mean(axis=1)
+        rdf['Avg. Rank'] = rdf.mean(axis=1)
         dfs = (df, rdf)
 
     df.to_csv(os.path.join(outpath) + 'iqa_results.csv')
@@ -325,6 +325,15 @@ def plot_iqa_scores_from_dfs(dfs, outpath):
         None.
     """
     # Heatmaps
+    # Index Values Only
+    fig, axes = plt.subplots(figsize=(16, 10), nrows=1, ncols=1)
+    p = sns.heatmap(dfs[0], annot=True, linewidths=.5, ax=axes)
+    p.set_title('IQA Results')
+    outpath_h = os.path.join(outpath + 'iqa_indexvals_heatmap.png')
+    plt.savefig(outpath_h, bbox_inches='tight', dpi=300)
+    plt.close()
+
+
     titles = ['IQA Results', 'IQA Results Ranked']
     fig, axes = plt.subplots(figsize=(16, 10), nrows=1, ncols=2)
     for t, d, ax in zip(titles, dfs, axes):
