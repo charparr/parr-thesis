@@ -37,7 +37,7 @@ The combination of our IQA toolbox and expansive snow depth records enable a nov
 
 ## Snow Pattern Results
 
-The results of the similarity analysis using IQA metrics reveal that patterns of snowdrift and scour at CLPX and HV repeat each winter with great fidelity (e.g. CW-SSIM scores range from 0.52 to 0.86, Figure 5). While there is some variance similarity amongst pairs of winters within each zone, on an absolute scale similarity is overall remarkably consistent. Such high fidelity patterns occur in each subset, although because of the finer similarity discernmnet offered by the IQA toolbox there are slight differences in relative similarity amongst the different landscapes (Figure 6).
+The results of the similarity analysis reveal that patterns of snowdrift and scour at CLPX and HV repeat each winter with great fidelity (e.g. CW-SSIM scores range from 0.52 to 0.86, Figure 5). While there is some variance in similarity amongst pairs of winters within each zone, on an absolute scale overall year-to-year similarity remarkably consistent. Such high fidelity patterns occur in each subset, although the finer spectrum of the IQA toolbox enables us to see that there are slight differences in relative similarity amongst the different landscapes (Figure 6).
 
 ###### Figure 5. CW-SSIM results for 120 snow depth pattern comparisons. Possible values range from -1 to 1.
 ![alt text](../subsets/agg_results/cwssim_heatmap.png)
@@ -45,63 +45,24 @@ The results of the similarity analysis using IQA metrics reveal that patterns of
 ###### Figure 6. CW-SSIM results grouped by zone. Possible values range from -1 to 1.
 ![alt text](../subsets/agg_results/cwssim_bars.png)
 
+The two most prominent results of the similarity analysis are 1.) that the patterns are overall the same each year, with the caveat that 2.) there are subltle differences in the degree of the similarity between different landscapes. In light of the former we can now create high-confidence normalized cumulative snow distribution patterns (CDSPs, e.g. Sturm and Wagner, 2010) for the entire extents of both Happy Valley and CLPX using mean depths over time. These CSDP maps then serve as the basis for the identification and inventory of snowdrifts and their properties. As for the second result, it is interesting that the inter-annual similarity is not consistent within each study area. None of the four zones within each study area are far enough apart to experience different synoptic weather conditions - and centroids of CLPX and HV are separated by less than 60 km. Well controlled metreological data for our study region is sparse, but based sub-synoptic proximity of our eight zones and two study areas, we can assume that the weather events that determine snow accumulation (number and intensity of storms, wind events, etc.) are not much different between any of these areas. What is driving the inter-annual similarity, and what is driving the differences in inter-annual similarity over geographic space?
 
-## Snow Pattern Discussion
-Patterns are the same within each study area (Qualls, Sturm)
-  so we can create normalized cdsps
-  this is good because we have larger area
-  and we now know that 2 years is basically enough
-But what is the use of finder similarity terms?
-  some winters better than others, why?
-  some landscapes overall better than othes, why?
-
---> Filling v non Filling
+The answer to both of the questions likely lies in the landscape. Landscape is essentially a static factor on our time scale and we know that seasonal snow-forcing weather is not (show data from Franklin Bluffs and Imnav.?). Weather records also often lack the resolution to capture the potentially rapid and brief flux of windblown snow. With the knowledge that in the absence of some severe weather abnormality (a drought, a polar shift in snow-bearing winds, etc.) we should be able to predict a large portion of the CSDP through landscape variables. The landscape filters the variability of winter weather - but not all landscapes are equal is in this capacity. Some are more robust filters than others. For example, most and least stable snow patterns occur at the Happy Valley Watertracks and CLPX Lake repectively (Figure 6.) The Happy Valley Watertracks are a series of filling, equiblirum snowdrifts that are exposed to the typical westerly winds (AEA report), while the CLPX Lake zone is essentialy a single, nonfilling drift created by the cutbank of the lake (Figure 4). One hypothesis is that the Happy Valley Watertrack snow patterns are so consistent is because they fill to equilibrium relatively early in the season and any additional flux is passed downwind or sublimates. The landscape is not sensitive to varying amounts of flux. At CLPX though, the landscape is far more sensitive because deeper drift traps with sharper breaks in slope will not fill and thus record the amount of flux no matter the amount. They are also capable of capturing flux from a variety of directions (maybe) as they are circular rather than strictly linear features. It is interesting that these two landscapes are the similairty endmembers. Are there differences in their geomorphometry, and if so do such differences occur elsewhere? Could we find drifts within the inventory that are indicators of the winter conditions and discrimnate them from those are the same each year? If so, there is great potential to learn about winter conditions (precipitation, flux, wind azimuths, etc.) from measurements (field, airborne, spaceborne?) of a single drift.
 
 
-
-  There is also (as we dicsuss later) a difference in how each landscape filters variability in the winter weather (Figure 3, bottom).
-
-A few salient things emerge from the similarity analysis. First, the snow depth patterns are remarkably similar and consistent year after year.
-
-The similarity of the tundra snow depth patterns year after year in different types of terrain enables us to confidently create a cumulative snow depth distribution pattern (CDSP) for the entire extent of the study areas by using the normalized mean snow depth from the dataset. We then define drifts and create a snowdrift inventory for each landscape.
-
-
-Something must be dribing that similarity.
-We know snowdrifts are a function of landscape and weather - but how much is landscape. We don't have good weather control (maybe reanalysis shows something) but we know it is more variable than landscape. Weather cant capture the complexity of blowing snow
-
-So what is it about the landscape? We know a drift landscape needs these things: Obstacles, Slope Breaks, Just changing topography and elevation, influenced by both upwind and downwind (how far?) factors.
-
-
- Landscape is the
-So can we search an array for these landscape factors?
-
-Drifts with deeper, sharper breaks, are going to capture more variability because they do not fill.
-
-Hv watertrack: all EQ Drifts
-clpx-outcrops: all nonfilling
-Interesting that these are the similairty endmembers.
-Do we see a difference in their topographic variables?
-
-With the knowledge that they are similar, plus that landscape is repsonsible,
-
-we can make a snowdrif invventory:
-
-Now:
-If the spatial pattern is 85% the same year after year - we  should be able to predict 85% of snow depth by landscape variables alone.
-
-
-
-Weather data is sparse for these Areas
-
-Plot: mean not-drift depth vs. mean drift depth
-
-
-
-
-1.  Kirnbauer, R., Blöschl, G., Waldhäusl, P. & Hochstöger, F. An analysis of snow cover patterns as derived from oblique aerial photographs. in Snow, Hydrology and Forests in High Alpine Areas (Proceedings of the Vienna Symposium) 91–100 (IAHS, 1991).
-2.  Grayson, R. B., Western, A. W. & Mcmahon, T. A. Advances in the use of observed spatial patterns of catchment hydrological response. Adv. Water Resour. 25, 1313–1334 (2002).
-3.  Wealands, S. R., Grayson, R. B. & Walker, J. P. Investigating Spatial Pattern Comparison Methods for Distributed Hydrological Model Assessment.
-4.  Konig, M. & Sturm, M. Mapping snow distribution in the Alaskan Arctic using aerial photography and topographic relationships. Water Resour. Res. 34, 3471–3483 (1998).
-5.  Parajka, J., Haas, P., Kirnbauer, R., Jansa, J. & Blöschl, G. Potential of time-lapse photography of snow for hydrological purposes at the small catchment scale. Hydrol. Process. 26, 3327–3337 (2012).
-6.  Winstral, A., Elder, K. & Davis, R. E. Spatial Snow Modeling of Wind-Redistributed Snow Using Terrain-Based Parameters. Journal of Hydrometeorology (2002). doi:10.1175/1525-7541(2002)003<0524:SSMOWR>2.0.CO;2
-7.  Sturm, M. & Wagner, A. M. Using repeated patterns in snow distribution modeling: An Arctic example. Water Resour. Res. (2010). doi:10.1029/2010WR009434
+1. Grayson, R. B., Western, A. W. & Mcmahon, T. A. Advances in the use of observed spatial patterns of catchment hydrological response. Adv. Water Resour. 25, 1313–1334 (2002).
+2. Jetten, V., Govers, G. & Hessel, R. Erosion models: Quality of spatial predictions. Hydrol. Process. 17, 887–900 (2003).
+3. Kirnbauer, R., Blöschl, G., Waldhäusl, P. & Hochstöger, F. An analysis of snow cover patterns as derived from oblique aerial photographs. in Snow, Hydrology and Forests in High Alpine Areas (Proceedings of the Vienna Symposium) 91–100 (IAHS, 1991).
+4. Konig, M. & Sturm, M. Mapping snow distribution in the Alaskan Arctic using aerial photography and topographic relationships. Water Resour. Res. 34, 3471–3483 (1998).
+5. Lauriol, B., Carrier, Y., Beaudet, H. & Binda, G. The Residual Snow Cover in the Canadian Arctic in July : A Means to Evaluate the Regional Maximum Snow Depth in Winter. Arctic 39, 309–315 (1986).
+6. Luce, C. H. & Tarboton, D. G. The application of depletion curves for parameterization of subgrid variability of snow. Hydrol. Process. 18, 1409–1422 (2004).
+7. Parajka, J., Haas, P., Kirnbauer, R., Jansa, J. & Blöschl, G. Potential of time-lapse photography of snow for hydrological purposes at the small catchment scale. Hydrol. Process. 26, 3327–3337 (2012).
+8. Qualls;, R. J. & Arogundade, A. B. Synthetic Year-Independent Spatio-Temporal Patterns of Snow Depletion. in Western Snow Conference 131–137 (2013).
+9. Sturm, M. & Wagner, A. M. Using repeated patterns in snow distribution modeling: An Arctic example. Water Resour. Res. (2010). doi:10.1029/2010WR009434
+10. Wang, Z., Bovik, a C., Sheikh, H. R. & Simmoncelli, E. P. Image quality assessment: form error visibility to structural similarity. Image Process. IEEE Trans. 13, 600–612 (2004).
+11. Wang, Z. & Bovik, A. C. Mean Square Error : Love It or Leave It ? IEEE Signal Processing Magazine 98, 98–117 (2009).
+12. Wang, Z. & Simoncelli, E. P. Translation insensitive image similarity in complex wavelet domain. ICASSP, IEEE Int. Conf. Acoust. Speech Signal Process. - Proc. II, 573–576 (2005).
+13. Wealands, S. R., Grayson, R. B. & Walker, J. P. Investigating Spatial Pattern Comparison Methods for Distributed Hydrological Model Assessment. in 2nd International Congress on Environmental Modelling and Software (2004).
+14. Winstral, A., Elder, K. & Davis, R. E. Spatial Snow Modeling of Wind-Redistributed Snow Using Terrain-Based Parameters. Journal of Hydrometeorology (2002). doi:10.1175/1525-7541(2002)003<0524:SSMOWR>2.0.CO;2
+15. Xue, W., Zhang, L., Mou, X. & Bovik, A. C. Gradient magnitude similarity deviation: A highly efficient perceptual image quality index. IEEE Trans. Image Process. 23, 668–695 (2014).
+16. Weather Station Wind Resource Summary for Happy Valley, AK. (2005).
