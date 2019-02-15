@@ -22,7 +22,7 @@ def compute_mse(im1, im2):
     end = timer()
     print("...Complete. Elapsed Time: [s] " + str((end - start))[0:4])
 
-    return round(mse_value, 3), square_error_map
+    return 1 - round(mse_value, 3), 1 - square_error_map
 
 
 def compute_ssim(im1, im2, win_size):
@@ -136,7 +136,7 @@ def cw_ssim(im1, im2, width):
     end = timer()
     print("...Complete. Elapsed Time: " + str((end - start))[0:4])
 
-    return cw_ssim_index, cw_ssim_map
+    return (cw_ssim_index + 1) / 2, (cw_ssim_map + 1) / 2
 
 
 def convolve(image, kernel):
@@ -239,7 +239,7 @@ def compute_gms(im1, im2):
     end = timer()
     print("...Complete. Elapsed Seconds: " + str((end - start))[0:4])
 
-    return round(gms_index, 3), gms_map
+    return 1 - round(gms_index, 3), gms_map
 
 
 def compute_all_iqa(im1, im2):
@@ -262,6 +262,8 @@ def compute_all_iqa(im1, im2):
     sim = dict()
     sim['nrmse'], sim['nrmse_arr'] = compute_mse(im1, im2)
     sim['ssim'], sim['ssim_arr'] = compute_ssim(im1, im2, 3)
+    sim['ssim'] = (sim['ssim'] + 1) / 2
+    sim['ssim_arr'] = (sim['ssim_arr'] + 1) / 2
     sim['cwssim'], sim['cwssim_arr'] = cw_ssim(im1, im2, 30)
     sim['gmsd'], sim['gms_arr'] = compute_gms(im1, im2)
     # sim['fsim_value'], sim['pc_max_map'] = compute_fsim(im1, im2)

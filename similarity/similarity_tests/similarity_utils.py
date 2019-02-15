@@ -107,17 +107,41 @@ def plot_iqa_metric_maps(syr, pname, outpath):
     fig, axes = plt.subplots(figsize=(16, 10), nrows=3, ncols=2)
     fig.suptitle(pname)
 
-    for t, a, ax in zip(pt, arrs, axes.flat):
+    snow_dmaxs = []
+    for a in arrs[:2]:
+        snow_dmaxs.append(np.nanmax(a))
+    snowvmax = max(snow_dmaxs)
+
+    for t, a, ax in zip(pt[:2], arrs[:2], axes.flat[:2]):
+
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
-                       vmin=a.min(), vmax=a.max())
+                       vmin=0, vmax=snowvmax)
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_title(t)
-
         divider = make_axes_locatable(ax)
         cax = divider.append_axes('right', size='5%', pad=0.05)
         fig.colorbar(im, cax=cax, orientation='vertical')
+
+    for t, a, ax in zip(pt[2:], arrs[2:], axes.flat[2:]):
+        im = ax.imshow(a, cmap='viridis',
+                       interpolation='nearest',
+                       vmin=0, vmax=1)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_title(t)
+        divider = make_axes_locatable(ax)
+        cax = divider.append_axes('right', size='5%', pad=0.05)
+        fig.colorbar(im, cax=cax, orientation='vertical')
+
+    # for t, a, ax in zip(pt, arrs, axes.flat):
+    #     im = ax.imshow(a, cmap='viridis',
+    #                    interpolation='nearest',
+    #                    vmin=0, vmax=1)
+    #     ax.set_xticks([])
+    #     ax.set_yticks([])
+    #     ax.set_title(t)
 
     outpath = os.path.join(outpath + pname + '.png')
     outpath = outpath.replace(' ', '_')
@@ -141,8 +165,8 @@ def plot_comparison_inputs(d, outpath, vmin=0, vmax=4):
     fig, axes = plt.subplots(figsize=(16, 10),
                              nrows=3,
                              ncols=2)
-
-    for t, a, ax in zip(titles, arrs, axes.flat):
+    for t, a, ax in sorted(zip(titles, arrs, axes.flat),
+                           key=lambda x: x[0]):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
                        vmin=vmin, vmax=vmax)
@@ -185,7 +209,9 @@ def plot_comparison_inputs_stats(d, outpath):
     fig, axes = plt.subplots(figsize=(16, 10),
                              nrows=3,
                              ncols=2)
-    for t, a, ax, st in zip(titles, arrs, axes.flat, stat_str):
+    for t, a, ax, st in sorted(zip(titles, arrs, axes.flat, stat_str),
+                               key=lambda x: x[0]):
+    #for t, a, ax, st in zip(titles, arrs, axes.flat, stat_str):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
                        vmin=0, vmax=vmax)
@@ -295,10 +321,10 @@ def results_to_dataframe(d, outpath):
         dfs = (df, no_self, rdf)
     else:
         rdf = pd.DataFrame()
-        # rdf['NRMSE Rank'] = df['nrmse'].rank(ascending=True)
-        # rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
+        rdf['NRMSE Rank'] = df['nrmse'].rank(ascending=False)
+        rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
         rdf['CW-SSIM Rank'] = df['cwssim'].rank(ascending=False)
-        rdf['GMSD Rank'] = df['gmsd'].rank(ascending=True)
+        rdf['GMSD Rank'] = df['gmsd'].rank(ascending=False)
         rdf['Avg. Rank'] = rdf.mean(axis=1)
         dfs = (df, rdf)
 
@@ -361,4 +387,9 @@ def plot_iqa_scores_from_dfs(dfs, outpath):
 
 def make_normalized_array(arr):
     normalized = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
+    return normalized
+
+
+def normalize_ssims(arr):
+    normalized = (arr + 1) / 2
     return normalized
