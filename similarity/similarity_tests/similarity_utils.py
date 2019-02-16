@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import pandas as pd
 import numpy as np
+import rasterio
+import collections
 import seaborn as sns
 plt.switch_backend('tkagg')
 
@@ -39,6 +41,8 @@ def create_pairs(d, compare_self=False):
         rstr_pairs[yr_pair][y2] = {}
         rstr_pairs[yr_pair][y1]['arr'] = d[key_pair[0]]['arr']
         rstr_pairs[yr_pair][y2]['arr'] = d[key_pair[1]]['arr']
+        rstr_pairs[yr_pair][y1]['profile'] = d[key_pair[0]]['profile']
+        rstr_pairs[yr_pair][y2]['profile'] = d[key_pair[1]]['profile']
 
     # Create comparison pairs with self
     if compare_self is True:
@@ -71,6 +75,91 @@ def create_pairs(d, compare_self=False):
     return rstr_pairs
 
 
+def save_iqa_maps_to_geotiff(syr, pname, outpath):
+    """
+    Save the similarity metric maps to disk.
+
+    Save all IQA similarity arrays to disk as GeoTIFF rasters using the
+    metadata from the input snow map.
+    Args:
+        syr (dict): Dictionary with comparison results from a single
+        pair of images
+        pname (str): the top level key of syr
+        Returns:
+            None - but writes .tif to disk
+    Raises:
+    Exception: description
+    """
+    arrs = []
+    iqa_names = []
+    years = []
+    profiles = []
+    for k in syr.keys():
+        for j in syr[k].keys():
+            if isinstance(syr[k][j], (collections.Sequence, np.ndarray)):
+                if k[0].isalpha():
+                    arrs.append(syr[k][j])
+                    iqa_names.append(j)
+                else:
+                    years.append(k)
+                    profiles.append(syr[k]['profile'])
+    profile = profiles[0]
+
+    for a, t in zip(arrs, iqa_names):
+        tname = os.path.join(outpath + pname + '_' + t + '.tif')
+        tname = tname.replace(' ', '_')
+        with rasterio.open(tname, 'w', **profile) as dst:
+            dst.write(a.astype('float32'), 1)
+
+
+def results_to_dataframe(d, outpath):
+        """
+        Export dictionary of results to pandas DataFrame.
+
+        Can return two or three DataFrames depending on the input results. df
+        has all scores, rdf (optional) leaves out images compared with
+        themselves, and rdf assigns ranks of most to least similar because not
+        all metrics are on the same scale.
+        Args:
+        d (dict): dict of results for every comparisons
+        Returns:
+        df (DataFrame): all comparisons and scores
+        no_self (DataFrame): above but no self-comparisons (drop if nrmse == 0)
+        rdf (DataFrame): ranked scores
+        """
+        scores = []
+        metrics = []
+        pnames = []
+        for p in d:
+            print(p)
+            pnames.append(p)
+            sc = []
+            for k in d[p]['results'].keys():
+                if type(d[p]['results'][k]) == np.float64:
+                    sc.append(d[p]['results'][k])
+                    if k not in metrics:
+                        metrics.append(k)
+            scores.append(sc)
+        df = pd.DataFrame(columns=metrics)
+        for result, name in zip(scores, pnames):
+            df.loc[name] = result
+        print(df.head())
+
+        rdf = pd.DataFrame()
+        rdf['NRMSE Rank'] = df['nrmse'].rank(ascending=False)
+        print(rdf.head())
+        rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
+        rdf['CW-SSIM Rank'] = df['cwssim'].rank(ascending=False)
+        rdf['GMS Rank'] = df['gms'].rank(ascending=False)
+        rdf['Avg. Rank'] = rdf.mean(axis=1)
+        print(rdf.head())
+
+        dfs = (df, rdf)
+        df.to_csv(os.path.join(outpath) + 'iqa_results.csv')
+        rdf.to_csv(os.path.join(outpath) + 'iqa_ranks.csv')
+        return dfs
+
+
 def plot_iqa_metric_maps(syr, pname, outpath):
     """
     Plot the similarity metric maps.
@@ -92,7 +181,7 @@ def plot_iqa_metric_maps(syr, pname, outpath):
     titles = []
     for k in syr.keys():
         for j in syr[k].keys():
-            if syr[k][j].shape:
+            if isinstance(syr[k][j], (collections.Sequence, np.ndarray)):
                 arrs.append(syr[k][j])
                 titles.append(j)
 
@@ -135,57 +224,9 @@ def plot_iqa_metric_maps(syr, pname, outpath):
         cax = divider.append_axes('right', size='5%', pad=0.05)
         fig.colorbar(im, cax=cax, orientation='vertical')
 
-    # for t, a, ax in zip(pt, arrs, axes.flat):
-    #     im = ax.imshow(a, cmap='viridis',
-    #                    interpolation='nearest',
-    #                    vmin=0, vmax=1)
-    #     ax.set_xticks([])
-    #     ax.set_yticks([])
-    #     ax.set_title(t)
-
     outpath = os.path.join(outpath + pname + '.png')
     outpath = outpath.replace(' ', '_')
 
-    plt.savefig(outpath, bbox_inches='tight', dpi=300)
-    plt.close()
-
-
-def plot_comparison_inputs(d, outpath, vmin=0, vmax=4):
-    # To plot all the inputs
-    arrs = []
-    titles = []
-    for k in d.keys():
-        arrs.append(d[k]['arr'])
-        titles.append(d[k]['year'])
-
-    titles = [str(t[0]) for t in titles]
-
-    len(titles) == len(arrs)
-
-    fig, axes = plt.subplots(figsize=(16, 10),
-                             nrows=3,
-                             ncols=2)
-    for t, a, ax in sorted(zip(titles, arrs, axes.flat),
-                           key=lambda x: x[0]):
-        im = ax.imshow(a, cmap='viridis',
-                       interpolation='nearest',
-                       vmin=vmin, vmax=vmax)
-        ax.set_xticks([])
-        ax.set_yticks([])
-        ax.set_title(t)
-
-        divider = make_axes_locatable(ax)
-        cax = divider.append_axes('right', size='5%', pad=0.05)
-        fig.colorbar(im, cax=cax, orientation='vertical')
-
-    pname = [s.split('/')[-1] for s in list(d.keys())][0][:-9] + '.png'
-
-    sptitle = ''.join(x.capitalize()+' ' or '_' for x in
-                      pname[0:-4].split('_'))
-    sptitle += '[m]'
-    fig.suptitle(sptitle)
-
-    outpath = os.path.join(outpath + pname)
     plt.savefig(outpath, bbox_inches='tight', dpi=300)
     plt.close()
 
@@ -209,9 +250,8 @@ def plot_comparison_inputs_stats(d, outpath):
     fig, axes = plt.subplots(figsize=(16, 10),
                              nrows=3,
                              ncols=2)
-    for t, a, ax, st in sorted(zip(titles, arrs, axes.flat, stat_str),
-                               key=lambda x: x[0]):
-    #for t, a, ax, st in zip(titles, arrs, axes.flat, stat_str):
+    for t, a, ax, st in sorted(zip(titles, arrs, axes.flatten(),
+                                   stat_str), key=lambda x: x[0]):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
                        vmin=0, vmax=vmax)
@@ -278,61 +318,6 @@ def plot_comparison_inputs_hists(d, outpath):
     plt.close()
 
 
-def results_to_dataframe(d, outpath):
-    """
-        Export dictionary of results to pandas DataFrame.
-
-        Can return two or three DataFrames depending on the input results. df
-        has all scores, rdf (optional) leaves out images compared with
-        themselves, and rdf assigns ranks of most to least similar because not
-        all metrics are on the same scale.
-    Args:
-        d (dict): dict of results for every comparisons
-    Returns:
-        df (DataFrame): all comparisons and scores
-        no_self (DataFrame): above but no self-comparisons (drop if nrmse == 0)
-        rdf (DataFrame): ranked scores
-    """
-    scores = []
-    metrics = []
-    pnames = []
-    for p in d:
-        print(p)
-        pnames.append(p)
-        sc = []
-        for k in d[p]['results'].keys():
-            if type(d[p]['results'][k]) == np.float64:
-                sc.append(d[p]['results'][k])
-                if k not in metrics:
-                    metrics.append(k)
-        scores.append(sc)
-    df = pd.DataFrame(columns=metrics)
-    for result, name in zip(scores, pnames):
-        df.loc[name] = result
-
-    if df['nrmse'].min() == 0.0:
-        no_self = df.drop(df[df['nrmse'] == 0.0].index)
-        rdf = pd.DataFrame()
-        rdf['NRMSE Rank'] = no_self['nrmse'].rank(ascending=True)
-        rdf['SSIM Rank'] = no_self['ssim'].rank(ascending=False)
-        rdf['CW-SSIM Rank'] = no_self['cwssim'].rank(ascending=False)
-        rdf['GMSD Rank'] = no_self['gmsd'].rank(ascending=True)
-        rdf['Avg. Rank'] = rdf.mean(axis=1)
-        dfs = (df, no_self, rdf)
-    else:
-        rdf = pd.DataFrame()
-        rdf['NRMSE Rank'] = df['nrmse'].rank(ascending=False)
-        rdf['SSIM Rank'] = df['ssim'].rank(ascending=False)
-        rdf['CW-SSIM Rank'] = df['cwssim'].rank(ascending=False)
-        rdf['GMSD Rank'] = df['gmsd'].rank(ascending=False)
-        rdf['Avg. Rank'] = rdf.mean(axis=1)
-        dfs = (df, rdf)
-
-    df.to_csv(os.path.join(outpath) + 'iqa_results.csv')
-    rdf.to_csv(os.path.join(outpath) + 'iqa_ranks.csv')
-    return dfs
-
-
 def plot_iqa_scores_from_dfs(dfs, outpath):
     """
     Plot IQA score values.
@@ -353,7 +338,8 @@ def plot_iqa_scores_from_dfs(dfs, outpath):
     # Heatmaps
     # Index Values Only
     fig, axes = plt.subplots(figsize=(16, 10), nrows=1, ncols=1)
-    p = sns.heatmap(dfs[0], annot=True, linewidths=.5, ax=axes)
+    p = sns.heatmap(dfs[0], annot=True, linewidths=.5, ax=axes,
+                    cmap='viridis', vmin=0, vmax=1)
     p.set_title('IQA Results')
     outpath_h = os.path.join(outpath + 'iqa_indexvals_heatmap.png')
     plt.savefig(outpath_h, bbox_inches='tight', dpi=300)
@@ -363,7 +349,7 @@ def plot_iqa_scores_from_dfs(dfs, outpath):
     titles = ['IQA Results', 'IQA Results Ranked']
     fig, axes = plt.subplots(figsize=(16, 10), nrows=1, ncols=2)
     for t, d, ax in zip(titles, dfs, axes):
-        p = sns.heatmap(d, annot=True, linewidths=.5, ax=ax)
+        p = sns.heatmap(d, annot=True, linewidths=.5, ax=ax, cmap='viridis')
         p.set_title(t)
 
     outpath_h = os.path.join(outpath + 'iqa_heatmaps.png')
@@ -387,9 +373,4 @@ def plot_iqa_scores_from_dfs(dfs, outpath):
 
 def make_normalized_array(arr):
     normalized = (arr - np.min(arr)) / (np.max(arr) - np.min(arr))
-    return normalized
-
-
-def normalize_ssims(arr):
-    normalized = (arr + 1) / 2
     return normalized
