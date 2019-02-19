@@ -105,8 +105,19 @@ def save_iqa_maps_to_geotiff(syr, pname, outpath):
                     profiles.append(syr[k]['profile'])
     profile = profiles[0]
 
+    pname = pname.replace(' ', '_')
+
+    try:
+        pname_dir = os.path.join(outpath, pname)
+        os.makedirs(pname_dir)
+    except FileExistsError:
+        # directory already exists
+        pass
+
+    #outpath = os.path.join(os.path.join(pname_dir, pname))
+
     for a, t in zip(arrs, iqa_names):
-        tname = os.path.join(outpath + pname + '_' + t + '.tif')
+        tname = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
         tname = tname.replace(' ', '_')
         with rasterio.open(tname, 'w', **profile) as dst:
             dst.write(a.astype('float32'), 1)
@@ -250,7 +261,7 @@ def plot_comparison_inputs_stats(d, outpath):
     fig, axes = plt.subplots(figsize=(16, 10),
                              nrows=3,
                              ncols=2)
-    for t, a, ax, st in sorted(zip(titles, arrs, axes.flatten(),
+    for t, a, ax, st in sorted(zip(titles, arrs, axes.flat,
                                    stat_str), key=lambda x: x[0]):
         im = ax.imshow(a, cmap='viridis',
                        interpolation='nearest',
