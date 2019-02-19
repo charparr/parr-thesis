@@ -17,15 +17,16 @@ def main():
 
 start = timer()
 
-basedir = os.path.abspath('/home/cparr/masters/subsets/hv_watertrack/')
+
+basedir = os.path.abspath('/home/cparr/masters/subsets/clpx_outcrops/')
 snowdir = os.path.join(basedir, 'raster/snow_depth/')
+iqadir = os.path.join(basedir, 'raster/iqa/')
 pltdir = os.path.join(basedir, 'results/iqa/')
-# print(basedir, snowdir, pltdir)
 
 # Read in rasters
 d = rastersstats_to_dict(snowdir)
 
-# Create raster pairs and do similarity analysis
+# Create raster pairs and do similarity analysis on each pair
 pairs = create_pairs(d)
 for p in pairs.keys():
     print('Comparing ' + p + '...')
@@ -36,12 +37,17 @@ for p in pairs.keys():
 
 dfs = results_to_dataframe(pairs, pltdir)
 
-plot_iqa_scores_from_dfs(dfs, pltdir)
+# Create Snow Depth Plots, each scene and year
+# plot_comparison_inputs_stats(d, pltdir)
+# plot_comparison_inputs_hists(d, pltdir)
+
 for p in pairs.keys():
+    # Plot IQA maps and snow maps for each pair being compared
     plot_iqa_metric_maps(pairs[p], p, pltdir)
-plot_comparison_inputs(d, pltdir)
-plot_comparison_inputs_stats(d, pltdir)
-plot_comparison_inputs_hists(d, pltdir)
+    # Save IQA Maps to disk
+    save_iqa_maps_to_geotiff(pairs[p], p, iqadir)
+
+# plot_iqa_scores_from_dfs(dfs, pltdir)
 
 end = timer()
 print(str((end-start) / 60)[0:4] + ' minutes elapsed')
