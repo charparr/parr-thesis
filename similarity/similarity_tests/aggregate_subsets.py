@@ -10,7 +10,7 @@ import rasterio
 from glob import iglob
 from rasterio.plot import show
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-sys.path.insert(0, '../snow_terrain_tiles/')
+sys.path.insert(0, '/home/cparr/masters/snow_terrain_tiles/')
 plt.switch_backend('tkagg')
 pd.set_option('precision', 3)
 from dem_utils import recursive_rastersstats_to_dict
@@ -38,20 +38,20 @@ def read_df_rec(path, fn_regex=r'*results.csv'):
     return all_recs, path
 
 
-def heatmap_gmsd(df):
-    a = df.pivot('Winters', 'Zone', 'gmsd')
+def heatmap_gms(df):
+    a = df.pivot('Winters', 'Zone', 'gms')
     fig, ax = plt.subplots(figsize=(16, 10))
-    sns.heatmap(a, cmap="YlGnBu_r", ax=ax, annot=True)
-    ax.set_title('GMSD')
-    plt.savefig('agg_results/gmsd_heatmap.png', dpi=300,
+    sns.heatmap(a, cmap="viridis", ax=ax, annot=True)
+    ax.set_title('GMS')
+    plt.savefig('agg_results/gms_heatmap.png', dpi=300,
                 bbox_inches='tight')
-    a.to_csv('agg_results/winter_zone_gmsd.csv')
+    a.to_csv('agg_results/winter_zone_gms.csv')
 
 
 def heatmap_cwssim(df):
     a = df.pivot('Winters', 'Zone', 'cwssim')
     fig, ax = plt.subplots(figsize=(16, 10))
-    sns.heatmap(a, cmap="YlGnBu", ax=ax, annot=True)
+    sns.heatmap(a, cmap="viridis", ax=ax, annot=True)
     ax.set_title('CW-SSIM')
     plt.savefig('agg_results/cwssim_heatmap.png', dpi=300,
                 bbox_inches='tight')
@@ -66,12 +66,12 @@ def barchart_cwssim(df):
                 bbox_inches='tight')
 
 
-def barchart_gmsd(df):
+def barchart_gms(df):
     fig, ax = plt.subplots(figsize=(16, 10))
-    sns.barplot(x="Zone", y="gmsd", data=df, palette='viridis')
-    ax.set_title('GMSD')
+    sns.barplot(x="Zone", y="gms", data=df, palette='viridis')
+    ax.set_title('GMS')
     ax.set_ylim(0, 1)
-    plt.savefig('agg_results/gmsd_bars.png', dpi=300,
+    plt.savefig('agg_results/gms_bars.png', dpi=300,
                 bbox_inches='tight')
 
 
@@ -129,9 +129,9 @@ def plot_subset_depths_and_hillshades():
 
 def main():
     results, opath = read_df_rec('.', fn_regex=r'*results.csv')
-    barchart_gmsd(results)
+    barchart_gms(results)
     barchart_cwssim(results)
-    heatmap_gmsd(results)
+    heatmap_gms(results)
     heatmap_cwssim(results)
     plot_subset_depths_and_hillshades()
     results.to_csv('agg_results/aggregate_results.csv')
