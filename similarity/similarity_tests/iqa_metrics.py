@@ -260,13 +260,10 @@ def compute_all_iqa(im1, im2):
         None.
     """
     sim = dict()
-
     sim['nrmse'], sim['nrmse_arr'] = compute_mse(im1, im2)
-
     sim['ssim'], sim['ssim_arr'] = compute_ssim(im1, im2, 3)
     sim['ssim'] = (sim['ssim'] + 1) / 2
     sim['ssim_arr'] = (sim['ssim_arr'] + 1) / 2
-
     sim['cwssim'], sim['cwssim_arr'] = cw_ssim(im1, im2, 30)
     sim['gms'], sim['gms_arr'] = compute_gms(im1, im2)
     # sim['fsim_value'], sim['pc_max_map'] = compute_fsim(im1, im2)
