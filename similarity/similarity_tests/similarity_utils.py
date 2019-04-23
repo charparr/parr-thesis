@@ -162,11 +162,11 @@ def save_iqa_maps_to_geotiff(syr, pname, outpath):
 
                         #outpath = os.path.join(os.path.join(pname_dir, pname))
 
-                        for a, t in zip(arrs, iqa_names):
-                            tname = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
-                            tname = tname.replace(' ', '_')
-                            with rasterio.open(tname, 'w', **profile) as dst:
-                                dst.write(a.astype('float32'), 1)
+                    for a, t in zip(arrs, iqa_names):
+                        tname = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
+                        tname = tname.replace(' ', '_')
+                        with rasterio.open(tname, 'w', **profile) as dst:
+                            dst.write(a.astype('float32'), 1)
 
 
 def plot_iqa_points_on_depth_diff_map(syr, pname, outpath):
@@ -194,9 +194,10 @@ def plot_iqa_points_on_depth_diff_map(syr, pname, outpath):
                     depth_arrs.append(syr[k][j])
     abs_delta = abs(depth_arrs[0] - depth_arrs[1])
 
-    frac_size = 0.00001
+    #frac_size = 0.00001
     for arr in arrs:
-        n_pts = round(frac_size * arr.size)
+        n_pts = 10
+        # n_pts = round(frac_size * arr.size)
         flat_indicies = np.argpartition(arr.ravel(),
                                         n_pts - 1)[:n_pts]
 

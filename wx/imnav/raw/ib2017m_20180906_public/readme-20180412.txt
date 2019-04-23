@@ -1,0 +1,674 @@
+===========
+== Title ==
+===========
+Title = Meteorological, Radiation, Soil, and Snow Data from TEON Sites, 2015-present
+
+==============================
+== Principal Investigators  ==
+==============================
+Principal Investigators 2015 - present = Christopher Arp, Sveta Stuefer
+Dr. Arp and Dr. Stuefer at:
+cdarp@alaska.edu
+sveta.stuefer@alaska.edu
+Water and Environmental Research Center, University of Alaska Fairbanks
+P.O. Box 755860
+Fairbanks, Alaska 99775-5860
+
+Principal Investigators 2008 - 2014 = Douglas L Kane, Sveta Stuefer
+Dr. Kane and Dr. Stuefer at:
+dlkane@alaska.edu
+sveta.stuefer@alaska.edu
+Water and Environmental Research Center, University of Alaska Fairbanks
+P.O. Box 755860
+Fairbanks, Alaska 99775-5860
+
+
+Principal Investigators 1985 - 2008 = Douglas L Kane
+dlkane@alaska.edu
+Water and Environmental Research Center, University of Alaska Fairbanks
+P.O. Box 755860
+Fairbanks, Alaska 99775-5860
+
+========================================
+== Current contact for data questions ==
+========================================
+Christopher Arp cdarp@alaska.edu or
+Sveta Stuefer sveta.stuefer@alaska.edu or 
+Emily Youcha ekyoucha@alaska.edu
+
+=====================
+== Funding Sources ==
+=====================
+Stations were originally established as part of the Department of Energy Office of Health and Environmental Services and National Science Foundation (NSF) Office of Polar Programs program. 
+Stations are currently (2015-present) funded by US Fish and Wildlife Service through the Arctic LCC, grant number F15AC00347
+
+Several other grants have supported ongoing data collection:
+Franklin Bluffs station were maintained through funding for project "Using Snow Fences to Augment Fresh Water Supplies in Shallow Arctic Lakes" by Department of Energy (DOE) Award Number DE-NT0005684 (2008-2014)
+
+=============================
+== General Reference Format==
+=============================
+
+ If you use any of the data presented in this website, we ask you to please reference the author in the following suggested format: 
+
+Arp, C.D. and Stuefer, S. (year of retrieval). Climate data from the Terrestrial Environmental Observation Network (TEON), Arctic Landscape Conservation Cooperative. University of Alaska Fairbanks, Water and Environmental Research Center. 
+URL: http://ine.uaf.edu/werc/research Fairbanks, Alaska, variously paged. [month and day of retrieval].
+
+=======================
+== Data Set Overview ==
+=======================
+
+This data set contains snow, meteorological, radiation, and subsurface data from 10 stations in or near the Kuparuk Basin on the North Slope of Alaska, USA.  More details and remarks on data are available in
+Youcha, E.K., Gieck, R.E., Arp, C.D., Stuefer, S., and K. Irving, (2015). Standard Operating Procedure and Workplan for the Terrestrial Environmental Observation Network (TEON) – Arctic Landscape Conservation
+Cooperative:  Kuparuk River Basin and Adjacent Catchments. University of Alaska Fairbanks, Water and Environmental Research Center, Report INE/WERC 15.05, Fairbanks, Alaska, 39 pp.
+
+    =========================
+    == Kuparuk Basin Sites ==
+    =========================
+    This data set contains snow, meteorological, radiation, and subsurface data from five 
+    stations in or near the Kuparuk Basin on the North Slope of Alaska, USA
+
+        ============================================
+        == 10 meter tower Imnavait B (IB) Station ==
+        ============================================
+        STATION ID = Imnavait B (IB) 10 meter tower
+        LOCATION = On ridge to the east of Imnavait Creek
+        LOCATION = 68° 36' 48" N 149° 19' 3" W, 897 m ASL"
+        DATA COVERAGE = START: 1986; STOP: present
+        Radiation Sensors installed =
+            2 Eppley Longwave PIR Radiometers installed through 2011?
+            2 Eppley Shortwave PSP Radiometers installed through 2011?
+            1 NR01 Hukseflux Pyrgeometer installed in 2016
+            1 NR01 Hukseflux Pyrgeometer installed in 2016
+            1 Rebs Q7_1 Net Radiometer 1993-2011
+            1 Kipp and Zonen NRLite_Net Radiometer installed in 2011
+        Meteorological Sensors installed =
+            3 Vaisala HMP45C Air Temperature / Relative Humidity Sensor at 1m, 3m, 10m above ground surface
+            1 GWSx3 thermistor for Air Temperature backup installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 RM Young 05103 Wind Speed & Wind Direction Anemometer at 10m above ground surface
+            2 MetOne 014A Wind Speed anemometer at 1m, 3m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+            1 Vaisala CS106 PTB110 Barometer inside the instrument shelter (~1.5 m above ground surface) installed in 2008?
+            National Weather Service evaporation pan with stilling well and hook gauge (?-2009), 1 psi pressure transducer (-2009)
+        Subsurface Sensors installed =
+            Soil Moisture Pit had older TDRs, no longer working. 
+            1 thermistor string installed by R. Gieck in 2008. Depths installed: +10 (snow), 0, 5, 10, 20, 30, 40, 50, 60, 80 cm bgs. Deeper depths are in a hole drilled by screed stake in bottom of a soil pit. 
+            Thermistors are ALPHA P/N 14A5001-C3 +-0.2 Degrees Celsius Accuracy _ DOUBLE CHECK THIS.  OR are they YSI 44033
+
+        DATA FILE NAMING CONVENTION = IByyyyparam_YYYMMDD.csv  where yyyy = the year of data collection: 1986 to 
+                        present, param = the following: s = soil, m = met, and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name, Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Soil Temperature
+                        Soil Moisture
+                        Snow
+                        Shortwave Radiation
+                        Longwave Radiation
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Radiation
+                        Precipitation
+                        Soil Temperature
+                        Soil Moisture
+                        Snow
+
+
+        ==============================================
+        == Imnavait Flume/Weir (IH) Hydrologic Site ==
+        ==============================================
+        STATION ID =Imnavait Flume IH Gauging Station
+        LOCATION = On the creek, 225 m upstream from the culvert.
+        LOCATION = "68°37'0.65"N 149°19'4.31"W, 883 m ASL"
+        DATA COVERAGE = START: 1985; STOP: present
+        Meteorological Sensors installed =
+            1 GWSx3 thermistor for Air Temperature installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 Vaisala CS106 Barometric Pressure Sensor
+        River Stage and Temperature Sensors installed =
+            1 INW Aquistar PT12 5psig Pressure Transducer 
+            1 Global Water 5psig Pressure Transducer
+            1 HOBO U20 Pressure transducer as backup
+        Snow Sensor =
+            Campbell Scientific SR50 Ultrasonic Depth Sensor
+        DATA FILE NAMING CONVENTION = IByyyyparam_YYYYMMDD.csv  where yyyy = the year: 1985 to present 
+                    and param = q and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name; Column 2 = Date/Time in UTC-9 
+                   (AK Standard Time), Column 3 to n = QA/QC sensor data and data flags
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =  60 second all sensors
+        LOGGING FREQUENCY = 15 (recent) or 60 minute average (some historical)
+        
+        ===================================================
+        == 10 meter tower Upper Kuparuk Met (UK) Station ==
+        ===================================================
+        STATION ID = Upper Kuparuk Met (UK) 10 meter tower
+        LOCATION = On hill to the west of Upper Kuparuk River, approximately 200 m SE of pipeline.
+        LOCATION = 68° 38' 24.5" N 149° 24' 23.4" W, 778 m ASL"
+        DATA COVERAGE = START: 1993; STOP: 
+        Radiation Sensors installed =
+            2 Eppley Longwave PIR Radiometers installed through 2011?
+            2 Eppley Shortwave PSP Radiometers installed through 2011?
+            1 NR01 Hukseflux Pyrgeometer installed in 2016
+            1 NR01 Hukseflux Pyrgeometer installed in 2016
+            1 Rebs Q7_1 Net Radiometer 1993-2011
+            1 Kipp and Zonen NRLite_Net Radiometer installed in 2011
+        Meteorological Sensors installed =
+            3 Vaisala HMP45C Air Temperature / Relative Humidity Sensor at 1m, 3m, 10m above ground surface
+            1 GWSx3 thermistor for Air Temperature backup installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 RM Young 05103 Wind Speed & Wind Direction Anemometer at 10m above ground surface
+            2 MetOne 014A Wind Speed anemometer at 1m, 3m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+            1 Vaisala CS106 PTB110 Barometer inside the instrument shelter (~1.5 m above ground surface) installed in 2008?
+            National Weather Service evaporation pan with stilling well and hook gauge (?-2009), 1 psi pressure transducer (-2009)
+        Snow Sensor installed =
+            Campbell Scientific SR50 Ultrasonic Depth Sensor mounted on tower in 2015
+        Subsurface Sensors installed =
+            Soil Moisture Pit had older TDRs, no longer working. 
+            1 thermistor string installed by R. Gieck and McNamara in 1993. In 2009, depths are installed into side of pit only. Depths installed: 5, 10, 15, 20, 25, 30, 35, 40, 50, 55, 60 cm. Thermistors are ALPHA P/N 
+         14A5001-C3 +-0.2 Degrees Celsius Accuracy _ DOUBLE CHECK THIS.  OR are they YSI 44033
+
+        DATA FILE NAMING CONVENTION = UKyyyyparam_YYYMMDD.csv  where yyyy = the year of data collection: 1993 to 
+                        present, param = the following: s = soil, m = met, and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name, Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Soil Temperature
+                        Soil Moisture
+                        Snow
+                        Shortwave Radiation
+                        Longwave Radiation
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Radiation
+                        Precipitation
+                        Soil Temperature
+                        Soil Moisture
+                        Snow
+
+        ==============================================
+        == Upper Kuparuk River (UH) Hydrologic Site ==
+        ==============================================
+        STATION ID = Upper Kuparuk River (UKH) Gauging Station
+        LOCATION = On the river, 156 m upstream from the pipeline crossing.
+        LOCATION = "68°38'34.06"N 149°24'12.68"W, 741 m ASL"
+        DATA COVERAGE = START: 1993; STOP: present
+        Meteorological Sensors installed =
+            1 GWSx3 thermistor for Air Temperature installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 Vaisala CS106 Barometric Pressure Sensor
+        River Stage and Temperature Sensors installed =
+            1 INW Aquistar PT12 5psig Pressure Transducer 
+            1 Global Water 5psig Pressure Transducer
+            1 HOBO U20 Pressure transducer as backup
+        DATA FILE NAMING CONVENTION = UKHyyyyparam_YYYYMMDD.csv  where yyyy = the year: 1993 to present 
+                       and param = q and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name; Column 2 = Date/Time in UTC-9 
+                   (AK Standard Time), Column 3 to n = QA/QC sensor data and data flags
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =  60 second all sensors
+        LOGGING FREQUENCY = 15 (recent) or 60 minute average (some historical)
+                        
+        ================================================
+        == Green Cabin Lake (GCL) Meteorological Site ==
+        ================================================
+        STATION ID =Green Cabin Lake 3 meter tower Site
+        LOCATION = Southeast side of Green Cabin Lake, approximately 8 miles south of Dalton Highway in Upper Kuparuk Basin
+        LOCATION = "68° 32' 01.0" N 149° 13' 47.4" W, 908 m ASL"
+        DATA COVERAGE = START: 1996; STOP: present
+        Meteorological Sensors installed =
+            1 Campbell Scientific 107 Air Temperature Sensor at 2m above ground surface
+            1 RM Young Aerovane Wind Speed & Wind Direction Anemometer at 2m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+        DATA FILE NAMING CONVENTION = GLyyyyparam_YYYYMMDD.csv  where yyyy = the year: 1996 to present 
+                        and param = m and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Date/Time in UTC; Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Wind Speed
+                        Wind Direction
+                        Precipitation
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Wind Speed
+                        Wind Direction
+                        Precipitation
+
+
+    =================================
+    == Roche Moutonnee Creek Sites ==
+    =================================
+    This data set contains snow, meteorological, radiation, and subsurface data from two
+    sites in Roche Moutonnee Creek basin of Alaska, USA.
+    
+    
+        ===============================================================
+        == Roche Moutonnee Creek Basin (RMC-met) Meteorological Site ==
+        ===============================================================
+        STATION ID =Roche Moutonnee Creek Basin (RMC-met) 3 meter tower Site
+        LOCATION = 264 m north  of Roche Moutonnee Creek, approximately 1 mile east of Dalton Highway in Roche Moutonnee Creek Basin
+        LOCATION = "68° 22' 19" N 149° 16' 45" W, 915 m ASL"
+        DATA COVERAGE = START: 2015; STOP: present
+        Meteorological Sensors installed =
+            1 Vaisala HMP45C Air Temperature / Relative Humidity Sensor at 2m above ground surface
+            1 GWSx3 thermistor for Air Temperature backup installed at 2 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 RM Young 05103 Wind Speed & Wind Direction Anemometer at 3m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+        Snow Sensor installed =
+            Campbell Scientific SR50 Ultrasonic Depth Sensor mounted on tower in 2016
+        Subsurface Sensors installed =
+            Soil Moisture Pit (installed by Vladimir Romanovsky)
+            1 thermistor string (installed by Vladimir Romanovsky)
+        DATA FILE NAMING CONVENTION = RMCyyyyparam_YYYYMMDD.csv  where yyyy = the year: 2015 to present 
+                       and param = m and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Date/Time in UTC; Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Wind Speed
+                        Wind Direction
+                        Soil Temperature
+                        Soil Moisture
+                        Precipitation
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Wind Speed
+                        Wind Direction
+                        Soil Temperature
+                        Soil Moisture
+                        Precipitation
+
+        =================================================
+        == Roche Moutonnee Creek (RMC) Hydrologic Site ==
+        =================================================
+        STATION ID = Roche Moutonnee Creek (RMC) Gauging Station
+        LOCATION = On the river, 87 m upstream from the Dalton Highway.
+        LOCATION = "68° 22' 25" N 149° 18' 48" W, 850 m ASL"
+        DATA COVERAGE = START: 2015; STOP: present
+        Meteorological Sensors installed =
+            1 GWSx3 thermistor for Air Temperature installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 Vaisala CS106 Barometric Pressure Sensor
+        River Stage and Temperature Sensors installed =
+            1 INW Aquistar PT12 5psig Pressure Transducer 
+            1 Global Water 5psig Pressure Transducer
+            1 HOBO U20 Pressure transducer as backup
+        DATA FILE NAMING CONVENTION = RMCyyyyparam_YYYYMMDD.csv  where yyyy = the year: 2015 to present 
+                       and param = q and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name; Column 2 = Date/Time in UTC-9 
+                   (AK Standard Time), Column 3 to n = QA/QC sensor data and data flags
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =  60 second all sensors
+        LOGGING FREQUENCY = 15 (recent) 
+        
+    =============================
+    == Putuligayuk River Sites ==
+    =============================
+    This data set contains snow, meteorological, radiation, and subsurface data from three
+    sites in or near the Putuligayuk River basin of Alaska, USA.
+    
+        ==============================
+        == 10 meter tower Franklin Bluffs Met (FB) Station ==
+        ==============================
+        STATION ID = Franklin Bluffs Met (FB) 10 meter tower
+        LOCATION = 0.63 miles to the east of Dalton Highway, 575 m to west of Sagavanirktok River, near MP390 Dalton Highway.
+        LOCATION = 69° 53' 31.8" N 148° 46' 4.8" W, 71 m ASL"
+        DATA COVERAGE = START: 1986; STOP: present
+        Radiation Sensors installed =
+            2 Eppley Longwave PIR Radiometers installed through 2011?
+            2 Eppley Shortwave PSP Radiometers installed through 2011?
+            1 Kipp and Zonen NRLite_Net Radiometer
+        Meteorological Sensors installed =
+            3 Vaisala HMP45C Air Temperature / Relative Humidity Sensor at 1m, 3m, 10m above ground surface
+            1 GWSx3 thermistor for Air Temperature backup installed at 1m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 RM Young 05103 Wind Speed & Wind Direction Anemometer at 10m above ground surface
+            1 MetOne 014A Wind Speed anemometer at 1m, 3m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+        Snow Sensor installed =
+            Campbell Scientific SR50 Ultrasonic Depth Sensor
+        Subsurface Sensors installed =
+            
+        DATA FILE NAMING CONVENTION = FByyyyparam_YYYMMDD.csv  where yyyy = the year of data collection: 1986 to 
+                        present, param = the following: s = soil, m = met, and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            See Arp_TEON_GEN_METADATA for field metadata
+            Column Labels
+            data set.  Column 1 = Station Name, Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Snow
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Snow
+    
+        =================================================
+        == Putuligayuk Basin (PBM) Meteorological Site ==
+        =================================================
+        STATION ID =Putuligayuk Basin (PBM)  3 meter tower Site
+        LOCATION = 55 m west of Pipeline and Access Road, approximately 1.63 mile west of Dalton Highway, 7.6 miles south of Deadhorse Airport. 
+        LOCATION = "70° 05' 49.7"N 148°35'26.9"W, 30 m ASL"
+        DATA COVERAGE = START: 2015; STOP: present
+        Radiation Sensors installed =
+            2 Eppley Longwave PIR Radiometers 
+            2 Eppley Shortwave PSP Radiometers 
+			1 NR01 Kipp and Zonen 4 component Radiometer
+            1 Kipp and Zonen NRLite_Net Radiometer 
+        Meteorological Sensors installed =
+            1 Vaisala HMP45C Air Temperature / Relative Humidity Sensor at 2m above ground surface
+            1 GWSx3 thermistor for Air Temperature backup installed at 2 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 RM Young 05103 Wind Speed & Wind Direction Anemometer at 3m above ground surface
+            Summer Precipitation gage is a Texas Electronics TR-525M
+        Snow Sensor installed =
+            Campbell Scientific SR50 Ultrasonic Depth Sensor
+        DATA FILE NAMING CONVENTION = PByyyyparam_YYYYMMDD.csv  where yyyy = the year: 2015 to present 
+                      and param = m and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            Metadata header at the top of the file
+            Column Labels
+            data set.  Column 1 = Date/Time in UTC; Column 2 = Date/Time in UTC-9 
+                               (AK Standard Time), Column 3 to n = QA/QC sensor data.
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =
+                    60 second
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Snow
+                        Shortwave Radiation
+                        Longwave Radiation
+        LOGGING FREQUENCY =
+                    60 minute average
+                        Air Temperature
+                        Relative Humidity
+                        Wind Speed
+                        Wind Direction
+                        Net Radiation
+                        Precipitation
+                        Snow
+                        Shortwave Radiation
+                        Longwave Radiation
+                        
+		OTHER NOTES:	Station was relocated in July 2016 by a few hundred feet to the west to move it further away from a large snowdrift created by the pipeline.
+        ============================================
+        == Putuligayuk River (PR) Hydrologic Site ==
+        ============================================
+        STATION ID = Putuligayuk River (PR) Gauging Station
+        LOCATION = On the river, 70 m upstream from Spine Road culverts, 6 miles northwest of Deadhorse Airport.
+        LOCATION = "70°16'3.03"N 148°37'48.48"W, 9 m ASL"
+        DATA COVERAGE = START: 1999; STOP: present
+        Meteorological Sensors installed =
+            1 GWSx3 thermistor for Air Temperature installed at 1 m above ground surface.  Thermistor is YSI 44033 built by GW Scientific in 2008.
+            1 Vaisala CS106 Barometric Pressure Sensor
+        River Stage and Temperature Sensors installed =
+            1 INW Aquistar PT12 5psig Pressure Transducer 
+            1 Global Water 5psig Pressure Transducer
+            1 HOBO U20 Pressure transducer as backup
+        DATA FILE NAMING CONVENTION = PRyyyyparam_YYYYMMDD.csv  where yyyy = the year: 1999 to present 
+                       and param = q and YYYYMMDD = year, month, day last modified
+        DATA FILE FORMAT =
+            Metadata header at the top of the file
+            Column Labels
+            data set.  Column 1 = Station Name; Column 2 = Date/Time in UTC-9 
+                   (AK Standard Time), Column 3 to n = QA/QC sensor data and data flags
+        DATA WWW REFERENCE = http://ine.uaf.edu/werc/projects/teon/
+        MEASUREMENT FREQUENCY =  60 second all sensors
+        LOGGING FREQUENCY = 15 (recent) 
+
+============================
+== Instrument Description ==
+============================
+    See project website http://ine.uaf.edu/werc/projects/teon/ for pictures from each site as well as an example of the 
+    sensors listed below.
+
+    =====================
+    == Site Components ==
+    =====================
+        Data Logger
+             Campbell Scientific CR10X with Extended Temperature Testing OR
+             Campbell Scientific CR1000 with Extended Temperature Testing
+    
+        Air Temperature & Relative Humidity =
+            Vaisala HMP45C Air Temperature / Relative Humidity
+                Air Temperature:
+                    Operating Temperature: -40 C to +60 C
+                    Accuracy: +-0.2 C at 20C increasing linearly to +- 0.4C at +60 and 
+                   +-0.45C at -40C
+                Relative Humidity:
+                    Operating Range: 0 to 100 %
+                    Accuracy at 20C: 0 to 90% +-2% RH; 90 to 100% RH +-3%
+                    http://www.campbellsci.com/documents/manuals/hmp45c.pdf
+            CS107 Air Temperature
+                    Operating Temperature: -35 C to +50 C
+                    Accuracy: +-0.2 C over 0 to +50 C range
+                    https://s.campbellsci.com/documents/us/manuals/107.pdf
+            CS109 Air Temperature 
+                    Operating Temperature: -50 C to +70 C
+                    Accuracy: +-0.2 C over 0 to +70 C range
+                    https://s.campbellsci.com/documents/us/manuals/109.pdf
+            GWSx3 Air Temperature YSI thermistor
+                    Accuracy: +- 0.1 C
+                    Steinhart-Hart Equation Coefficients: A=1.47E-03; B=2.39E-04; C=1.0002E-07
+                    YSI P/N 44033 thermistor
+            GWSx3 Air Temperature Alpha thermistor
+                    Accuracy: +- 0.2 C
+                    Steinhart-Hart Equation Coefficients:A=1.28E-03; B=2.37E-04; C=9.06E-08
+                    ALPHA P/N 14A5001-C3 thermistor	
+       Barometric Pressure =
+            Vaisala CS106
+                Operating Range: 500 to 1100 mb (slightly below sea level to 15,000 ft above sea level)
+                Accuracy: ±0.3 mb @ +20°C
+                https://s.campbellsci.com/documents/us/manuals/cs106.pdf
+        Wind Speed and Wind Direction =
+             MetOne 014A anemometer
+                Operating Range: 0 to 45 m/s
+                Starting Threshold: 0.45 m/s
+                Accuracy: 0.11 m/s
+                http://www.campbellsci.com/documents/manuals/014a.pdf
+             RM Young 015103 anemometer
+                WS Range: 0 to 100 m/s
+                WS Accuracy: +- 0.3 m/s
+                WS Start up: 1 m/s
+                WD Accuracy: +-3 degrees
+                WD Starup: 1.1 m/s
+                http://www.campbellsci.com/documents/manuals/05103.pdf
+        Soil Temperature =
+             Accuracy: +- 0.2 C
+             Steinhart-Hart Equation Coefficients:A=1.28E-03; B=2.37E-04; C=9.06E-08
+             ALPHA P/N 14A5001-C3 thermistor
+        Soil Temperature =
+             Accuracy: +- 0.1 C
+             Steinhart-Hart Equation Coefficients: A=1.47E-03; B=2.39E-04; C=1.0002E-07
+             YSI P/N 44033 thermistor	
+        River Temperature =	
+             Accuracy: +- 0.5 C
+             Instrument Northwest PT12
+             http://inwusa.com/wordpress/wp-content/uploads/sdi-12_manual.pdf
+        Pressure Transducer =
+             HOBO U20 (0-13 ft)
+                 Accuracy: +-0.1% FSR over 0 to 5 PSI
+                 http://www.onsetcomp.com/files/manual_pdfs/12315-G%20MAN-U20.pdf
+             Instrumentation Northwest Aquistar PT12
+                 Accuracy: +-0.05% FSR over 0 to 5 PSI
+                 http://inwusa.com/wordpress/wp-content/uploads/sdi-12_manual.pdf
+             Global Water WL400
+                 Accuracy: +-0.1% FSR over 0 to 15 PSI
+                 http://www.globalw.com/downloads/wl400/wl400manual.pdf
+        Radiation =
+             Kipp and Zonen NRLite_Net Radiometer
+                 Spectral Response: 0 to 100 micrometers
+                 https://s.campbellsci.com/documents/us/manuals/nr-lite2.pdf
+                 https://s.campbellsci.com/documents/us/manuals/nr-lite.pdf
+             Rebs Q7_1 Net Radiometer
+                 Spectral Response: 0.25 to 60 micrometers
+                 http://www.campbellsci.com/documents/manuals/retired/q-7-1.pdf
+             Eppley PSP Shortwave Radiometer
+                 Linearity +-0.5% over 0 to 2800 W/m^2
+                 Sensitivity 9 microVolts per (W/m^2)
+                 http://www.eppleylab.com/PrdPrecSpectralPyrmtr.htm
+             Eppley PIR  Longwave Radiometer
+                 Linearity +- 1% over 0 to 700 W/m^2
+                 Sensitivity  4 microVolts per (W/m^2)
+                 http://www.eppleylab.com/PrdPrecInfRadmtr.htm
+             NR01 Hukseflux Pyrgeometer
+                 Expected for daily totals: ± 10 %
+                 https://s.campbellsci.com/documents/us/manuals/nr01.pdf
+             NR01 Hukseflux Pyranometer
+                 Expected for daily totals: ± 10 %
+                 https://s.campbellsci.com/documents/us/manuals/nr01.pdf
+        Soil Moisture =
+             Campbell Scientific CS615 Volumetric Water Content Sensor
+                  accuracy: +- 2.0% VWC using standard calibration.
+                  http://www.campbellsci.com/documents/manuals/cs615.pdf
+             Campbell Scientific CS616 Volumetric Water Content Sensor
+                  probe to probe variability: +- 0.5% VWC in soil, 1.5% VWC in typical saturated soil
+                  accuracy: +-2.5% VWC using standard calibration with bulk electrical conductivity 
+                 <=0.5 deciSiemen / meter and bulk density <= 1.55 g / cm^3
+                  precision: 0.05% VWC
+                  resolution: 0.1 VWC
+                  http://www.campbellsci.com/documents/manuals/cs616.pdf
+        Precipitation
+             Texas Electronics TR-525M tipping bucket rain gage
+                  Resolution: 0.1 mm per tip
+             Texas Electronics TE-525M tipping bucket rain gage
+                  Resolution: 0.1 mm per tip
+             Texas Electronics TE-525I tipping bucket rain gage
+                  Resolution: 0.1 inch per tip
+                  http://www.campbellsci.com/documents/manuals/te525.pdf
+        Snow
+             Campbell Scientific SR50 Ultrasonic distance sensor
+                  Accuracy: 1 cm or 0.4% of distance to target, whichever is greater
+                  Resolution: 0.25 mm
+                  http://www.campbellsci.com/documents/manuals/retired/sr50.pdf
+             Campbell Scientific SR50A Ultrasonic distance sensor
+                  Accuracy: 1 cm or 0.4% of distance to target, whichever is greater
+                  Resolution: 0.25 mm
+                  http://www.campbellsci.com/documents/manuals/sr50a.pdf
+
+    ===============================
+    == Data Collection Procedure ==
+    ===============================
+        For both research regions early data collection was limited to on-site data retrieval. 
+Beginning in 2000 a Freewave FGR series 900 MHz radio network was incrementally installed 
+ for automated data retrieval.  In 2015, iridium and cellular telemetry was installed at various stations.
+
+        Data is also collected locally/manually during stations visits, which occur several times annually 
+generally during the April to September period.  
+
+    ====================================================
+    == Derived Parameters and Mathematical Operations ==
+    ====================================================
+Eppley PIR Longwave Radiometers had a lead-mercury installed annually to 
+temperature correct the longwave radiation signal.  In 2007 the Upper Kuparuk (UK) 10m Met site, Franklin Bluffs (FB) 10m site and Imnavait (IB) 10m site 
+were rewired and reprogrammed to use the thermistor in the PIR rather than the battery.
+
+        For most years Eppley PIR and PSP calibration 
+constants to convert sensor signal from milliVolt output to radiation (W/m^2) was done on the logger 
+during program run-time.
+
+        Net Radiation is logged in milliVolts and sensor calibration values as well as wind speed 
+correction are applied during QA/QC in Fairbanks.
+
+        Soil Temperatures are logged with units of both resistance in kilo-Ohms and temperature in degrees C.  On the logger the 
+milli-Volt signal of the sensors are converted to resistance.  
+
+        Snow signal is recorded as distance in centimeters to ground / snow surface.  Sensor distance to 
+ground is recalculated every fall.
+
+    =====================
+    == Parameter units ==
+    =====================
+      Radiation: Watts per meter squared
+      Temperature: Degrees Celsius
+      Relative Humidity: Percent
+      Precipitation: millimeters of water
+      Snow Depth: centimeters of snow
+      Wind Speed: meters per second
+      Wind Direction: degrees
+      Soil Moisture: Percent 
+      Stage: feet 
+      Discharge: cubic meters per second
+      
+    ==================
+    == DATA REMARKS ==
+    ==================
+For more details see Youcha, E.K., Gieck, R.E., Arp, C.D., Stuefer, S., and K. Irving, (2015). 
+        Standard Operating Procedure and Workplan for the Terrestrial Environmental Observation Network (TEON) – 
+        Arctic Landscape Conservation Cooperative:  Kuparuk River Basin and Adjacent Catchments. 
+        University of Alaska Fairbanks, Water and Environmental Research Center, Report INE/WERC 15.05, Fairbanks, Alaska, 39 pp.
+        
+All text files are comma separated and probably (unverified) end with DOS style <CRLF> end of line 
+characters.
+
+Generally the quality of the data is thought to be very good.  During the late fall, winter and early 
+spring air temperature, relative humidity, wind speed and wind direction sensors can all experience rime ice or 
+freezing precipitation.  When this occurs the data collected by these sensors may be adversely affected.  
+Sensor outages occur periodically due to animal damage and equipment failure.
+
+Position information recorded in the field using a GPS (WGS84).  Elevation information estimated from topographic 
+maps (NAD27 or NAD83).

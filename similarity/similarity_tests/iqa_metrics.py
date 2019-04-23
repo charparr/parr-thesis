@@ -2,30 +2,56 @@ import numpy as np
 from scipy import signal
 from skimage.util import pad
 from skimage.measure import compare_ssim
-from skimage.measure import compare_nrmse
 from timeit import default_timer as timer
 
 
-def compute_mse(im1, im2):
+def compute_nrmse(im1, im2):
     """
-    Calculate the Mean Square Error of Two Single Band Images.
-    The two input images must be the same size and shape.
-    A valid comparison will return two objects:
-    1.) A Mean Square Error Value
-    2.) The map (array) of element-wise square errors.
+    Compute the Normalized Mean Square Error.
+
+    A min-max normalized mean square error value and array are computed from
+    two input images (i.e. patterns). This implementation ignores the order of
+    im1 and im2 in the normalization. We normalize to scale values between 0
+    and 1, and then subtract both the global value and the array from 1 so
+    that higher values indicate a greater degree of similarity (i.e. less
+    error) between the two images.
+
+    Args:
+        im1 (ndarray): 2d array
+        im2 (ndarray): 2d array, same size/shape/type as im1
+    Returns:
+        nrmse (tuple): nrmse value and array of nrsme values
+    Raises:
+        Exception: description
     """
+    print("Computing NRMSE...")
     start = timer()
-    print("Computing Mean Square Error...")
-    mse_value = compare_nrmse(im1, im2, norm_type='Euclidean')
-    square_error_map = (im1 - im2) ** 2
 
-    end = timer()
-    print("...Complete. Elapsed Time: [s] " + str((end - start))[0:4])
+    im1_max = np.nanmax(im1)
+    im2_max = np.nanmax(im2)
+    im1_min = np.nanmin(im1)
+    im2_min = np.nanmin(im2)
+    both_max = max(im1_max, im2_max)
+    both_min = min(im1_min, im2_min)
 
-    return 1 - round(mse_value, 3), 1 - square_error_map
+    # Compute global index NRMSE value
+    mse = np.mean(np.square(im1 - im2))
+    min_max_nrmse = np.sqrt(mse) / (both_max - both_min)
+    # Compute NRSE array
+    square_error = np.square(im1 - im2)
+    min_max_nrmse_arr = np.sqrt(square_error) / (both_max - both_min)
+    # Reverse scale so 1 is 'good', 0 is 'bad'
+    nrmse_flip = round(1 - min_max_nrmse, 3)
+    nrmse_arr_flip = 1 - min_max_nrmse_arr
+
+    nrmse_results = (nrmse_flip, nrmse_arr_flip)
+
+    print("Complete. " + str((timer() - start))[0:4] + " s")
+
+    return nrmse_results
 
 
-def compute_ssim(im1, im2, win_size):
+def compute_ssim(im1, im2):
     """
     Compute Structural Similarity Index of two single band images.
 
@@ -51,8 +77,6 @@ def compute_ssim(im1, im2, win_size):
     Args:
         im1 (ndarray): 2d array for similarity
         im2 (ndarray): 2d array, same size/shape as im1
-        width (int): window size for comparison convolution, must be
-        odd (default: 3)
     Returns:
         ssim (tuple): mean value and array of SSIM values
     Raises:
@@ -60,17 +84,20 @@ def compute_ssim(im1, im2, win_size):
     """
 
     start = timer()
-    if win_size % 2 != 1:
-        print('Please provide an odd integer for the window size.')
-    else:
-        print("Computing Structural Similarity Index...")
-        ssim = compare_ssim(im1, im2, win_size=win_size,
-                            gaussian_weights=True, full=True)
+    print("Computing SSIM...")
+    mean_ssim_val, ssim_arr = compare_ssim(im1, im2,
+                                           sigma=1.5,
+                                           gaussian_weights=True,
+                                           use_sample_covariance=False,
+                                           full=True)
 
-        end = timer()
-        print("...Complete. Elapsed Time: " + str((end - start))[0:4])
+    mean_ssim_val_scaled = (mean_ssim_val + 1) / 2
+    ssim_arr_scaled = (ssim_arr + 1) / 2
+    ssim = (mean_ssim_val_scaled, ssim_arr_scaled)
 
-        return ssim
+    print("Complete. " + str((timer() - start))[0:4] + " s")
+
+    return ssim
 
 
 def cw_ssim(im1, im2, width):
@@ -91,7 +118,7 @@ def cw_ssim(im1, im2, width):
         Exception: description
     """
     start = timer()
-    print("Computing Complex Wavelet Structural Similarity Index...")
+    print("Computing Complex Wavelet SSIM...")
 
     # Define a width for the wavelet convolution
     widths = np.arange(1, width+1)
@@ -133,8 +160,7 @@ def cw_ssim(im1, im2, width):
                                       im1.shape[1])
     cw_ssim_index = round(np.average(cw_ssim_map), 3)
 
-    end = timer()
-    print("...Complete. Elapsed Time: " + str((end - start))[0:4])
+    print("Complete. " + str((timer() - start))[0:4] + " s")
 
     return (cw_ssim_index + 1) / 2, (cw_ssim_map + 1) / 2
 
@@ -260,11 +286,9 @@ def compute_all_iqa(im1, im2):
         None.
     """
     sim = dict()
-    sim['nrmse'], sim['nrmse_arr'] = compute_mse(im1, im2)
-    sim['ssim'], sim['ssim_arr'] = compute_ssim(im1, im2, 3)
-    sim['ssim'] = (sim['ssim'] + 1) / 2
-    sim['ssim_arr'] = (sim['ssim_arr'] + 1) / 2
-    sim['cwssim'], sim['cwssim_arr'] = cw_ssim(im1, im2, 30)
+    sim['nrmse'], sim['nrmse_arr'] = compute_nrmse(im1, im2)
+    sim['ssim'], sim['ssim_arr'] = compute_ssim(im1, im2)
+    sim['cwssim'], sim['cwssim_arr'] = cw_ssim(im1, im2, 10)
     sim['gms'], sim['gms_arr'] = compute_gms(im1, im2)
     # sim['fsim_value'], sim['pc_max_map'] = compute_fsim(im1, im2)
     return sim

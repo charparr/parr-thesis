@@ -10,6 +10,7 @@ from dem_utils import read_dem, rasters_to_dict, rastersstats_to_dict
 # Works, just not in ipython terminal
 from similarity_tests.similarity_utils import *
 
+#all_base_dirs = ['/home/cparr/masters/subsets/hv_watertrack/']#,
 
 all_base_dirs = ['/home/cparr/masters/subsets/clpx_outcrops/',
                  '/home/cparr/masters/subsets/clpx_swale/',
@@ -21,9 +22,10 @@ all_base_dirs = ['/home/cparr/masters/subsets/clpx_outcrops/',
                  ]
 
 start = timer()
-
+#
 for basedir in all_base_dirs:
-    # start = timer()
+#
+    #basedir = '/home/cparr/masters/subsets/hv_watertrack/'
     snowdir = os.path.join(basedir, 'raster/snow_depth/')
     iqadir = os.path.join(basedir, 'raster/iqa/')
     pltdir = os.path.join(basedir, 'results/iqa/')
@@ -39,20 +41,19 @@ for basedir in all_base_dirs:
         im1 = pairs[p][ys[0]]['arr']
         im2 = pairs[p][ys[1]]['arr']
         pairs[p]['results'] = compute_all_iqa(im1, im2)
-    #
-    # dfs = results_to_dataframe(pairs, pltdir)
-    #
-    # # Create Snow Depth Plots, each scene and year
-    # plot_comparison_inputs_stats(d, pltdir)
-    # plot_comparison_inputs_hists(d, pltdir)
-    #
-    # # Plot IQA maps and save them to disk
-    # for p in pairs.keys():
-    #     plot_iqa_points_on_depth_diff_map(pairs[p], p, pltdir)
-    #     plot_iqa_metric_maps(pairs[p], p, pltdir)
-    #     save_iqa_maps_to_geotiff(pairs[p], p, iqadir)
-    #
-    # plot_iqa_scores_from_dfs(dfs, pltdir)
 
-end = timer()
-print(str((end-start) / 60)[0:4] + ' minutes elapsed')
+    dfs = results_to_dataframe(pairs, pltdir)
+
+    # Create Snow Depth Plots, each scene and year
+    plot_comparison_inputs_stats(d, pltdir)
+    plot_comparison_inputs_hists(d, pltdir)
+
+    # Plot IQA maps and save them to disk
+    for p in pairs.keys():
+        plot_iqa_points_on_depth_diff_map(pairs[p], p, pltdir)
+        plot_iqa_metric_maps(pairs[p], p, pltdir)
+        save_iqa_maps_to_geotiff(pairs[p], p, iqadir)
+
+    plot_iqa_scores_from_dfs(dfs, pltdir)
+
+print(str((timer() - start) / 60)[0:4] + ' minutes elapsed')
