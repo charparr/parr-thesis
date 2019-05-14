@@ -12,7 +12,6 @@ Spatial patterns of snow properties (i.e. depth, density, hardness) are common i
 <div style="page-break-after: always;"></div>
 
 ###### Figure 1. Spatial snow patterns of a windy prairie landscape.
-
 ![](../figures/prairie_pattern.jpg)
 
 <div style="page-break-after: always;"></div>
@@ -37,7 +36,7 @@ Snowdrifts massively concentrate the tundra snowcover and its superlative enviro
 
 ###### Figure 2. A Large Snowdrift Downwind of a Lake Cutbank (CLPX, 2018). Depth Estimated at 5 m.
 
-![](../figures/clpx_lake_drift.JPG)
+![](../figures/clpx_lake_drift.JPG){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -130,7 +129,7 @@ The snow depth maps are the element-wise difference of the summer, bare-earth DE
 
 ###### Figure 3: Happy Valley 2018 Snow Depth Map
 
-![](../figures/hv_panels_and_insets.png)
+![](../figures/hv_panels_and_insets.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -142,7 +141,7 @@ Over a hundred thousand snow depth measurements made with a GPS-enabled automati
 
 ###### Figure 4: An example of a field validation campaign: CLPX 2013; 27,555 MagnaProbe validation points indicated by black dots.
 
-![](../validation/clpx/2013/figs/validation_depth_map.png)
+![](../validation/clpx/2013/figs/validation_depth_map.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -154,7 +153,7 @@ We believe that over the course of a measurement campaign the combination of all
 
 ###### Table 3: Snow Depth Map Validation Results
 
-![](../validation/aggregate_results/figs/aggregate_results_summary.png)
+![](../validation/aggregate_results/figs/aggregate_results_summary.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -164,13 +163,13 @@ The mean error (probe minus snow depth map) for all years and study areas is 0.1
 
 ###### Figure 5. Violin plot of annual airborne and field snow depth distributions.
 
-![](../validation/aggregate_results/figs/probe_v_rstr_violin.png)
+![](../validation/aggregate_results/figs/probe_v_rstr_violin.png){#id .class width=6.25in}"
 
 <div style="page-break-after: always;"></div>
 
 ###### Figure 6: Box Plots of Errors (MagnaProbe minus Snow Depth Map) by Year and Study Area
 
-![](../validation/aggregate_results/figs/validation_box.png)
+![](../validation/aggregate_results/figs/validation_box.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -179,18 +178,18 @@ Errors are examined by position (i.e. easting and northing) to determine if ther
 <div style="page-break-after: always;"></div>
 
 ###### Figure 7: Error Trends by Geographic Position
-![](../validation/aggregate_results/figs/error_v_easting.png)
-![](../validation/aggregate_results/figs/error_v_northing.png)
+![](../validation/aggregate_results/figs/error_v_easting.png){#id .class width=6.25in}
+![](../validation/aggregate_results/figs/error_v_northing.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
 ###### Figure 8: Errors by Slope and Aspect
-![alt text](../validation/aggregate_results/figs/error_v_slope.png)
-![alt text](../validation/aggregate_results/figs/error_v_aspect.png)
+![](../validation/aggregate_results/figs/error_v_slope.png){#id .class width=6.25in}
+![](../validation/aggregate_results/figs/error_v_aspect.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
-A few salient features emerge from the error analysis: the median Happy Valley error is always less than that of CLPX, error distributions are more similar over time than over space (Figure 6), and the MagnaProbe snow depth measurements and snow depth maps similar distributions (Figure 5). The magnitude of the snow depth map mean errors ranges from -0.08 m to 0.40 m, but error variance is well constrained between 0.11 and 0.19 m, with the exception of the 2018 Happy Valley outlier (Table 3). The interannual variation in the error distributions is likely a function of the indiviudal character of each winter's field campaign. As expected, the snow depth maps perform slightly better where slopes are gentle and there is greater uncertainty at the swath edges. Given that there is no serious geographic or topographic influence on the errors, we apply a global correction to each snow depth map that is equal to the mean error for that study area and year (Table 3). This amounts to adding a constant value to each pixel in the snow depth map. For example, the entire 2012 Happy Valley snow depth map is 0.04 m shallower after the correction is applied. The 'corrected' snow depth maps are then the basis for all further analyses. Arithmetic global adjustments of the snow depth maps are favorable because they are simply explained, based on thousands of ground truth measurements, and easily repeated. Other more specific or complex correction schemes may be effective - but currently there is no clear justification to pursue them for our data here. Note that field validation data was not acquired at Happy Valley in 2016 due to logistical constraints. However, the mean of the Happy Valley errors from all other years is zero, thus we do not adjust the depth map in this case.
+A few salient features emerge from the error analysis: the median Happy Valley error is always less than that of CLPX, error distributions are more similar over time than over space (Figure 4), and the MagnaProbe snow depth measurements and snow depth maps similar distributions (Figure 3). The magnitude of the snow depth map mean errors ranges from -0.08 m to 0.40 m, but error variance is well constrained between 0.11 and 0.19 m, with the exception of the 2018 Happy Valley outlier (Table 3). The interannual variation in the error distributions is likely a function of the indiviudal character of each winter's field campaign. As expected, the snow depth maps perform slightly better where slopes are gentle and there is greater uncertainty at the swath edges. Given that there is no serious geographic or topographic influence on the errors, we apply a global correction to each snow depth map that is equal to the mean error for that study area and year (Table 3). This amounts to adding a constant value to each pixel in the snow depth map. For example, the entire 2012 Happy Valley snow depth map is 0.04 m shallower after the correction is applied. The 'corrected' snow depth maps are then the basis for all further analyses. Arithmetic global adjustments of the snow depth maps are favorable because they are simply explained, based on thousands of ground truth measurements, and easily repeated. Other more specific or complex correction schemes may be effective - but currently there is no clear justification to pursue them for our data here. Note that field validation data was not acquired at Happy Valley in 2016 due to logistical constraints. However, the mean of the Happy Valley errors from all other years is zero, thus we do not adjust the depth map in this case.
 
 The snow depth maps described here are adjusted by some amount using the field measurments of snow depth. Errors are largely attributable to geolocation uncertainty and are biased toward swath edges. The large number field measurements (141,207) of makes us confident in the fidelity of the snow depth maps and able to move forward with an analysis of the snowcover within each study area. The decimetric level accuracy of the snow depth maps is comparable to that of other airborne (e.g. Deems et al., 2008; Deems et al., 2013; Jagt et al., 2015; Nolan et al., 2015; Bühler et al., 2016; Harder et al., 2016; Painter et al., 2016) and spaceborne \[Marti et al., 2016\] efforts. However, the snow depth maps in this study are distinguished by their landscape-scale coverage, large number of ground truth measurements, and repetition over six winters.
 
@@ -203,12 +202,12 @@ The snow depth maps described here are adjusted by some amount using the field m
 Recent advances in computer hardware and software have accelerated progress in the fields of computer vision, image processing, and image quality assessment (IQA). Although there is no consensus on the single best algorithm for measuring pattern similarity, IQA research has produced a number of metrics that use information about pattern structure and organization over multiple scales to measure similarity of two images effectively, though every metric has tradeoffs between complexity, efficiency, and interpretability. For our snow pattern analysis we chose four IQA metrics to compare and contrast (Table 1).
 
 ###### Table 1. A pattern comparison toolbox composed of four IQA metrics. Values are scaled to range between zero and one.
-| IQA Metric                                                      | Perfect Similarity | No Similarity |
-|-----------------------------------------------------------------|--------------------|---------------|
-| Euclidean-Normalized Mean Square Error (NRMSE)               | 0.0                | 1.0           |
-| Structural Similarity Index Method (SSIM)                    | 0.0                | 1.0          |
-| Complex Wavelet Structural Similarity Index Method (CW-SSIM) | 0.0                | 1.0          |
-| Gradient Magnitude Similiarty Deviation (GMSD)               | 0.0                | 1.0           |
+| IQA Metric | Perfect Similarity | No Similarity |
+|------------|--------------------|---------------|
+| Euclidean-Normalized Mean Square Error (NRMSE) | 0.0 | 1.0 |
+| Structural Similarity Index Method (SSIM) | 0.0 | 1.0 |
+| Complex Wavelet Structural Similarity Index Method (CW-SSIM) | 0.0 | 1.0 |
+| Gradient Magnitude Similiarty Deviation (GMSD) | 0.0 | 1.0 |
 
 <div style="page-break-after: always;"></div>
 
@@ -216,7 +215,7 @@ The first metric, NRMSE, is sensitive to pixel-wise arithmetic differences and t
 
 ###### Figure 3. Pattern Similarity Maps and Surface Profiles.
 
-![](../figures/iqamaps_snowprofiles.png" width="80%">
+![](../figures/iqamaps_snowprofiles.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -262,7 +261,8 @@ GMSD is a similarly robust metric and is the modern endpoint in our IQA toolbox.
 <div style="page-break-after: always;"></div>
 
 ###### Figure 2. A series of watertrack drifts on Alaska's North Slope separated by scoured interfluves that sourced the drift snow. The pattern repeats each year with remarkable consistency.
-![alt text](../subsets/hv_watertrack/results/iqa/hv_watertrack_snow_depth_stats.png)
+
+![](../subsets/hv_watertrack/results/iqa/hv_watertrack_snow_depth_stats.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -279,7 +279,8 @@ Imagine a world where snow depth is entirely and exactly uniform. There are no d
 <div style="page-break-after: always;"></div>
 
 ###### Figure 3. An Example of a Drift Threshold Test: Fractional DV, DCA, NDCA, and NDV (CLPX, 2017)
-![alt text](../drift_definition/figs/drift_thresholds_area_vol_CLPX_2017.png)
+
+![](../drift_definition/figs/drift_thresholds_area_vol_CLPX_2017.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -288,18 +289,18 @@ In the above example we see that 140% of the mean (0.70 m) is the threshold dept
 <div style="page-break-after: always;"></div>
 
 ###### Figure 3. Drift Thresholds by Study Area. Shaded Region is 95% Confidence Interval
-![alt text](../drift_definition/figs/thresholds_by_study_area.png)
+![](../drift_definition/figs/thresholds_by_study_area.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
 ###### Figure 4. Drift Thresholds by Study Area and Year
-![alt text](../drift_definition/figs/thresholds_by_study_area_and_year.png)
-![alt text](../drift_definition/figs/final_threshold_by_study_area_and_year.png)
+![](../drift_definition/figs/thresholds_by_study_area_and_year.png){#id .class width=6.25in}
+![](../drift_definition/figs/final_threshold_by_study_area_and_year.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
 ###### Figure 5. Drift Thresholds and CV. Shaded Region is 95% Confidence Interval
-![alt text](../drift_definition/figs/thresholds_vs_cv.png)
+![](../drift_definition/figs/thresholds_vs_cv.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -312,7 +313,7 @@ The volume-area method is useful for producing a catalog of snowdrifts across ou
 In a previous version of this analysis I included seven snow depth maps (lidar collected by the Aerial Snow Observatory in April 2014) from Tuolumne Meadows in California. The snow depth maps there reprsent a much snowier and far more rugged alpine environment. Although the Happy Valley and CLPX curves are outdated in the below figures, it is interesting that despite the differences in both snow and landscape across each study area, the mean threshold depths (vertical lines) are basically between 120% to 140% of the mean. I will update this figure.
 
 ###### Figure X. Drift Thresholds Test with Tuolumne
-![alt text](../figures/drift_thresholds_w_tuolumne.png)
+![](../figures/drift_thresholds_w_tuolumne.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -349,28 +350,28 @@ In a previous version of this analysis I included seven snow depth maps (lidar c
 Each of the four IQA metrics are sensitive to different types of pattern (i.e. image) information. NRMSE is only sensitive to pixel-wise arthimetic differences and thus it is not robust with respect to more modern IQA metrics. However, it is included here as a reference point due to a long history of use in signal processing and because of the ease with which it is computed and interpreted (Wang and Bovik, 2009). NRMSE values reported here range between 0.0 and 1.0 where a score of 1.0 indicates perfect similarity - meaning the pattern is being compared to itself. NRMSE values are recorded here but are not ultimately used to analyze pattern fidelity. SSIM is more complex than MSE, but is still a relatively simple and efficient metric that considers the structural information in a pattern that is independent of local mean amplitude (brightness) and contrast. Although SSIM more closely mimics the human visual system because it focuses on where pattern gradients are high or are changing, it is still sensitive to minor geometric distortions. SSIM is also discounted from the ultimate pattern fidelity analysis. The non-structural distortions that hinder SSIM are countered by implementing the technique in the complex wavelet domain. CW-SSIM leverages information about local phase patterns and how the wavelet coeffcients compare across images (Wang and Simoncelli, 2005). GMSD is a similarly robust metric and is the modern endpoint in our IQA toolbox. More efficient than most contemporary methods, GMSD computes gradient information by convolving a Prewitt kernel over the images and then pooling the gradient magntiude differences by a windowed standard deviation to account for local variance (Xue et. al, 2014). Together, CW-SSIM and GMSD are used to quantify pattern similarity far more thoroughly than is possible with standard techniques, and do so in a way that is efficient and reproducible. Each IQA metric returns both a global index value and an array of local metric values with same dimensionality as the input images. The arrays are essentially similarity maps that depict where patterns are cohesive and where they are not with respect to the type of information the metric is sensitive to (e.g. Figure 2).
 
 ###### Figure 2. An example of the similarity analysis for a single zone and pair of years: IQA results for the Happy Valley Watertracks.
-![alt text](../subsets/hv_watertrack/results/iqa/2013_v._2018.png)
+![](../subsets/hv_watertrack/results/iqa/2013_v._2018.png){#id .class width=6.25in}
 
 The index values enable intra-pattern comparison over time to identify pattern pairs that or more or less similar to one another. Index values can also be pooled to compare the overall pattern fidelity of different pattern types. Only CW-SSIM (range -1 to +1) and GMSD (range 0 to 1) are used in ranking similarity. Lower ranks indicate greater pattern fidelity (Figure 3).
 
 Figure 3. IQA index values and rankings by comparison pairs for the Happy Valley Watertracks domain.
-![alt text](../subsets/hv_watertrack/results/iqa/iqa_indexvals_heatmap.png)
-![alt text](../subsets/hv_watertrack/results/iqa/iqa_barchart.png#1)
+![](../subsets/hv_watertrack/results/iqa/iqa_indexvals_heatmap.png){#id .class width=6.25in}
+![](../subsets/hv_watertrack/results/iqa/iqa_barchart.png){#id .class width=6.25in}
 
 The combination of our IQA toolbox and expansive snow depth records enable a novel analysis of snow depth pattern similarity. We quantify the interannual similarity of near-peak snow depth patterns across eight snowdrift zones that reprsent a variety of scales, snow depth distributions, and snowdrift features (Figure 4). Similarity is computed for each unique pair of the six years included in our study (N=15), comprising a total of 120 "map-to-map" snow depth pattern comparisons. Using IQA metrics permits a more nuanced and sophisticated pattern analysis and illuminates (as we show later) snow-landscape relationships.
 
 ###### Figure 4. Eight snowdrift zones within CLPX and HV. Hillshade illumination from the NW at an altitude of 30 degrees.
-![alt text](../subsets/agg_results/subset_snow_and_hillshades.png)
+![](../subsets/agg_results/subset_snow_and_hillshades.png){#id .class width=6.25in}
 
 ## Snow Pattern Results
 
 The results of the similarity analysis reveal that patterns of snowdrift and scour at CLPX and HV repeat each winter with great fidelity (e.g. CW-SSIM scores range from 0.52 to 0.86, Figure 5). While there is some variance in similarity amongst pairs of winters within each zone, on an absolute scale overall year-to-year similarity remarkably consistent. Such high fidelity patterns occur in each subset, although the finer spectrum of the IQA toolbox enables us to see that there are slight differences in relative similarity amongst the different landscapes (Figure 6).
 
 ###### Figure 5. CW-SSIM results for 120 snow depth pattern comparisons. Possible values range from -1 to 1.
-![alt text](../subsets/agg_results/cwssim_heatmap.png)
+![](../subsets/agg_results/cwssim_heatmap.png){#id .class width=6.25in}
 
 ###### Figure 6. CW-SSIM results grouped by zone. Possible values range from -1 to 1.
-![alt text](../subsets/agg_results/cwssim_bars.png)
+![](../subsets/agg_results/cwssim_bars.png){#id .class width=6.25in}
 
 The two most prominent results of the similarity analysis are 1.) that the patterns are overall the same each year, with the caveat that 2.) there are subltle differences in the degree of the similarity between different landscapes. In light of the former we can now create high-confidence normalized cumulative snow distribution patterns (CDSPs, e.g. Sturm and Wagner, 2010) for the entire extents of both Happy Valley and CLPX using mean depths over time. These CSDP maps then serve as the basis for the identification and inventory of snowdrifts and their properties. As for the second result, it is interesting that the inter-annual similarity is not consistent within each study area. None of the four zones within each study area are far enough apart to experience different synoptic weather conditions - and centroids of CLPX and HV are separated by less than 60 km. Well controlled metreological data for our study region is sparse, but based sub-synoptic proximity of our eight zones and two study areas, we can assume that the weather events that determine snow accumulation (number and intensity of storms, wind events, etc.) are not much different between any of these areas. What is driving the inter-annual similarity, and what is driving the differences in inter-annual similarity over geographic space?
 
@@ -408,7 +409,7 @@ Imagine a world where snow depth is entirely uniform. There are no real drifts, 
 </p>
 
 ###### Figure 1. An Example of a Drift Threshold Test: Fractional Areal and Volume (CLPX, 2017)
-![alt text](drift_thresholds_area_vol_CLPX_2017.png)
+![](drift_thresholds_area_vol_CLPX_2017.png){#id .class width=6.25in}
 
 <p>
 The threshold corresponding to the inflection point is where we have already excluded drift snow as indicated by the disparate reductions in fractional drift volume and area. At this threshold we can then conservatively classify all snow of greater or equal depth to be a drift. To make this analysis more global, we have included seven snow depth dDEMs from the Tuolumne Meadows area. This data, collected by ASO in April 2014, represents a much snowier world and a far more rugged environment. The drift volume-area delta curves for each snow dDEM (Figure 2) indicate a range of curves exist across time and study areas, but the inflection threshold is well constrained between 120 and 160 percent of the mean snow depth. Despite the differences in both snow and landscape across each study area, the mean inflection thresholds (vertical lines, Figure 2) are tightly clustered. Rather, it is the drift fractional volume-area delta that indicate signficant distinction (95% confidence).
@@ -417,7 +418,9 @@ The threshold corresponding to the inflection point is where we have already exc
 
 </p>
 
-###### Figure 2. Summary of the Inflection Drift Thresholds Tests (N = 19) ![alt text](delta_curves_thresholds_study_area_hue.png#1)
+###### Figure 2. Summary of the Inflection Drift Thresholds Tests (N = 19)
+
+ ![](delta_curves_thresholds_study_area_hue.png){#id .class width=6.25in}
 
 <p>
 The intersecting areal curves (Figure 1) indicate a space where we might find a suitable depth boundary between drift and not drift snow. When the threshold is low, the drift area and volume are greater than the not-drift area and volume. This makes sense because we are including relatively shallow snow (e.g. 80% of the mean) in the drift category. As the threshold increases, the not-drift areal and volume fractions overtake the drift areal and volume fractions. A threshold somewhere to the right of this intersection (located around 115% in Figure 1) will ensure that there are more areas of not-drift snow than drift-snow, which is consistent with our knowledge and experience with drifts: they are not the most prevalent snow class by area are instead scattered about the landscape. A third curve in Figure 1 indicates the difference between the volume percentage of drift snow and the areal percentage. We see that drifts account for more volume than area, and that there is actuall an inflection point in this curve. At some threshold, the slope of the green line begins to increase and approach zero. The inflection point indicates that a threshold has been reached where enough depth is captured such that increasing the threshold does not 'leave' out significant snow deposits, i.e. by leaving more area out of the drift category, the volume-area relationship stops changing. A good drift threshold, we would expect changes the volume area relationship at each step. By including a little more area, we can include a lot more snow, and conversely by decreasing the area..we decrease the volume by a similar amount until we exclude all the not-drift snow.
@@ -445,11 +448,11 @@ What do the different IQA metrics actually tell us about the differences in snow
 <div style="page-break-after: always;"></div>
 
 ###### Figure 1. Least Similar Snow Depth Pattern Pair for CLPX Outcrops
-![alt text](../subsets/clpx_outcrops/results/iqa/2012_v._2018.png)
+![](../subsets/clpx_outcrops/results/iqa/2012_v._2018.png){#id .class width=6.25in}
 
 
 ###### Figure 2. Least Similar Snow Depth Pattern Pair for HV Watertracks
-![alt text](../subsets/hv_watertrack/results/iqa/2018_v._2016.png)
+![](../subsets/hv_watertrack/results/iqa/2018_v._2016.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -463,10 +466,10 @@ NRMSE will ping the maxima of the differences between the two patterns. In more 
 
 ###### Figure with Profiles
 ###### 10 least similar (NRMSE) points.
-![alt text](../subsets/clpx_outcrops/results/iqa/2012_v._2018_nrmse_pts.png)
+![](../subsets/clpx_outcrops/results/iqa/2012_v._2018_nrmse_pts.png){#id .class width=6.25in}
 
 ###### 10 least similar (NRMSE) points.
-![alt text](../subsets/hv_watertrack/results/iqa/2018_v._2016_nrmse_pts.png)
+![](../subsets/hv_watertrack/results/iqa/2018_v._2016_nrmse_pts.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -478,8 +481,8 @@ SSIM was created under the assumption that the human visual system very tuned in
 
 
 ###### 10 least similar (SSIM) points.
-![alt text](../subsets/clpx_outcrops/results/iqa/2012_v._2018_ssim_pts.png)
-![alt text](../subsets/hv_watertrack/results/iqa/2018_v._2016_ssim_pts.png)
+![](../subsets/clpx_outcrops/results/iqa/2012_v._2018_ssim_pts.png){#id .class width=6.25in}
+![](../subsets/hv_watertrack/results/iqa/2018_v._2016_ssim_pts.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -487,8 +490,8 @@ SSIM was created under the assumption that the human visual system very tuned in
 ## CW-SSIM
 
 ###### 10 least similar (SSIM) points.
-![alt text](../subsets/clpx_outcrops/results/iqa/2012_v._2018_cwssim_pts.png)
-![alt text](../subsets/hv_watertrack/results/iqa/2018_v._2016_cwssim_pts.png)
+![](../subsets/clpx_outcrops/results/iqa/2012_v._2018_cwssim_pts.png){#id .class width=6.25in}
+![](../subsets/hv_watertrack/results/iqa/2018_v._2016_cwssim_pts.png){#id .class width=6.25in}
 
 <div style="page-break-after: always;"></div>
 
@@ -496,5 +499,5 @@ SSIM was created under the assumption that the human visual system very tuned in
 ## GMS
 
 ###### 10 least similar (GMS) points.
-![alt text](../subsets/clpx_outcrops/results/iqa/2012_v._2018_gms_pts.png)
-![alt text](../subsets/hv_watertrack/results/iqa/2018_v._2016_gms_pts.png)
+![](../subsets/clpx_outcrops/results/iqa/2012_v._2018_gms_pts.png){#id .class width=6.25in}
+![](../subsets/hv_watertrack/results/iqa/2018_v._2016_gms_pts.png){#id .class width=6.25in}
