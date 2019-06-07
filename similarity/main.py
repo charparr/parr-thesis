@@ -10,27 +10,30 @@ from dem_utils import read_dem, rasters_to_dict, rastersstats_to_dict
 # Works, just not in ipython terminal
 from similarity_tests.similarity_utils import *
 
-#all_base_dirs = ['/home/cparr/masters/subsets/hv_watertrack/']#,
+# all_base_dirs = ['/home/cparr/masters/subsets/hv_watertrack/']
+# all_base_dirs = ['/home/cparr/masters/subsets/clpx_lake_e/']
 
 all_base_dirs = ['/home/cparr/masters/subsets/clpx_outcrops/',
                  '/home/cparr/masters/subsets/clpx_swale/',
                  '/home/cparr/masters/subsets/clpx_lake_e/',
-                 '/home/cparr/masters/subsets/clpx_watertracks_creek/', '/home/cparr/masters/subsets/hv_lake/',
+                 '/home/cparr/masters/subsets/clpx_watertracks_creek/',
+                 '/home/cparr/masters/subsets/hv_lake/',
                  '/home/cparr/masters/subsets/hv_watertrack/',
                  '/home/cparr/masters/subsets/hv_stream/',
                  '/home/cparr/masters/subsets/hv_polygon_cracks/'
                  ]
 
 start = timer()
-#
+
 for basedir in all_base_dirs:
-#
-    #basedir = '/home/cparr/masters/subsets/hv_watertrack/'
+
+    print(basedir)
+    # Generate output directory names
     snowdir = os.path.join(basedir, 'raster/snow_depth/')
     iqadir = os.path.join(basedir, 'raster/iqa/')
     pltdir = os.path.join(basedir, 'results/iqa/')
 
-    # Read in rasters
+    # Read in raster from data from snow depth maps
     d = rastersstats_to_dict(snowdir)
 
     # Create raster pairs and do similarity analysis on each pair
@@ -45,15 +48,15 @@ for basedir in all_base_dirs:
     dfs = results_to_dataframe(pairs, pltdir)
 
     # Create Snow Depth Plots, each scene and year
-    plot_comparison_inputs_stats(d, pltdir)
-    plot_comparison_inputs_hists(d, pltdir)
+    #plot_comparison_inputs_stats(d, pltdir)
+    #plot_comparison_inputs_hists(d, pltdir)
 
     # Plot IQA maps and save them to disk
     for p in pairs.keys():
-        plot_iqa_points_on_depth_diff_map(pairs[p], p, pltdir)
-        plot_iqa_metric_maps(pairs[p], p, pltdir)
+        #plot_iqa_points_on_depth_diff_map(pairs[p], p, pltdir)
+        #plot_iqa_metric_maps(pairs[p], p, pltdir)
         save_iqa_maps_to_geotiff(pairs[p], p, iqadir)
 
-    plot_iqa_scores_from_dfs(dfs, pltdir)
+    #plot_iqa_scores_from_dfs(dfs, pltdir)
 
 print(str((timer() - start) / 60)[0:4] + ' minutes elapsed')

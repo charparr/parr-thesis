@@ -145,13 +145,15 @@ def recursive_rastersstats_to_dict(path, fn_regex=r'*2018.tif'):
         rstr_dict[f] = {}
 
         src = rasterio.open(f)
-        rstr_dict[f]['arr'] = src.read(1)
+        arr = src.read(1, masked=True).filled(np.nan)
+        arr[arr < -9999] = np.nan
+        rstr_dict[f]['arr'] = arr
         rstr_dict[f]['mu'] = np.nanmean(rstr_dict[f]['arr'])
         rstr_dict[f]['sigma'] = np.nanstd(rstr_dict[f]['arr'])
         rstr_dict[f]['kurt'] = kurtosis(rstr_dict[f]['arr'].flatten())
         rstr_dict[f]['skew'] = skew(rstr_dict[f]['arr'].flatten(),
                                     nan_policy='omit')
-        rstr_dict[f]['CV'] = rstr_dict[f]['sigma'] / rstr_dict[f]['mu']
+        rstr_dict[f]['CV'] = np.divide(rstr_dict[f]['sigma'], rstr_dict[f]['mu'])
         rstr_dict[f]['profile'] = src.profile
         rstr_dict[f]['year'] = re.findall('(\d{4})', f)
 

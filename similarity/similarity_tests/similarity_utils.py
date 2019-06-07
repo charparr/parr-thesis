@@ -146,27 +146,36 @@ def save_iqa_maps_to_geotiff(syr, pname, outpath):
                 if k[0].isalpha():
                     arrs.append(syr[k][j])
                     iqa_names.append(j)
+                    print(j)
                 else:
                     years.append(k)
                     profiles.append(syr[k]['profile'])
                     profile = profiles[0]
 
-                    pname = pname.replace(' ', '_')
+    pname = pname.replace(' ', '_')
+    print('pname: ' + pname)
+    print(outpath)
+    pname_dir = os.path.join(outpath, pname)
+    print('pname_dir: ' + pname_dir)
 
-                    try:
-                        pname_dir = os.path.join(outpath, pname)
-                        os.makedirs(pname_dir)
-                    except FileExistsError:
-                        # directory already exists
-                        pass
+    if not os.path.exists(pname_dir):
 
-                        #outpath = os.path.join(os.path.join(pname_dir, pname))
+        os.makedirs(pname_dir)
 
-                    for a, t in zip(arrs, iqa_names):
-                        tname = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
-                        tname = tname.replace(' ', '_')
-                        with rasterio.open(tname, 'w', **profile) as dst:
-                            dst.write(a.astype('float32'), 1)
+        for a, t in zip(arrs, iqa_names):
+            fdst = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
+            fdst = fdst.replace(' ', '_')
+            print(fdst)
+            with rasterio.open(fdst, 'w', **profile) as dst:
+                dst.write(a.astype('float32'), 1)
+
+    else:
+        for a, t in zip(arrs, iqa_names):
+            fdst = os.path.join(pname_dir, (pname + '_' + t + '.tif'))
+            fdst = fdst.replace(' ', '_')
+            print(fdst)
+            with rasterio.open(fdst, 'w', **profile) as dst:
+                dst.write(a.astype('float32'), 1)
 
 
 def plot_iqa_points_on_depth_diff_map(syr, pname, outpath):
